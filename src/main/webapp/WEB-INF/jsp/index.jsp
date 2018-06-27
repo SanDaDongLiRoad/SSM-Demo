@@ -1,14 +1,23 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page isELIgnored="false" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>管理系统</title>
-    <link href="${basePath}/static/css/default-style.css" rel="stylesheet" type="text/css"/>
-    <link href="${basePath}/static/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="${basePath}/static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="${basePath}/static/bootstrap/js/bootstrap.min.js"></script>
+    <%@include file="/WEB-INF/jsp/include/head-style.inc" %>
 </head>
 <body>
-Hello
+    <!-- 顶栏 -->
+    <jsp:include page="common/top.jsp"/>
+    <!-- 中间主体 -->
+    <div class="container" id="content">
+        <div class="row">
+            <!-- 菜单栏 -->
+            <jsp:include page="common/left-menu.jsp"/>
+            <div class="col-md-10"></div>
+        </div>
+    </div>
+    <!-- 底栏 -->
+    <jsp:include page="common/bottom.jsp"/>
 </body>
 </html>
