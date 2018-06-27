@@ -39,4 +39,11 @@ function getBasePath() {
  */
 function getContextPath() {
     return window.document.location.pathname.substring(0, window.document.location.pathname.indexOf('\/', 1));
+}
+
+function getLocalhostPath() {
+    var curWwwPath = window.document.location.href;
+    var pathName = window.document.location.pathname;
+    var pos = curWwwPath.indexOf(pathName);
+    return curWwwPath.substring(0, pos);
 };
