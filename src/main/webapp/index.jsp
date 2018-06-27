@@ -21,6 +21,6 @@
     function guid2(){
         return (S4 () + S4 () + "" + S4 () + "" + S4 () + "" + S4 () + "" + S4 () + S4 () + S4 ());
     }
-    window.location.href = "user-query";
+    window.location.href = "index";
 </script>
 </html>
