@@ -20,14 +20,14 @@
                     <div class="panel-heading">
                         <div class="row">
                             <h3 class="col-md-5">用户管理</h3>
-                            <form id="query-user-form" class="bs-example bs-example-form col-md-5" role="form" style="margin: 20px 0 10px 0;" action="${basePath}/user/queryByName" method="post">
+                            <form id="query-user-form" class="bs-example bs-example-form col-md-5" role="form" style="margin: 10px 0 10px 0;" action="${basePath}/user/queryByName" method="post">
                                 <div class="input-group">
                                     <input id="userName" name="userName" type="text" class="form-control" placeholder="请输入姓名">
                                     <span id="serach-user" class="input-group-addon btn">搜索</span>
                                 </div>
                             </form>
                             <!-- 按钮触发模态框 -->
-                            <button class="btn btn-default col-md-2" data-toggle="modal" data-target="#user-add" style="margin-top: 20px">
+                            <button class="btn btn-default col-md-2" data-toggle="modal" data-target="#user-add" style="margin-top: 10px">
                                 添加用户信息
                                 <sapn class="glyphicon glyphicon-plus"/>
                             </button>
@@ -55,7 +55,7 @@
                                    <%-- <td><fmt:formatDate value="${user.createDate}" dateStyle="medium"/></td>--%>
                                     <td>
                                         <button class="btn btn-default btn-xs btn-info" onClick="location.href='/admin/editStudent?id=${user.id}'">修改</button>
-                                        <button class="btn btn-default btn-xs btn-danger btn-primary" onClick="location.href='/admin/removeStudent?id=${user.id}'">删除</button>
+                                        <button class="btn btn-default btn-xs btn-danger btn-primary" onClick="User.doDeleteUser('${user.id}')">删除</button>
                                         <!--弹出框-->
                                     </td>
                                 </tr>

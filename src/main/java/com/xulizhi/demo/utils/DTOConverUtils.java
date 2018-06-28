@@ -1,7 +1,9 @@
 package com.xulizhi.demo.utils;
 
 import com.xulizhi.demo.domain.Menu;
+import com.xulizhi.demo.domain.User;
 import com.xulizhi.demo.dto.MenuDTO;
+import com.xulizhi.demo.dto.UserDTO;
 import org.apache.commons.lang.StringUtils;
 
 import java.util.Objects;
@@ -41,5 +43,33 @@ public class DTOConverUtils {
         }
 
         return menuDTO;
+    }
+
+    public static User DTOConverUser(UserDTO userDTO){
+
+        User user = new User();
+
+        if(StringUtils.isNotEmpty(userDTO.getId())){
+            user.setId(userDTO.getId());
+        }
+        if(StringUtils.isNotEmpty(userDTO.getName())){
+            user.setName(userDTO.getName());
+        }
+        if(StringUtils.isNotEmpty(userDTO.getPassword())){
+            user.setPassword(userDTO.getPassword());
+        }
+        if(StringUtils.isNotEmpty(userDTO.getCreaterName())){
+            user.setCreaterName(userDTO.getCreaterName());
+        }
+        if(!Objects.equals(null,userDTO.getCreateDate())){
+            user.setCreateDate(userDTO.getCreateDate());
+        }
+        if(StringUtils.isNotEmpty(userDTO.getModifyName())){
+            user.setModifyName(userDTO.getModifyName());
+        }
+        if(!Objects.equals(null,userDTO.getModifyDate())){
+            user.setModifyDate(userDTO.getModifyDate());
+        }
+        return user;
     }
 }

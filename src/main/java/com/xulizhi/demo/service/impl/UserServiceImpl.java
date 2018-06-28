@@ -1,11 +1,16 @@
 package com.xulizhi.demo.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.xulizhi.demo.domain.User;
 import com.xulizhi.demo.domain.UserExample;
 import com.xulizhi.demo.dto.UserDTO;
 import com.xulizhi.demo.mapper.UserMapper;
 import com.xulizhi.demo.service.UserService;
+import com.xulizhi.demo.utils.DTOConverUtils;
+import com.xulizhi.demo.utils.DataGridResult;
+import com.xulizhi.demo.utils.UUIDUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,18 +44,56 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> queryUserList(UserDTO userDTO) throws Exception {
+    public DataGridResult queryListByCondition(UserDTO userDTO) throws Exception {
 
-        logger.info("queryUserList param is: "+ JSONObject.toJSONString(userDTO));
+        logger.info("userDTO:{}",JSONObject.toJSONString(userDTO));
 
-        UserExample userExample = new UserExample();
-        UserExample.Criteria criteria = userExample.createCriteria();
+        //查询客户列表
+        UserExample example = new UserExample();
+        UserExample.Criteria criteria = example.createCriteria();
         if(StringUtils.isNotEmpty(userDTO.getName())){
             criteria.andNameEqualTo(userDTO.getName());
-
         }
-        List<User> userList = userMapper.selectByExample(userExample);
+        if(StringUtils.isNotEmpty(userDTO.getCreaterName())){
+            criteria.andCreaterNameEqualTo(userDTO.getCreaterName());
+        }
+        //分页处理
+        PageHelper.startPage(userDTO.getPage(), userDTO.getRows());
+        List<User> list = userMapper.selectByExample(example);
+        //创建一个返回值对象
+        DataGridResult result = new DataGridResult();
+        result.setRows(list);
+        //取记录总条数
+        PageInfo<User> pageInfo = new PageInfo<User>(list);
+        result.setTotal(pageInfo.getTotal());
+        return result;
+    }
 
-        return userList;
+    @Override
+    public DataGridResult queryUserList(Integer page, Integer rows) throws Exception {
+        //查询客户列表
+        UserExample example = new UserExample();
+        //分页处理
+        PageHelper.startPage(page, rows);
+        List<User> list = userMapper.selectByExample(example);
+        //创建一个返回值对象
+        DataGridResult result = new DataGridResult();
+        result.setRows(list);
+        //取记录总条数
+        PageInfo<User> pageInfo = new PageInfo<User>(list);
+        result.setTotal(pageInfo.getTotal());
+        return result;
+    }
+
+    @Override
+    public void saveUser(UserDTO userDTO) throws Exception {
+        User user = DTOConverUtils.DTOConverUser(userDTO);
+        user.setId(UUIDUtils.uuid());
+        userMapper.insertSelective(user);
+    }
+
+    @Override
+    public void deleteUserById(String id) throws Exception {
+        userMapper.deleteByPrimaryKey(id);
     }
 }
