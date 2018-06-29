@@ -4,11 +4,11 @@ public class ReturnInfo {
 	
 	private String mes;
 	
-	private String flag;
+	private String flag = "true";
 	
-	private String data ;
+	private String data;
 
-	private String code;
+	private String code = "2000";
 
 	public String getCode() {
 		return code;
