@@ -28,6 +28,7 @@ public class UserController {
      * @param id
      * @return
      */
+    @ResponseBody
     @RequestMapping(value="queryUserById",method = RequestMethod.GET)
     public String queryUserById(@RequestParam String id){
 
@@ -42,7 +43,7 @@ public class UserController {
             tReturnInfo.setMes("deal ok");
         }catch(Exception e){
             e.printStackTrace();
-            tReturnInfo.setData(null);
+            tReturnInfo.setData("");
             tReturnInfo.setFlag("false");
             tReturnInfo.setMes(e.getMessage());
             return JSONObject.toJSONString(tReturnInfo);
@@ -167,6 +168,26 @@ public class UserController {
             e.printStackTrace();
             returnInfo.setFlag("true");
             returnInfo.setMes("删除失败!");
+            returnInfo.setCode("2001");
+        }
+        return returnInfo;
+    }
+
+    @ResponseBody
+    @RequestMapping(value="updateUser",method=RequestMethod.POST)
+    public ReturnInfo updateUser(@RequestBody UserDTO userDTO){
+
+        logger.info("userDTO:{}",JSONObject.toJSONString(userDTO));
+
+        ReturnInfo returnInfo = new ReturnInfo();
+        returnInfo.setMes("修改成功!");
+
+        try{
+            userService.updateUser(userDTO);
+        }catch(Exception e){
+            e.printStackTrace();
+            returnInfo.setFlag("false");
+            returnInfo.setMes("修改失败!");
             returnInfo.setCode("2001");
         }
         return returnInfo;

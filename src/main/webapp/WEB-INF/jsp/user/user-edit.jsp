@@ -13,7 +13,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <form id="edit-user-form" class="form-horizontal" role="form" method="post">
-                            <input type="hidden" name="id" value="${user.id}"/>
+                            <input type="hidden" id = "id" name="id" value="${user.id}"/>
                             <div class="form-group">
                                 <label for="userName" class="col-sm-2 control-label">用户名</label>
                                 <div class="col-sm-10">

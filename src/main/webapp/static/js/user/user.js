@@ -15,6 +15,9 @@ User = {
 
         //添加用户
         $("#btn-save-user").on("click",User.doSaveUser);
+
+        //修改用户信息
+        $("#user-edit #btn-edit-user").on("click",User.doEditUser);
     },
 
     //根据条件查询客户
@@ -85,7 +88,7 @@ User = {
                                 swal({
                                     title: "删除成功",
                                     type :"success",
-                                    timer: 4000,
+                                    timer: 2000,
                                     showConfirmButton: false
                                 });
                                 $('#user-add').modal('hide');
@@ -105,6 +108,60 @@ User = {
                     });
                 }
             });
+    },
+
+    doQueryUserById : function(id){
+        $.ajax({
+            url : getLocalhostPath()+"/user/queryUserById?id="+id,
+            type : "GET",
+            dataType : "json",
+            success : function (data) {
+                var result = JSON.parse(data.data);
+                if(data.flag == 'true'){
+                   $("#edit-user-form #userName").val(result.name);
+                   $("#edit-user-form #password").val(result.password);
+                   $("#edit-user-form #id").val(result.id);
+                }
+            }
+        });
+    },
+
+    //修改用户信息
+    doEditUser : function(){
+        var params = {
+            'id': $("#user-edit #id").val(),
+            'name':$("#user-edit #userName").val(),
+            'password':$("#user-edit #password").val()
+        };
+        $.ajax({
+            url : getLocalhostPath()+"/user/updateUser",
+            type : "POST",
+            data : JSON.stringify(params),
+            contentType : "application/json",
+            dataType : "json",
+            success : function (data) {
+                if(data.flag=='true'){
+                    swal({
+                        title: "修改成功",
+                        type :"success",
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+                    $('#user-edit').modal('hide');
+
+                    setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
+                        User.doQueryByCondition();//页面刷新
+                    },2000);
+                }else{
+                    swal({
+                        title: "修改失败",
+                        type :"error",
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+                }
+            }
+        });
     }
 };
 

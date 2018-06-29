@@ -46,4 +46,11 @@ public interface UserService {
      * @throws Exception
      */
     void deleteUserById(String id) throws Exception;
+
+    /**
+     * 修改用户信息
+     * @param userDTO
+     * @throws Exception
+     */
+    void updateUser(UserDTO userDTO) throws Exception;
 }

@@ -31,14 +31,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public User queryUserById(String id) throws Exception {
 
-        logger.info("queryUserById param id is: "+ id);
+        logger.info("id{}",id);
 
         if(Objects.equals(id,null)){
             throw new Exception("user id is null !");
         }
         User user = userMapper.selectByPrimaryKey(id);
 
-        logger.info("queryUserById result is: "+ user.toString());
+        logger.info("user{}",JSONObject.toJSONString(user));
 
         return user;
     }
@@ -95,5 +95,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUserById(String id) throws Exception {
         userMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public void updateUser(UserDTO userDTO) throws Exception {
+        User editUser = queryUserById(userDTO.getId());
+        editUser.setName(userDTO.getName());
+        editUser.setPassword(userDTO.getPassword());
+        editUser.setModifyId("2d707b974930489b94c5a4cc1af5e1d3");
+        editUser.setModifyName("xulizhi");
+        userMapper.updateByPrimaryKey(editUser);
     }
 }

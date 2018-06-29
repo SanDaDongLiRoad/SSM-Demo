@@ -13,17 +13,16 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <form id="add-user-form" class="form-horizontal" role="form" action="#" method="post">
-                            <input type="hidden" name="id" value="${user.id}"/>
                             <div class="form-group">
                                 <label for="userName" class="col-sm-2 control-label">用户名</label>
                                 <div class="col-sm-10">
-                                    <input type="text" id="userName" name="userName" class="form-control" placeholder="请输入用户名" value="${user.name}"/>
+                                    <input type="text" id="userName" name="userName" class="form-control" placeholder="请输入用户名"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="password" class="col-sm-2 control-label">密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
                                 <div class="col-sm-10">
-                                    <input type="text" id="password" name="password" class="form-control" placeholder="请输入密码" value="${user.password}"/>
+                                    <input type="text" id="password" name="password" class="form-control" placeholder="请输入密码"/>
                                 </div>
                             </div>
                         </form>

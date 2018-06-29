@@ -54,7 +54,10 @@
                                     <td>${user.createDate}</td>
                                    <%-- <td><fmt:formatDate value="${user.createDate}" dateStyle="medium"/></td>--%>
                                     <td>
-                                        <button class="btn btn-default btn-xs btn-info" onClick="location.href='/admin/editStudent?id=${user.id}'">修改</button>
+                                        <!-- 按钮触发模态框 -->
+                                        <button class="btn btn-default btn-xs btn-info" data-toggle="modal" data-target="#user-edit" onClick="User.doQueryUserById('${user.id}')">修改</button>
+                                        <!-- 修改用户信息弹出框 -->
+                                        <jsp:include page="/WEB-INF/jsp/user/user-edit.jsp"/>
                                         <button class="btn btn-default btn-xs btn-danger btn-primary" onClick="User.doDeleteUser('${user.id}')">删除</button>
                                         <!--弹出框-->
                                     </td>
