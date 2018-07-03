@@ -29,8 +29,8 @@ public class DTOConverUtils {
         if(StringUtils.isNotEmpty(menu.getParentId())){
             menuDTO.setParentId(menu.getParentId());
         }
-        if(StringUtils.isNotEmpty(menu.getCreaterName())){
-            menuDTO.setCreaterName(menu.getCreaterName());
+        if(StringUtils.isNotEmpty(menu.getCreateName())){
+            menuDTO.setCreaterName(menu.getCreateName());
         }
         if(!Objects.equals(null,menu.getCreateDate())){
             menuDTO.setCreateDate(menu.getCreateDate());
@@ -59,7 +59,7 @@ public class DTOConverUtils {
             user.setPassword(userDTO.getPassword());
         }
         if(StringUtils.isNotEmpty(userDTO.getCreaterName())){
-            user.setCreaterName(userDTO.getCreaterName());
+            user.setCreateName(userDTO.getCreaterName());
         }
         if(!Objects.equals(null,userDTO.getCreateDate())){
             user.setCreateDate(userDTO.getCreateDate());

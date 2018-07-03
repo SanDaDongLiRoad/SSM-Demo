@@ -11,7 +11,7 @@ public class BaseDomain implements Serializable {
 
     private Integer deleted = 0;//是否删除（0:未删除;1:已删除;）
 
-    private String createrId;//创建人ID
+    private String createId;//创建人ID
 
     private String createName;//创建人名称
 
@@ -32,7 +32,7 @@ public class BaseDomain implements Serializable {
     }
 
     public void setCreaterId(String createrId) {
-        this.createrId = createrId;
+        this.createId = createrId;
     }
 
     public void setCreateName(String createName) {
@@ -64,7 +64,7 @@ public class BaseDomain implements Serializable {
     }
 
     public String getCreaterId() {
-        return createrId;
+        return createId;
     }
 
     public String getCreateName() {

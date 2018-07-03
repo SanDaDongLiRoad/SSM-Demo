@@ -575,73 +575,73 @@ public class MenuExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreaterIdIsNull() {
-            addCriterion("creater_id is null");
+        public Criteria andCreateIdIsNull() {
+            addCriterion("create_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andCreaterIdIsNotNull() {
-            addCriterion("creater_id is not null");
+        public Criteria andCreateIdIsNotNull() {
+            addCriterion("create_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCreaterIdEqualTo(String value) {
-            addCriterion("creater_id =", value, "createrId");
+        public Criteria andCreateIdEqualTo(String value) {
+            addCriterion("create_id =", value, "createId");
             return (Criteria) this;
         }
 
-        public Criteria andCreaterIdNotEqualTo(String value) {
-            addCriterion("creater_id <>", value, "createrId");
+        public Criteria andCreateIdNotEqualTo(String value) {
+            addCriterion("create_id <>", value, "createId");
             return (Criteria) this;
         }
 
-        public Criteria andCreaterIdGreaterThan(String value) {
-            addCriterion("creater_id >", value, "createrId");
+        public Criteria andCreateIdGreaterThan(String value) {
+            addCriterion("create_id >", value, "createId");
             return (Criteria) this;
         }
 
-        public Criteria andCreaterIdGreaterThanOrEqualTo(String value) {
-            addCriterion("creater_id >=", value, "createrId");
+        public Criteria andCreateIdGreaterThanOrEqualTo(String value) {
+            addCriterion("create_id >=", value, "createId");
             return (Criteria) this;
         }
 
-        public Criteria andCreaterIdLessThan(String value) {
-            addCriterion("creater_id <", value, "createrId");
+        public Criteria andCreateIdLessThan(String value) {
+            addCriterion("create_id <", value, "createId");
             return (Criteria) this;
         }
 
-        public Criteria andCreaterIdLessThanOrEqualTo(String value) {
-            addCriterion("creater_id <=", value, "createrId");
+        public Criteria andCreateIdLessThanOrEqualTo(String value) {
+            addCriterion("create_id <=", value, "createId");
             return (Criteria) this;
         }
 
-        public Criteria andCreaterIdLike(String value) {
-            addCriterion("creater_id like", value, "createrId");
+        public Criteria andCreateIdLike(String value) {
+            addCriterion("create_id like", value, "createId");
             return (Criteria) this;
         }
 
-        public Criteria andCreaterIdNotLike(String value) {
-            addCriterion("creater_id not like", value, "createrId");
+        public Criteria andCreateIdNotLike(String value) {
+            addCriterion("create_id not like", value, "createId");
             return (Criteria) this;
         }
 
-        public Criteria andCreaterIdIn(List<String> values) {
-            addCriterion("creater_id in", values, "createrId");
+        public Criteria andCreateIdIn(List<String> values) {
+            addCriterion("create_id in", values, "createId");
             return (Criteria) this;
         }
 
-        public Criteria andCreaterIdNotIn(List<String> values) {
-            addCriterion("creater_id not in", values, "createrId");
+        public Criteria andCreateIdNotIn(List<String> values) {
+            addCriterion("create_id not in", values, "createId");
             return (Criteria) this;
         }
 
-        public Criteria andCreaterIdBetween(String value1, String value2) {
-            addCriterion("creater_id between", value1, value2, "createrId");
+        public Criteria andCreateIdBetween(String value1, String value2) {
+            addCriterion("create_id between", value1, value2, "createId");
             return (Criteria) this;
         }
 
-        public Criteria andCreaterIdNotBetween(String value1, String value2) {
-            addCriterion("creater_id not between", value1, value2, "createrId");
+        public Criteria andCreateIdNotBetween(String value1, String value2) {
+            addCriterion("create_id not between", value1, value2, "createId");
             return (Criteria) this;
         }
 

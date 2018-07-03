@@ -9,7 +9,7 @@
     <result column="parent_id" property="parentId" jdbcType="VARCHAR" />
     <result column="order_no" property="orderNo" jdbcType="INTEGER" />
     <result column="deleted" property="deleted" jdbcType="BIT" />
-    <result column="creater_id" property="createrId" jdbcType="VARCHAR" />
+    <result column="create_id" property="createId" jdbcType="VARCHAR" />
     <result column="create_name" property="createName" jdbcType="VARCHAR" />
     <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
     <result column="modify_id" property="modifyId" jdbcType="VARCHAR" />
@@ -75,7 +75,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, name, icon, url, parent_id, order_no, deleted, creater_id, create_name, create_date,
+    id, name, icon, url, parent_id, order_no, deleted, create_id, create_name, create_date,
     modify_id, modify_name, modify_date
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xulizhi.demo.domain.MenuExample" >
@@ -111,12 +111,12 @@
   <insert id="insert" parameterType="com.xulizhi.demo.domain.Menu" >
     insert into menu (id, name, icon,
     url, parent_id, order_no,
-    deleted, creater_id, create_name,
+    deleted, create_id, create_name,
     create_date, modify_id, modify_name,
     modify_date)
     values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR},
     #{url,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR}, #{orderNo,jdbcType=INTEGER},
-    #{deleted,jdbcType=BIT}, #{createrId,jdbcType=VARCHAR}, #{createName,jdbcType=VARCHAR},
+    #{deleted,jdbcType=BIT}, #{createId,jdbcType=VARCHAR}, #{createName,jdbcType=VARCHAR},
     #{createDate,jdbcType=TIMESTAMP}, #{modifyId,jdbcType=VARCHAR}, #{modifyName,jdbcType=VARCHAR},
     #{modifyDate,jdbcType=TIMESTAMP})
   </insert>
@@ -144,8 +144,8 @@
       <if test="deleted != null" >
         deleted,
       </if>
-      <if test="createrId != null" >
-        creater_id,
+      <if test="createId != null" >
+        create_id,
       </if>
       <if test="createName != null" >
         create_name,
@@ -185,8 +185,8 @@
       <if test="deleted != null" >
         #{deleted,jdbcType=BIT},
       </if>
-      <if test="createrId != null" >
-        #{createrId,jdbcType=VARCHAR},
+      <if test="createId != null" >
+        #{createId,jdbcType=VARCHAR},
       </if>
       <if test="createName != null" >
         #{createName,jdbcType=VARCHAR},
@@ -235,8 +235,8 @@
       <if test="record.deleted != null" >
         deleted = #{record.deleted,jdbcType=BIT},
       </if>
-      <if test="record.createrId != null" >
-        creater_id = #{record.createrId,jdbcType=VARCHAR},
+      <if test="record.createId != null" >
+        create_id = #{record.createId,jdbcType=VARCHAR},
       </if>
       <if test="record.createName != null" >
         create_name = #{record.createName,jdbcType=VARCHAR},
@@ -267,7 +267,7 @@
     parent_id = #{record.parentId,jdbcType=VARCHAR},
     order_no = #{record.orderNo,jdbcType=INTEGER},
     deleted = #{record.deleted,jdbcType=BIT},
-    creater_id = #{record.createrId,jdbcType=VARCHAR},
+    create_id = #{record.createId,jdbcType=VARCHAR},
     create_name = #{record.createName,jdbcType=VARCHAR},
     create_date = #{record.createDate,jdbcType=TIMESTAMP},
     modify_id = #{record.modifyId,jdbcType=VARCHAR},
@@ -298,8 +298,8 @@
       <if test="deleted != null" >
         deleted = #{deleted,jdbcType=BIT},
       </if>
-      <if test="createrId != null" >
-        creater_id = #{createrId,jdbcType=VARCHAR},
+      <if test="createId != null" >
+        create_id = #{createId,jdbcType=VARCHAR},
       </if>
       <if test="createName != null" >
         create_name = #{createName,jdbcType=VARCHAR},
@@ -327,7 +327,7 @@
     parent_id = #{parentId,jdbcType=VARCHAR},
     order_no = #{orderNo,jdbcType=INTEGER},
     deleted = #{deleted,jdbcType=BIT},
-    creater_id = #{createrId,jdbcType=VARCHAR},
+    create_id = #{createId,jdbcType=VARCHAR},
     create_name = #{createName,jdbcType=VARCHAR},
     create_date = #{createDate,jdbcType=TIMESTAMP},
     modify_id = #{modifyId,jdbcType=VARCHAR},
