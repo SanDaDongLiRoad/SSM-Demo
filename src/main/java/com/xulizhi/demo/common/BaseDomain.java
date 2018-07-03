@@ -13,7 +13,7 @@ public class BaseDomain implements Serializable {
 
     private String createrId;//创建人ID
 
-    private String createrName;//创建人名称
+    private String createName;//创建人名称
 
     private Date createDate;//创建时间
 
@@ -35,8 +35,8 @@ public class BaseDomain implements Serializable {
         this.createrId = createrId;
     }
 
-    public void setCreaterName(String createrName) {
-        this.createrName = createrName;
+    public void setCreateName(String createName) {
+        this.createName = createName;
     }
 
     public void setCreateDate(Date createDate) {
@@ -67,8 +67,8 @@ public class BaseDomain implements Serializable {
         return createrId;
     }
 
-    public String getCreaterName() {
-        return createrName;
+    public String getCreateName() {
+        return createName;
     }
 
     public Date getCreateDate() {
