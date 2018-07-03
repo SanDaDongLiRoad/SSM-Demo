@@ -12,6 +12,8 @@ public class Menu extends BaseDomain{
 
     private String parentId;//父菜单Id
 
+    private Integer orderNo;//菜单排序序号
+
     public String getName() {
         return name;
     }
@@ -42,5 +44,13 @@ public class Menu extends BaseDomain{
 
     public void setParentId(String parentId) {
         this.parentId = parentId;
+    }
+
+    public Integer getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(Integer orderNo) {
+        this.orderNo = orderNo;
     }
 }
