@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService {
             criteria.andNameEqualTo(userDTO.getName());
         }
         if(StringUtils.isNotEmpty(userDTO.getCreaterName())){
-            criteria.andCreaterNameEqualTo(userDTO.getCreaterName());
+            criteria.andCreateNameEqualTo(userDTO.getCreaterName());
         }
         //分页处理
         PageHelper.startPage(userDTO.getPage(), userDTO.getRows());
@@ -63,6 +63,8 @@ public class UserServiceImpl implements UserService {
         //创建一个返回值对象
         DataGridResult result = new DataGridResult();
         result.setRows(list);
+        result.setCurrentPageNo(userDTO.getPage());
+        result.setSize(userDTO.getRows());
         //取记录总条数
         PageInfo<User> pageInfo = new PageInfo<User>(list);
         result.setTotal(pageInfo.getTotal());

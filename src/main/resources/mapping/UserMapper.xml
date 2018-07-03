@@ -6,8 +6,8 @@
         <result column="name" property="name" jdbcType="VARCHAR" />
         <result column="password" property="password" jdbcType="VARCHAR" />
         <result column="deleted" property="deleted" jdbcType="BIT" />
-        <result column="creater_id" property="createrId" jdbcType="VARCHAR" />
-        <result column="creater_name" property="createrName" jdbcType="VARCHAR" />
+        <result column="create_id" property="createId" jdbcType="VARCHAR" />
+        <result column="create_name" property="createName" jdbcType="VARCHAR" />
         <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
         <result column="modify_id" property="modifyId" jdbcType="VARCHAR" />
         <result column="modify_name" property="modifyName" jdbcType="VARCHAR" />
@@ -72,7 +72,7 @@
         </where>
     </sql>
     <sql id="Base_Column_List" >
-        id, name, password, deleted, creater_id, creater_name, create_date, modify_id, modify_name,
+        id, name, password, deleted, create_id, create_name, create_date, modify_id, modify_name,
         modify_date
     </sql>
     <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xulizhi.demo.domain.UserExample" >
@@ -107,11 +107,11 @@
     </delete>
     <insert id="insert" parameterType="com.xulizhi.demo.domain.User" >
         insert into user (id, name, password,
-        deleted, creater_id, creater_name,
+        deleted, create_id, create_name,
         create_date, modify_id, modify_name,
         modify_date)
         values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
-        #{deleted,jdbcType=BIT}, #{createrId,jdbcType=VARCHAR}, #{createrName,jdbcType=VARCHAR},
+        #{deleted,jdbcType=BIT}, #{createId,jdbcType=VARCHAR}, #{createName,jdbcType=VARCHAR},
         #{createDate,jdbcType=TIMESTAMP}, #{modifyId,jdbcType=VARCHAR}, #{modifyName,jdbcType=VARCHAR},
         #{modifyDate,jdbcType=TIMESTAMP})
     </insert>
@@ -130,11 +130,11 @@
             <if test="deleted != null" >
                 deleted,
             </if>
-            <if test="createrId != null" >
-                creater_id,
+            <if test="createId != null" >
+                create_id,
             </if>
-            <if test="createrName != null" >
-                creater_name,
+            <if test="createName != null" >
+                create_name,
             </if>
             <if test="createDate != null" >
                 create_date,
@@ -162,11 +162,11 @@
             <if test="deleted != null" >
                 #{deleted,jdbcType=BIT},
             </if>
-            <if test="createrId != null" >
-                #{createrId,jdbcType=VARCHAR},
+            <if test="createId != null" >
+                #{createId,jdbcType=VARCHAR},
             </if>
-            <if test="createrName != null" >
-                #{createrName,jdbcType=VARCHAR},
+            <if test="createName != null" >
+                #{createName,jdbcType=VARCHAR},
             </if>
             <if test="createDate != null" >
                 #{createDate,jdbcType=TIMESTAMP},
@@ -203,11 +203,11 @@
             <if test="record.deleted != null" >
                 deleted = #{record.deleted,jdbcType=BIT},
             </if>
-            <if test="record.createrId != null" >
-                creater_id = #{record.createrId,jdbcType=VARCHAR},
+            <if test="record.createId != null" >
+                create_id = #{record.createId,jdbcType=VARCHAR},
             </if>
-            <if test="record.createrName != null" >
-                creater_name = #{record.createrName,jdbcType=VARCHAR},
+            <if test="record.createName != null" >
+                create_name = #{record.createName,jdbcType=VARCHAR},
             </if>
             <if test="record.createDate != null" >
                 create_date = #{record.createDate,jdbcType=TIMESTAMP},
@@ -232,8 +232,8 @@
         name = #{record.name,jdbcType=VARCHAR},
         password = #{record.password,jdbcType=VARCHAR},
         deleted = #{record.deleted,jdbcType=BIT},
-        creater_id = #{record.createrId,jdbcType=VARCHAR},
-        creater_name = #{record.createrName,jdbcType=VARCHAR},
+        create_id = #{record.createId,jdbcType=VARCHAR},
+        create_name = #{record.createName,jdbcType=VARCHAR},
         create_date = #{record.createDate,jdbcType=TIMESTAMP},
         modify_id = #{record.modifyId,jdbcType=VARCHAR},
         modify_name = #{record.modifyName,jdbcType=VARCHAR},
@@ -254,11 +254,11 @@
             <if test="deleted != null" >
                 deleted = #{deleted,jdbcType=BIT},
             </if>
-            <if test="createrId != null" >
-                creater_id = #{createrId,jdbcType=VARCHAR},
+            <if test="createId != null" >
+                create_id = #{createId,jdbcType=VARCHAR},
             </if>
-            <if test="createrName != null" >
-                creater_name = #{createrName,jdbcType=VARCHAR},
+            <if test="createName != null" >
+                create_name = #{createName,jdbcType=VARCHAR},
             </if>
             <if test="createDate != null" >
                 create_date = #{createDate,jdbcType=TIMESTAMP},
@@ -280,8 +280,8 @@
         set name = #{name,jdbcType=VARCHAR},
         password = #{password,jdbcType=VARCHAR},
         deleted = #{deleted,jdbcType=BIT},
-        creater_id = #{createrId,jdbcType=VARCHAR},
-        creater_name = #{createrName,jdbcType=VARCHAR},
+        create_id = #{createId,jdbcType=VARCHAR},
+        create_name = #{createName,jdbcType=VARCHAR},
         create_date = #{createDate,jdbcType=TIMESTAMP},
         modify_id = #{modifyId,jdbcType=VARCHAR},
         modify_name = #{modifyName,jdbcType=VARCHAR},
