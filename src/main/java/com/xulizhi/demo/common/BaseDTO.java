@@ -2,23 +2,23 @@ package com.xulizhi.demo.common;
 
 public class BaseDTO {
 
-    private Integer page = 1;//页数
+    private Integer pageNo = 1;//页数
 
-    private Integer rows = 10;//每页的条数
+    private Integer size = 10;//每页的条数
 
-    public Integer getPage() {
-        return page;
+    public Integer getPageNo() {
+        return pageNo;
     }
 
-    public void setPage(Integer page) {
-        this.page = page;
+    public void setPageNo(Integer pageNo) {
+        this.pageNo = pageNo;
     }
 
-    public Integer getRows() {
-        return rows;
+    public Integer getSize() {
+        return size;
     }
 
-    public void setRows(Integer rows) {
-        this.rows = rows;
+    public void setSize(Integer size) {
+        this.size = size;
     }
 }
