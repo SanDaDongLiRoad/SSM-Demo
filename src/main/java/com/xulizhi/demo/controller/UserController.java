@@ -46,7 +46,8 @@ public class UserController {
         }
         modelAndView.setViewName("user/user-index");
         modelAndView.addObject("result", result);
-
+        //返回请求表单数据
+        modelAndView.addObject("userName", name);
         logger.info("result:{}",result);
         return modelAndView;
     }

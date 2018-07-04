@@ -29,4 +29,7 @@
         $(".pagination li:last-child").addClass("disabled");
         $(".pagination li:last-child a").attr("href","#");
     }
+    var liNo = parseInt(currentPageNo)+1;
+    console.log(liNo);
+    $("nav li:nth-child("+liNo+")").addClass("active");
 </script>
