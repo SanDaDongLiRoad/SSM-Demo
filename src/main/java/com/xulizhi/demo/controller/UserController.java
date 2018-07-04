@@ -44,7 +44,7 @@ public class UserController {
         }catch(Exception e){
             e.printStackTrace();
         }
-        modelAndView.setViewName("user/user");
+        modelAndView.setViewName("user/user-index");
         modelAndView.addObject("result", result);
         return modelAndView;
     }
@@ -95,7 +95,7 @@ public class UserController {
         }catch(Exception e){
             e.printStackTrace();
         }
-        modelAndView.setViewName("user/user");
+        modelAndView.setViewName("user/user-index");
         modelAndView.addObject("result", result);
         return modelAndView;
     }
@@ -116,7 +116,7 @@ public class UserController {
         }catch(Exception e){
             e.printStackTrace();
         }
-        modelAndView.setViewName("user/user");
+        modelAndView.setViewName("user/user-index");
         modelAndView.addObject("result", result);
         return modelAndView;
     }
@@ -140,7 +140,7 @@ public class UserController {
         }catch(Exception e){
             e.printStackTrace();
         }
-        modelAndView.setViewName("user/user");
+        modelAndView.setViewName("user/user-index");
         modelAndView.addObject("result", result);
         return modelAndView;
     }
