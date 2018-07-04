@@ -30,6 +30,7 @@ public class MenuServiceImpl implements MenuService {
         logger.info("menuDTO:{}", JSONObject.toJSONString(menuDTO));
 
         MenuExample menuExample = new MenuExample();
+        menuExample.setOrderByClause("order_no desc");
         MenuExample.Criteria criteria = menuExample.createCriteria();
         if(StringUtils.isNotEmpty(menuDTO.getParentId())){
             criteria.andParentIdEqualTo(menuDTO.getParentId());
