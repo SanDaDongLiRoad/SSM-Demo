@@ -26,18 +26,18 @@ public class UserController {
     /**
      * 分页查询客户列表
      * @param pageNo
-     * @param userName
+     * @param name
      * @return
      */
     @RequestMapping(value="queryListByPageNo",method=RequestMethod.GET)
-    public ModelAndView queryUserByPageNo(@RequestParam(defaultValue = "1") Integer pageNo,@RequestParam(required = false) String userName){
+    public ModelAndView queryUserByPageNo(@RequestParam(defaultValue = "1") Integer pageNo,@RequestParam(value="userName",required = false) String name){
 
-        logger.info("pageNo:{},userName:{}",pageNo,userName);
+        logger.info("pageNo:{},name:{}",pageNo,name);
 
         ModelAndView modelAndView = new ModelAndView();
         DataGridResult result = new DataGridResult();
         UserDTO userDTO = new UserDTO();
-        userDTO.setName(userName);
+        userDTO.setName(name);
         userDTO.setPageNo(pageNo);
         try{
             result = userService.queryUserListByCondition(userDTO);

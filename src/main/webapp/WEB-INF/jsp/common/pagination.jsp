@@ -25,7 +25,7 @@
         $(".pagination li:first-child").addClass("disabled");
         $(".pagination li:first-child a").attr("href","#");
     }
-    else if(currentPageNo == parseInt(total/size) + 1){
+    if(currentPageNo == parseInt(total/size) + 1){
         $(".pagination li:last-child").addClass("disabled");
         $(".pagination li:last-child a").attr("href","#");
     }

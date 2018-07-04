@@ -20,7 +20,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <h3 class="col-md-5">用户管理</h3>
-                            <form id="query-user-form" class="bs-example bs-example-form col-md-5" role="form" style="margin: 10px 0 10px 0;" action="${basePath}/user/queryByName" method="post">
+                            <form id="query-user-form" class="bs-example bs-example-form col-md-5" role="form" style="margin: 10px 0 10px 0;" action="${basePath}/user/queryListByPageNo" method="get">
                                 <div class="input-group">
                                     <input id="userName" name="userName" type="text" class="form-control" placeholder="请输入姓名">
                                     <span id="serach-user" class="input-group-addon btn">搜索</span>
