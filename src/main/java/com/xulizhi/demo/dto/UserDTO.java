@@ -12,7 +12,7 @@ public class UserDTO extends BaseDTO {
 
     private String password;//密码
 
-    private String createrName;//创建人
+    private String createName;//创建人
 
     private Date createDate;
 
@@ -44,12 +44,12 @@ public class UserDTO extends BaseDTO {
         this.password = password;
     }
 
-    public String getCreaterName() {
-        return createrName;
+    public String getCreateName() {
+        return createName;
     }
 
-    public void setCreaterName(String createrName) {
-        this.createrName = createrName;
+    public void setCreateName(String createName) {
+        this.createName = createName;
     }
 
     public Date getCreateDate() {
