@@ -50,7 +50,7 @@
                                 <tr>
                                     <td>${user.id}</td>
                                     <td>${user.name}</td>
-                                    <td>${user.createrName}</td>
+                                    <td>${user.createName}</td>
                                     <td>${user.createDate}</td>
                                    <%-- <td><fmt:formatDate value="${user.createDate}" dateStyle="medium"/></td>--%>
                                     <td>
@@ -65,6 +65,7 @@
                             </c:forEach>
                         </tbody>
                     </table>
+                    <jsp:include page="/WEB-INF/jsp/common/pagination.jsp"/>
                 </div>
             </div>
         </div>

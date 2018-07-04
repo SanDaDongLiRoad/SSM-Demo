@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public DataGridResult queryListByCondition(UserDTO userDTO) throws Exception {
+    public DataGridResult queryUserListByCondition(UserDTO userDTO) throws Exception {
 
         logger.info("userDTO:{}",JSONObject.toJSONString(userDTO));
 
@@ -54,17 +54,14 @@ public class UserServiceImpl implements UserService {
         if(StringUtils.isNotEmpty(userDTO.getName())){
             criteria.andNameEqualTo(userDTO.getName());
         }
-        if(StringUtils.isNotEmpty(userDTO.getCreaterName())){
-            criteria.andCreateNameEqualTo(userDTO.getCreaterName());
-        }
         //分页处理
-        PageHelper.startPage(userDTO.getPage(), userDTO.getRows());
+        PageHelper.startPage(userDTO.getPageNo(), userDTO.getSize());
         List<User> list = userMapper.selectByExample(example);
         //创建一个返回值对象
         DataGridResult result = new DataGridResult();
         result.setRows(list);
-        result.setCurrentPageNo(userDTO.getPage());
-        result.setSize(userDTO.getRows());
+        result.setCurrentPageNo(userDTO.getPageNo());
+        result.setSize(userDTO.getSize());
         //取记录总条数
         PageInfo<User> pageInfo = new PageInfo<User>(list);
         result.setTotal(pageInfo.getTotal());

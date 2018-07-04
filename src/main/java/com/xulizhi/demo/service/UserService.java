@@ -17,12 +17,12 @@ public interface UserService {
     User queryUserById(String id) throws Exception;
 
     /**
-     * 根据条件查询客户信息列表
+     * 根据条件分页查询客户信息列表
      * @param userDTO
      * @return
      * @throws Exception
      */
-    DataGridResult queryListByCondition(UserDTO userDTO) throws Exception;
+    DataGridResult queryUserListByCondition(UserDTO userDTO) throws Exception;
 
     /**
      * 查询客户信息列表

@@ -6,11 +6,11 @@
         <c:when test="${result.rows != null}">
             <nav style="text-align: center">
                 <ul class="pagination">
-                    <li><a href="${basePath}/user/queryUserListByPageNo?pageNo=${result.currentPageNo - 1}">&laquo;上一页</a></li>
+                    <li><a href="queryListByPageNo?pageNo=${result.currentPageNo - 1}">&laquo;上一页</a></li>
                         <c:forEach begin="1" end="${result.total / result.size + 1}" var="pageNo">
-                            <li><a href="${basePath}/user/queryUserListByPageNo?pageNo=${pageNo}">${pageNo}</a></li>
+                            <li><a href="queryListByPageNo?pageNo=${pageNo}">${pageNo}</a></li>
                         </c:forEach>
-                    <li><a href="${basePath}/user/queryUserListByPageNo?pageNo=${result.currentPageNo + 1}">下一页&raquo;</a></li>
+                    <li><a href="queryListByPageNo?pageNo=${result.currentPageNo + 1}">下一页&raquo;</a></li>
                 </ul>
             </nav>
         </c:when>

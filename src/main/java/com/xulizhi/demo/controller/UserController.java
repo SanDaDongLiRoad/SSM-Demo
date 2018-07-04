@@ -29,7 +29,7 @@ public class UserController {
      * @param userName
      * @return
      */
-    @RequestMapping(value="queryUserByPageNo",method=RequestMethod.GET)
+    @RequestMapping(value="queryListByPageNo",method=RequestMethod.GET)
     public ModelAndView queryUserByPageNo(@RequestParam(defaultValue = "1") Integer pageNo,@RequestParam(required = false) String userName){
 
         logger.info("pageNo:{},userName:{}",pageNo,userName);
@@ -38,9 +38,9 @@ public class UserController {
         DataGridResult result = new DataGridResult();
         UserDTO userDTO = new UserDTO();
         userDTO.setName(userName);
-        userDTO.setPage(pageNo);
+        userDTO.setPageNo(pageNo);
         try{
-            result = userService.queryListByCondition(userDTO);
+            result = userService.queryUserListByCondition(userDTO);
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -91,7 +91,7 @@ public class UserController {
 
         DataGridResult result = new DataGridResult();
         try{
-            result = userService.queryListByCondition(userDTO);
+            result = userService.queryUserListByCondition(userDTO);
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -136,7 +136,7 @@ public class UserController {
         UserDTO userDTO = new UserDTO();
         userDTO.setName(name);
         try{
-            result = userService.queryListByCondition(userDTO);
+            result = userService.queryUserListByCondition(userDTO);
         }catch(Exception e){
             e.printStackTrace();
         }
