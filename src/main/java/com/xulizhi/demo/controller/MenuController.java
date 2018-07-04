@@ -40,6 +40,7 @@ public class MenuController {
         }catch(Exception e){
             e.printStackTrace();
         }
+        logger.info("menuDTOList:{}", JSONObject.toJSONString(menuDTOList));
         return menuDTOList;
     }
 }
