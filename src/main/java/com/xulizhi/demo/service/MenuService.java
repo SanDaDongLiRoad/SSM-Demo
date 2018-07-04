@@ -11,5 +11,5 @@ public interface MenuService {
      * @param menuDTO
      * @return
      */
-    List<MenuDTO> queryMenuList(MenuDTO menuDTO);
+    List<MenuDTO> queryMenuListByCondition(MenuDTO menuDTO);
 }

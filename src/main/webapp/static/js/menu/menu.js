@@ -5,7 +5,7 @@ Menu = {
             'parentId': ''
         };
         $.ajax({
-            url : getLocalhostPath()+"/menu/queryList",
+            url : getLocalhostPath()+"/menu/queryListByCondition",
             type : "POST",
             data : JSON.stringify(params),
             contentType : "application/json",

@@ -29,14 +29,14 @@ public class MenuController {
      * @return
      */
     @ResponseBody
-    @RequestMapping(value="queryList",method = RequestMethod.POST)
-    public List<MenuDTO> queryMenuList(@RequestBody MenuDTO menuDTO){
+    @RequestMapping(value="queryListByCondition",method = RequestMethod.POST)
+    public List<MenuDTO> queryMenuListByCondition(@RequestBody MenuDTO menuDTO){
 
         logger.info("menuDTO:{}", JSONObject.toJSONString(menuDTO));
 
         List<MenuDTO> menuDTOList = new ArrayList<MenuDTO>();
         try{
-            menuDTOList = menuService.queryMenuList(menuDTO);
+            menuDTOList = menuService.queryMenuListByCondition(menuDTO);
         }catch(Exception e){
             e.printStackTrace();
         }

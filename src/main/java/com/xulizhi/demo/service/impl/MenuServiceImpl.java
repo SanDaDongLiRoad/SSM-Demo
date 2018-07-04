@@ -25,7 +25,7 @@ public class MenuServiceImpl implements MenuService {
     private MenuMapper menuMapper;
 
     @Override
-    public List<MenuDTO> queryMenuList(MenuDTO menuDTO) {
+    public List<MenuDTO> queryMenuListByCondition(MenuDTO menuDTO) {
 
         logger.info("menuDTO:{}", JSONObject.toJSONString(menuDTO));
 
