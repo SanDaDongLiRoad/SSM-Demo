@@ -14,7 +14,7 @@ public class MenuDTO {
 
     private String parentId;
 
-    private String createrName;
+    private String createName;
 
     private Date createDate;
 
@@ -62,12 +62,12 @@ public class MenuDTO {
         this.parentId = parentId;
     }
 
-    public String getCreaterName() {
-        return createrName;
+    public String getCreateName() {
+        return createName;
     }
 
-    public void setCreaterName(String createrName) {
-        this.createrName = createrName;
+    public void setCreateName(String createName) {
+        this.createName = createName;
     }
 
     public Date getCreateDate() {
