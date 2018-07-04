@@ -9,20 +9,20 @@ import java.util.List;
 public interface UserService {
 
     /**
-     * 根据ID查询客户信息
-     * @param id
-     * @return
-     * @throws Exception
-     */
-    User queryUserById(String id) throws Exception;
-
-    /**
      * 根据条件分页查询客户信息列表
      * @param userDTO
      * @return
      * @throws Exception
      */
     DataGridResult queryUserListByCondition(UserDTO userDTO) throws Exception;
+
+    /**
+     * 根据ID查询客户信息
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    User queryUserById(String id) throws Exception;
 
     /**
      * 查询客户信息列表

@@ -29,21 +29,6 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public User queryUserById(String id) throws Exception {
-
-        logger.info("id{}",id);
-
-        if(Objects.equals(id,null)){
-            throw new Exception("user id is null !");
-        }
-        User user = userMapper.selectByPrimaryKey(id);
-
-        logger.info("user{}",JSONObject.toJSONString(user));
-
-        return user;
-    }
-
-    @Override
     public DataGridResult queryUserListByCondition(UserDTO userDTO) throws Exception {
 
         logger.info("userDTO:{}",JSONObject.toJSONString(userDTO));
@@ -65,7 +50,24 @@ public class UserServiceImpl implements UserService {
         //取记录总条数
         PageInfo<User> pageInfo = new PageInfo<User>(list);
         result.setTotal(pageInfo.getTotal());
+
+        logger.info("result:{}",JSONObject.toJSONString(result));
         return result;
+    }
+
+    @Override
+    public User queryUserById(String id) throws Exception {
+
+        logger.info("id{}",id);
+
+        if(Objects.equals(id,null)){
+            throw new Exception("user id is null !");
+        }
+        User user = userMapper.selectByPrimaryKey(id);
+
+        logger.info("user{}",JSONObject.toJSONString(user));
+
+        return user;
     }
 
     @Override
