@@ -17,3 +17,16 @@
         <c:otherwise>暂无记录</c:otherwise>
     </c:choose>
 </div>
+<script>
+    var currentPageNo = '${result.currentPageNo}';
+    var total = '${result.total}';
+    var size = '${result.size}';
+    if(currentPageNo == 1){
+        $(".pagination li:first-child").addClass("disabled");
+        $(".pagination li:first-child a").attr("href","#");
+    }
+    else if(currentPageNo == parseInt(total/size) + 1){
+        $(".pagination li:last-child").addClass("disabled");
+        $(".pagination li:last-child a").attr("href","#");
+    }
+</script>
