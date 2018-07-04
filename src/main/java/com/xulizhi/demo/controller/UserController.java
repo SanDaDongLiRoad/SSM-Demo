@@ -46,6 +46,8 @@ public class UserController {
         }
         modelAndView.setViewName("user/user-index");
         modelAndView.addObject("result", result);
+
+        logger.info("result:{}",result);
         return modelAndView;
     }
 
