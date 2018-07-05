@@ -1,12 +1,15 @@
 package com.xulizhi.demo.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.xulizhi.demo.domain.Menu;
 import com.xulizhi.demo.domain.MenuExample;
 import com.xulizhi.demo.dto.MenuDTO;
 import com.xulizhi.demo.mapper.MenuMapper;
 import com.xulizhi.demo.service.MenuService;
 import com.xulizhi.demo.utils.DTOConverUtils;
+import com.xulizhi.demo.utils.DataGridResult;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +28,7 @@ public class MenuServiceImpl implements MenuService {
     private MenuMapper menuMapper;
 
     @Override
-    public List<MenuDTO> queryMenuListByCondition(MenuDTO menuDTO) {
+    public List<MenuDTO> queryMenuListByCondition(MenuDTO menuDTO) throws Exception{
 
         logger.info("menuDTO:{}", JSONObject.toJSONString(menuDTO));
 
@@ -46,5 +49,32 @@ public class MenuServiceImpl implements MenuService {
         }
 
         return menuDTOList;
+    }
+
+    @Override
+    public DataGridResult queryMenuListByPageNo(MenuDTO menuDTO) throws Exception {
+
+        logger.info("menuDTO:{}",JSONObject.toJSONString(menuDTO));
+
+        //查询菜单列表
+        MenuExample menuExample = new MenuExample();
+        MenuExample.Criteria criteria = menuExample.createCriteria();
+        if(StringUtils.isNotEmpty(menuDTO.getName())){
+            criteria.andNameEqualTo(menuDTO.getName());
+        }
+        //分页处理
+        PageHelper.startPage(menuDTO.getPageNo(), menuDTO.getSize());
+        List<Menu> list = menuMapper.selectByExample(menuExample);
+        //创建一个返回值对象
+        DataGridResult result = new DataGridResult();
+        result.setRows(list);
+        result.setCurrentPageNo(menuDTO.getPageNo());
+        result.setSize(menuDTO.getSize());
+        //取记录总条数
+        PageInfo<Menu> pageInfo = new PageInfo<Menu>(list);
+        result.setTotal(pageInfo.getTotal());
+
+        logger.info("result:{}",JSONObject.toJSONString(result));
+        return result;
     }
 }

@@ -1,8 +1,10 @@
 package com.xulizhi.demo.dto;
 
+import com.xulizhi.demo.common.BaseDTO;
+
 import java.util.Date;
 
-public class MenuDTO {
+public class MenuDTO extends BaseDTO{
 
     private String id;
 
@@ -11,6 +13,8 @@ public class MenuDTO {
     private String icon;
 
     private String url;
+
+    private String orderNo;
 
     private String parentId;
 
@@ -52,6 +56,14 @@ public class MenuDTO {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
     }
 
     public String getParentId() {

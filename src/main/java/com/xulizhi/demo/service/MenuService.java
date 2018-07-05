@@ -1,6 +1,7 @@
 package com.xulizhi.demo.service;
 
 import com.xulizhi.demo.dto.MenuDTO;
+import com.xulizhi.demo.utils.DataGridResult;
 
 import java.util.List;
 
@@ -11,5 +12,7 @@ public interface MenuService {
      * @param menuDTO
      * @return
      */
-    List<MenuDTO> queryMenuListByCondition(MenuDTO menuDTO);
+    List<MenuDTO> queryMenuListByCondition(MenuDTO menuDTO) throws Exception;
+
+    DataGridResult queryMenuListByPageNo(MenuDTO menuDTO) throws Exception;
 }
