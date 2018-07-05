@@ -58,11 +58,20 @@ public class DTOConverUtils {
         if(StringUtils.isNotEmpty(userDTO.getPassword())){
             user.setPassword(userDTO.getPassword());
         }
+        if(Objects.equals(userDTO.getDeleted(),null)){
+            user.setDeleted(userDTO.getDeleted());
+        }
+        if(StringUtils.isNotEmpty(userDTO.getCreateId())){
+            user.setCreaterId(userDTO.getCreateId());
+        }
         if(StringUtils.isNotEmpty(userDTO.getCreateName())){
             user.setCreateName(userDTO.getCreateName());
         }
         if(!Objects.equals(null,userDTO.getCreateDate())){
             user.setCreateDate(userDTO.getCreateDate());
+        }
+        if(StringUtils.isNotEmpty(userDTO.getModifyId())){
+            user.setModifyId(userDTO.getModifyId());
         }
         if(StringUtils.isNotEmpty(userDTO.getModifyName())){
             user.setModifyName(userDTO.getModifyName());

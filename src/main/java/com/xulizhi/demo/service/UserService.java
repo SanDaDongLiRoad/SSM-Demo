@@ -17,6 +17,13 @@ public interface UserService {
     DataGridResult queryUserListByCondition(UserDTO userDTO) throws Exception;
 
     /**
+     * 保存用户
+     * @param userDTO
+     * @throws Exception
+     */
+    void saveUser(UserDTO userDTO)throws Exception;
+
+    /**
      * 根据ID查询客户信息
      * @param id
      * @return
@@ -32,13 +39,6 @@ public interface UserService {
      * @throws Exception
      */
     DataGridResult queryUserList(Integer page, Integer rows) throws Exception;
-
-    /**
-     * 保存用户
-     * @param userDTO
-     * @throws Exception
-     */
-    void saveUser(UserDTO userDTO)throws Exception;
 
     /**
      * 根据用户Id删除用户

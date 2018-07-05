@@ -12,7 +12,7 @@
             <div class="modal-body">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <form id="add-user-form" class="form-horizontal" role="form" action="#" method="post">
+                        <form id="add-user-form" class="form-horizontal" role="form" method="post">
                             <div class="form-group">
                                 <label for="userName" class="col-sm-2 control-label">用户名</label>
                                 <div class="col-sm-10">
@@ -31,7 +31,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" id = "btn-save-user" class="btn btn-primary">保存</button>
+                <button type="button" id = "save-user-btn" class="btn btn-primary">保存</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->

@@ -55,6 +55,15 @@ public class UserServiceImpl implements UserService {
         return result;
     }
 
+
+    @Override
+    public void saveUser(UserDTO userDTO) throws Exception {
+        logger.info("userDTO:{}",JSONObject.toJSONString(userDTO));
+        User user = DTOConverUtils.DTOConverUser(userDTO);
+        user.setId(UUIDUtils.uuid());
+        userMapper.insertSelective(user);
+    }
+
     @Override
     public User queryUserById(String id) throws Exception {
 
@@ -84,13 +93,6 @@ public class UserServiceImpl implements UserService {
         PageInfo<User> pageInfo = new PageInfo<User>(list);
         result.setTotal(pageInfo.getTotal());
         return result;
-    }
-
-    @Override
-    public void saveUser(UserDTO userDTO) throws Exception {
-        User user = DTOConverUtils.DTOConverUser(userDTO);
-        user.setId(UUIDUtils.uuid());
-        userMapper.insertSelective(user);
     }
 
     @Override

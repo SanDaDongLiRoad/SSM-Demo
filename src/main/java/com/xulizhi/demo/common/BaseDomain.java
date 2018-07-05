@@ -9,7 +9,7 @@ public class BaseDomain implements Serializable {
 
     private String id;//ID
 
-    private Integer deleted = 0;//是否删除（0:未删除;1:已删除;）
+    private Integer deleted;//是否删除（0:未删除;1:已删除;）
 
     private String createId;//创建人ID
 

@@ -53,6 +53,26 @@ public class UserController {
     }
 
     /**
+     * 保存用户信息
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value="saveUser",method = RequestMethod.POST)
+    public ReturnInfo saveUser(@RequestBody UserDTO userDTO){
+        ReturnInfo returnInfo = new ReturnInfo();
+        try {
+            userService.saveUser(userDTO);
+            returnInfo.setMes("保存成功!");
+        }catch(Exception e){
+            e.printStackTrace();
+            returnInfo.setFlag("false");
+            returnInfo.setMes("保存失败!");
+            returnInfo.setCode("2001");
+        }
+        return returnInfo;
+    }
+
+    /**
      * 根据ID查询客户信息
      * @param id
      * @return
@@ -159,28 +179,6 @@ public class UserController {
         modelAndView.setViewName("user/add-user");
 
         return modelAndView;
-    }
-    /**
-     * 保存用户信息
-     * @return
-     */
-    @ResponseBody
-    @RequestMapping(value="saveUser",method = RequestMethod.POST)
-    public ReturnInfo saveUser(@RequestBody UserDTO userDTO){
-        ReturnInfo returnInfo = new ReturnInfo();
-        returnInfo.setData("");
-        returnInfo.setFlag("true");
-        returnInfo.setMes("保存成功!");
-        returnInfo.setCode("2000");
-        try {
-            userService.saveUser(userDTO);
-        }catch(Exception e){
-            e.printStackTrace();
-            returnInfo.setFlag("true");
-            returnInfo.setMes("保存失败!");
-            returnInfo.setCode("2001");
-        }
-        return returnInfo;
     }
 
     @ResponseBody

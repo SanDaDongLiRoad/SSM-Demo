@@ -8,20 +8,18 @@ User = {
     // 定义事件绑定
     bindEvent : function() {
 
-        // 查询按钮事件
-        $("#queryBtn").on("click", User.doQuery);
-
-        $("#serach-user").on("click", User.doQueryByCondition);
+        //条件查询用户
+        $("#query-user-form #serach-user").on("click", User.doQueryByCondition);
 
         //添加用户
-        $("#btn-save-user").on("click",User.doSaveUser);
+        $("#user-add #save-user-btn").on("click",User.doSaveUser);
 
         //修改用户信息
         $("#user-edit #btn-edit-user").on("click",User.doEditUser);
     },
 
     //根据条件查询客户
-    doQueryByCondition : function () {
+    doQueryByCondition : function(){
         // 表单提交
         $('#query-user-form').submit();
     },
@@ -30,7 +28,7 @@ User = {
     doSaveUser : function(){
         var params = {
             'name': $("#add-user-form #userName").val(),
-            'password' : $("#password").val()
+            'password' : $("#add-user-form #password").val()
         };
         $.ajax({
             url : getLocalhostPath()+"/user/saveUser",
