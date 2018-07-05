@@ -80,22 +80,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public DataGridResult queryUserList(Integer page, Integer rows) throws Exception {
-        //查询客户列表
-        UserExample example = new UserExample();
-        //分页处理
-        PageHelper.startPage(page, rows);
-        List<User> list = userMapper.selectByExample(example);
-        //创建一个返回值对象
-        DataGridResult result = new DataGridResult();
-        result.setRows(list);
-        //取记录总条数
-        PageInfo<User> pageInfo = new PageInfo<User>(list);
-        result.setTotal(pageInfo.getTotal());
-        return result;
-    }
-
-    @Override
     public void deleteUserById(String id) throws Exception {
         logger.info("id{}",id);
         userMapper.deleteByPrimaryKey(id);

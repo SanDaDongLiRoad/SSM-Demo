@@ -30,15 +30,6 @@ public interface UserService {
     User queryUserById(String id) throws Exception;
 
     /**
-     * 查询客户信息列表
-     * @param page
-     * @param rows
-     * @return
-     * @throws Exception
-     */
-    DataGridResult queryUserList(Integer page, Integer rows) throws Exception;
-
-    /**
      * 根据用户Id删除用户
      * @param id
      * @throws Exception

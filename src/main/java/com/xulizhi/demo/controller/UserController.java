@@ -99,85 +99,10 @@ public class UserController {
     }
 
     /**
-     * 根据条件查询客户信息列表
+     * 删除用户
+     * @param id
      * @return
      */
-    @RequestMapping(value="queryListByCondition",method = RequestMethod.POST)
-    public ModelAndView queryListByCondition(@RequestBody UserDTO userDTO){
-
-        logger.info("userDTO:{}",JSONObject.toJSONString(userDTO));
-
-        ModelAndView modelAndView = new ModelAndView();
-
-        DataGridResult result = new DataGridResult();
-        try{
-            result = userService.queryUserListByCondition(userDTO);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        modelAndView.setViewName("user/user-index");
-        modelAndView.addObject("result", result);
-        return modelAndView;
-    }
-
-    /**
-     * 分页查询客户信息列表
-     * @return
-     */
-    @RequestMapping(value="queryList")
-    public ModelAndView queryList(@RequestParam(value="page",defaultValue = "1") Integer page,@RequestParam(value="rows",defaultValue = "10") Integer rows){
-
-        logger.info("page:{},rows{}",page,rows);
-
-        ModelAndView modelAndView = new ModelAndView();
-        DataGridResult result = new DataGridResult();
-        try{
-             result = userService.queryUserList(page,rows);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        modelAndView.setViewName("user/user-index");
-        modelAndView.addObject("result", result);
-        return modelAndView;
-    }
-
-    /**
-     * 根据用户名查询客户信息
-     * @return
-     */
-    @RequestMapping(value="queryByName",method = RequestMethod.POST)
-    public ModelAndView queryByName(@RequestParam(value="userName")String name){
-
-        logger.info("name:{}",name);
-
-        ModelAndView modelAndView = new ModelAndView();
-
-        DataGridResult result = new DataGridResult();
-        UserDTO userDTO = new UserDTO();
-        userDTO.setName(name);
-        try{
-            result = userService.queryUserListByCondition(userDTO);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        modelAndView.setViewName("user/user-index");
-        modelAndView.addObject("result", result);
-        return modelAndView;
-    }
-
-    /**
-     * 跳转添加客户页面
-     * @return
-     */
-    @RequestMapping(value="toAddPage",method = RequestMethod.GET)
-    public ModelAndView toAddUserPage(){
-
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("user/add-user");
-
-        return modelAndView;
-    }
-
     @ResponseBody
     @RequestMapping(value="deleteUserById",method=RequestMethod.GET)
     public ReturnInfo deleteUserById(@RequestParam String id){
@@ -197,6 +122,11 @@ public class UserController {
         return returnInfo;
     }
 
+    /**
+     * 修改用户信息
+     * @param userDTO
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value="updateUser",method=RequestMethod.POST)
     public ReturnInfo updateUser(@RequestBody UserDTO userDTO){
