@@ -29,7 +29,7 @@ public class MenuController {
      * @return
      */
     @ResponseBody
-    @RequestMapping(value="queryListByCondition",method = RequestMethod.POST)
+    @RequestMapping(value="queryMenuListByCondition",method = RequestMethod.POST)
     public List<MenuDTO> queryMenuListByCondition(@RequestBody MenuDTO menuDTO){
 
         logger.info("menuDTO:{}", JSONObject.toJSONString(menuDTO));
