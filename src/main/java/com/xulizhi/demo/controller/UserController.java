@@ -88,16 +88,13 @@ public class UserController {
         try{
             User user = userService.queryUserById(id);
             tReturnInfo.setData(JSONObject.toJSONString(user));
-            tReturnInfo.setFlag("true");
             tReturnInfo.setMes("deal ok");
         }catch(Exception e){
             e.printStackTrace();
-            tReturnInfo.setData("");
             tReturnInfo.setFlag("false");
-            tReturnInfo.setMes(e.getMessage());
-            return JSONObject.toJSONString(tReturnInfo);
+            tReturnInfo.setMes("系统异常");
         }
-
+        logger.info("tReturnInfo:{}",tReturnInfo);
         return JSONObject.toJSONString(tReturnInfo);
     }
 

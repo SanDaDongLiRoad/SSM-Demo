@@ -18,6 +18,23 @@ User = {
         $("#user-edit #btn-edit-user").on("click",User.doEditUser);
     },
 
+
+    doInitEditUserForm : function(id){
+        $.ajax({
+            url : getLocalhostPath()+"/user/queryUserById?id="+id,
+            type : "GET",
+            dataType : "json",
+            success : function (data) {
+                var result = JSON.parse(data.data);
+                if(data.flag == 'true'){
+                    $("#edit-user-form #userName").val(result.name);
+                    $("#edit-user-form #password").val(result.password);
+                    $("#edit-user-form #id").val(result.id);
+                }
+            }
+        });
+    },
+
     //根据条件查询客户
     doQueryByCondition : function(){
         // 表单提交
@@ -106,22 +123,6 @@ User = {
                     });
                 }
             });
-    },
-
-    doQueryUserById : function(id){
-        $.ajax({
-            url : getLocalhostPath()+"/user/queryUserById?id="+id,
-            type : "GET",
-            dataType : "json",
-            success : function (data) {
-                var result = JSON.parse(data.data);
-                if(data.flag == 'true'){
-                   $("#edit-user-form #userName").val(result.name);
-                   $("#edit-user-form #password").val(result.password);
-                   $("#edit-user-form #id").val(result.id);
-                }
-            }
-        });
     },
 
     //修改用户信息
