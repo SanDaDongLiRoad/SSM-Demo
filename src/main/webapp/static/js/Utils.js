@@ -47,3 +47,13 @@ function getLocalhostPath() {
     var pos = curWwwPath.indexOf(pathName);
     return curWwwPath.substring(0, pos);
 };
+
+/**
+ * 判断给定字符串是否是正整数
+ * @param val
+ * @returns {boolean}
+ */
+function isPositiveInteger(val) {
+    var r = /^\+?[1-9][0-9]*$/;　　//正整数
+    return r.test(val);
+}

@@ -18,7 +18,7 @@ User = {
         $("#user-edit #edit-user-btn").on("click",User.doEditUser);
     },
 
-
+    //初始化编辑客户表单数据
     doInitEditUserForm : function(id){
         $.ajax({
             url : getLocalhostPath()+"/user/queryUserById?id="+id,
@@ -36,7 +36,12 @@ User = {
     },
 
     //根据条件查询客户
-    doQueryByCondition : function(){
+    doQueryByCondition : function(pageNo){
+        if(isPositiveInteger(pageNo)){
+            $("#query-user-form #pageNo").val(pageNo);
+        }else{
+            $("#query-user-form #pageNo").val(1);
+        }
         // 表单提交
         $('#query-user-form').submit();
     },
