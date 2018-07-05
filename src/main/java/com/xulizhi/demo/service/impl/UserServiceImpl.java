@@ -97,6 +97,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUserById(String id) throws Exception {
+        logger.info("id{}",id);
         userMapper.deleteByPrimaryKey(id);
     }
 

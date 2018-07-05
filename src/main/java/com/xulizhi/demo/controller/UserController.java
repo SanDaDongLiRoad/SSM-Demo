@@ -179,18 +179,18 @@ public class UserController {
     }
 
     @ResponseBody
-    @RequestMapping(value="deleteById",method=RequestMethod.GET)
+    @RequestMapping(value="deleteUserById",method=RequestMethod.GET)
     public ReturnInfo deleteUserById(@RequestParam String id){
+
+        logger.info("id:{}",id);
         ReturnInfo returnInfo = new ReturnInfo();
-        returnInfo.setData("");
-        returnInfo.setFlag("true");
-        returnInfo.setMes("删除成功!");
-        returnInfo.setCode("2000");
+
         try {
             userService.deleteUserById(id);
+            returnInfo.setMes("删除成功!");
         }catch(Exception e){
             e.printStackTrace();
-            returnInfo.setFlag("true");
+            returnInfo.setFlag("false");
             returnInfo.setMes("删除失败!");
             returnInfo.setCode("2001");
         }

@@ -92,14 +92,12 @@ User = {
             },
             function (isConfirm) {
                 if (isConfirm) {
-                    console.log(isConfirm);
                     $.ajax({
-                        url : getLocalhostPath()+"/user/deleteById?id="+id,
+                        url : getLocalhostPath()+"/user/deleteUserById?id="+id,
                         type : "GET",
                         dataType : "json",
-                        success : function (data) {
+                        success : function(data){
                             if(data.flag=='true'){
-                                console.log(data.flag);
                                 swal({
                                     title: "删除成功",
                                     type :"success",
@@ -107,7 +105,6 @@ User = {
                                     showConfirmButton: false
                                 });
                                 $('#user-add').modal('hide');
-                                console.log('end');
                                 setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
                                     User.doQueryByCondition();//页面刷新
                                 },2000);
