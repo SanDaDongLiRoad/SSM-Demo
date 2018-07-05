@@ -15,7 +15,7 @@ User = {
         $("#user-add #save-user-btn").on("click",User.doSaveUser);
 
         //修改用户信息
-        $("#user-edit #btn-edit-user").on("click",User.doEditUser);
+        $("#user-edit #edit-user-btn").on("click",User.doEditUser);
     },
 
 

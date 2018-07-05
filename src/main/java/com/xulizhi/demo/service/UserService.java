@@ -4,8 +4,6 @@ import com.xulizhi.demo.domain.User;
 import com.xulizhi.demo.dto.UserDTO;
 import com.xulizhi.demo.utils.DataGridResult;
 
-import java.util.List;
-
 public interface UserService {
 
     /**

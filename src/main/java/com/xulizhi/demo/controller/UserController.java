@@ -204,10 +204,9 @@ public class UserController {
         logger.info("userDTO:{}",JSONObject.toJSONString(userDTO));
 
         ReturnInfo returnInfo = new ReturnInfo();
-        returnInfo.setMes("修改成功!");
-
         try{
             userService.updateUser(userDTO);
+            returnInfo.setMes("修改成功!");
         }catch(Exception e){
             e.printStackTrace();
             returnInfo.setFlag("false");

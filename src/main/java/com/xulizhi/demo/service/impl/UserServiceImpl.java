@@ -102,6 +102,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUser(UserDTO userDTO) throws Exception {
+
+        logger.info("userDTO{}",userDTO);
         User editUser = queryUserById(userDTO.getId());
         editUser.setName(userDTO.getName());
         editUser.setPassword(userDTO.getPassword());

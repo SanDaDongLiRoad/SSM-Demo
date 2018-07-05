@@ -32,7 +32,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" id = "btn-edit-user" class="btn btn-primary">保存</button>
+                <button type="button" id = "edit-user-btn" class="btn btn-primary">保存</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
