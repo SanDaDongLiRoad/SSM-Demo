@@ -29,7 +29,7 @@ public class UserController {
      * @param name
      * @return
      */
-    @RequestMapping(value="queryListByPageNo",method=RequestMethod.GET)
+    @RequestMapping(value="queryUserListByPageNo",method=RequestMethod.GET)
     public ModelAndView queryUserByPageNo(@RequestParam(defaultValue = "1") Integer pageNo,@RequestParam(value="userName",required = false) String name){
 
         logger.info("pageNo:{},name:{}",pageNo,name);
