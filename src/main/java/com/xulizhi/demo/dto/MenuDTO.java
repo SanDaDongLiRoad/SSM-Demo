@@ -14,13 +14,19 @@ public class MenuDTO extends BaseDTO{
 
     private String url;
 
-    private String orderNo;
+    private Integer orderNo;
 
     private String parentId;
+
+    private Integer deleted;//是否删除（0:未删除;1:已删除;）
+
+    private String createId;//创建人ID
 
     private String createName;
 
     private Date createDate;
+
+    private String modifyId;//修改人ID
 
     private String modifyName;
 
@@ -58,11 +64,11 @@ public class MenuDTO extends BaseDTO{
         this.url = url;
     }
 
-    public String getOrderNo() {
+    public Integer getOrderNo() {
         return orderNo;
     }
 
-    public void setOrderNo(String orderNo) {
+    public void setOrderNo(Integer orderNo) {
         this.orderNo = orderNo;
     }
 
@@ -72,6 +78,22 @@ public class MenuDTO extends BaseDTO{
 
     public void setParentId(String parentId) {
         this.parentId = parentId;
+    }
+
+    public Integer getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Integer deleted) {
+        this.deleted = deleted;
+    }
+
+    public String getCreateId() {
+        return createId;
+    }
+
+    public void setCreateId(String createId) {
+        this.createId = createId;
     }
 
     public String getCreateName() {
@@ -88,6 +110,14 @@ public class MenuDTO extends BaseDTO{
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public String getModifyId() {
+        return modifyId;
+    }
+
+    public void setModifyId(String modifyId) {
+        this.modifyId = modifyId;
     }
 
     public String getModifyName() {

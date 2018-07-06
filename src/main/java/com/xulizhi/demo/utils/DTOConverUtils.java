@@ -81,4 +81,50 @@ public class DTOConverUtils {
         }
         return user;
     }
+
+    public static Menu DTOConverMenu(MenuDTO menuDTO){
+
+        Menu menu = new Menu();
+
+        if(StringUtils.isNotEmpty(menuDTO.getId())){
+            menu.setId(menuDTO.getId());
+        }
+        if(StringUtils.isNotEmpty(menuDTO.getName())){
+            menu.setName(menuDTO.getName());
+        }
+        if(StringUtils.isNotEmpty(menuDTO.getIcon())){
+            menu.setIcon(menuDTO.getIcon());
+        }
+        if(StringUtils.isNotEmpty(menuDTO.getUrl())){
+            menu.setUrl(menuDTO.getUrl());
+        }
+        if(StringUtils.isNotEmpty(menuDTO.getParentId())){
+            menu.setParentId(menuDTO.getParentId());
+        }
+        if(!Objects.equals(null,menuDTO.getOrderNo())){
+            menu.setOrderNo(menuDTO.getOrderNo());
+        }
+        if(Objects.equals(menuDTO.getDeleted(),null)){
+            menu.setDeleted(menuDTO.getDeleted());
+        }
+        if(StringUtils.isNotEmpty(menuDTO.getCreateId())){
+            menu.setCreaterId(menuDTO.getCreateId());
+        }
+        if(StringUtils.isNotEmpty(menuDTO.getCreateName())){
+            menu.setCreateName(menuDTO.getCreateName());
+        }
+        if(!Objects.equals(null,menuDTO.getCreateDate())){
+            menu.setCreateDate(menuDTO.getCreateDate());
+        }
+        if(StringUtils.isNotEmpty(menuDTO.getModifyId())){
+            menu.setModifyId(menuDTO.getModifyId());
+        }
+        if(StringUtils.isNotEmpty(menuDTO.getModifyName())){
+            menu.setModifyName(menuDTO.getModifyName());
+        }
+        if(!Objects.equals(null,menuDTO.getModifyDate())){
+            menu.setModifyDate(menuDTO.getModifyDate());
+        }
+        return menu;
+    }
 }

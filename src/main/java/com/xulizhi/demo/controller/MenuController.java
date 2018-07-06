@@ -1,9 +1,11 @@
 package com.xulizhi.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.xulizhi.demo.domain.Menu;
 import com.xulizhi.demo.dto.MenuDTO;
 import com.xulizhi.demo.service.MenuService;
 import com.xulizhi.demo.utils.DataGridResult;
+import com.xulizhi.demo.utils.ReturnInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,4 +73,99 @@ public class MenuController {
         logger.info("result:{}",result);
         return modelAndView;
     }
+
+    /**
+     * 保存菜单信息
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value="saveMenu",method = RequestMethod.POST)
+    public ReturnInfo saveMenu(@RequestBody MenuDTO menuDTO){
+        ReturnInfo returnInfo = new ReturnInfo();
+        try {
+            menuService.saveMenu(menuDTO);
+            returnInfo.setMes("保存成功!");
+        }catch(Exception e){
+            e.printStackTrace();
+            returnInfo.setFlag("false");
+            returnInfo.setMes("保存失败!");
+            returnInfo.setCode("2001");
+        }
+        return returnInfo;
+    }
+
+    /**
+     * 删除用户
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value="deleteMenuById",method=RequestMethod.GET)
+    public ReturnInfo deleteMenuById(@RequestParam String id){
+
+        logger.info("id:{}",id);
+        ReturnInfo returnInfo = new ReturnInfo();
+
+        try {
+            menuService.deleteMenuById(id);
+            returnInfo.setMes("删除成功!");
+        }catch(Exception e){
+            e.printStackTrace();
+            returnInfo.setFlag("false");
+            returnInfo.setMes("删除失败!");
+            returnInfo.setCode("2001");
+        }
+        return returnInfo;
+    }
+
+    /**
+     * 根据ID查询菜单信息
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value="queryMenuById",method = RequestMethod.GET)
+    public String queryMenuById(@RequestParam String id){
+
+        logger.info("id:{}",id);
+
+        ReturnInfo tReturnInfo = new ReturnInfo();
+
+        try{
+            Menu menu = menuService.queryMenuById(id);
+            tReturnInfo.setData(JSONObject.toJSONString(menu));
+            tReturnInfo.setMes("deal ok");
+        }catch(Exception e){
+            e.printStackTrace();
+            tReturnInfo.setFlag("false");
+            tReturnInfo.setMes("系统异常");
+        }
+        logger.info("tReturnInfo:{}",tReturnInfo);
+        return JSONObject.toJSONString(tReturnInfo);
+    }
+
+    /**
+     * 修改菜单信息
+     * @param menuDTO
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value="updateMenu",method=RequestMethod.POST)
+    public ReturnInfo updateMenu(@RequestBody MenuDTO menuDTO){
+
+        logger.info("menuDTO:{}",JSONObject.toJSONString(menuDTO));
+
+        ReturnInfo returnInfo = new ReturnInfo();
+        try{
+            menuService.updateMenu(menuDTO);
+            returnInfo.setMes("修改成功!");
+        }catch(Exception e){
+            e.printStackTrace();
+            returnInfo.setFlag("false");
+            returnInfo.setMes("修改失败!");
+            returnInfo.setCode("2001");
+        }
+        return returnInfo;
+    }
+
 }

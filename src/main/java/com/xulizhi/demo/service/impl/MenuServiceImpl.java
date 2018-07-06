@@ -10,6 +10,7 @@ import com.xulizhi.demo.mapper.MenuMapper;
 import com.xulizhi.demo.service.MenuService;
 import com.xulizhi.demo.utils.DTOConverUtils;
 import com.xulizhi.demo.utils.DataGridResult;
+import com.xulizhi.demo.utils.UUIDUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class MenuServiceImpl implements MenuService {
@@ -76,5 +78,47 @@ public class MenuServiceImpl implements MenuService {
 
         logger.info("result:{}",JSONObject.toJSONString(result));
         return result;
+    }
+
+    @Override
+    public void saveMenu(MenuDTO menuDTO) throws Exception {
+        logger.info("menuDTO:{}",JSONObject.toJSONString(menuDTO));
+        Menu menu = DTOConverUtils.DTOConverMenu(menuDTO);
+        menu.setId(UUIDUtils.uuid());
+        menuMapper.insertSelective(menu);
+    }
+
+    @Override
+    public void deleteMenuById(String id) throws Exception {
+        logger.info("id{}",id);
+        menuMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public Menu queryMenuById(String id) throws Exception {
+        logger.info("id{}",id);
+
+        if(Objects.equals(id,null)){
+            throw new Exception("Menu id is null !");
+        }
+        Menu menu = menuMapper.selectByPrimaryKey(id);
+
+        logger.info("menu{}",JSONObject.toJSONString(menu));
+
+        return menu;
+    }
+
+    @Override
+    public void updateMenu(MenuDTO menuDTO) throws Exception {
+        logger.info("menuDTO{}",menuDTO);
+        Menu editMenu = queryMenuById(menuDTO.getId());
+        editMenu.setName(menuDTO.getName());
+        editMenu.setIcon(menuDTO.getIcon());
+        editMenu.setUrl(menuDTO.getUrl());
+        editMenu.setParentId(menuDTO.getParentId());
+        editMenu.setOrderNo(menuDTO.getOrderNo());
+        editMenu.setModifyId("2d707b974930489b94c5a4cc1af5e1d3");
+        editMenu.setModifyName("xulizhi");
+        menuMapper.updateByPrimaryKey(editMenu);
     }
 }

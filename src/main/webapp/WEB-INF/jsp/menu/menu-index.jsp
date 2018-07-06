@@ -46,7 +46,7 @@
                                 <sapn class="glyphicon glyphicon-plus"/>
                             </button>
                             <!-- 添加用户信息弹出框 -->
-                            <%--<jsp:include page="/WEB-INF/jsp/menu/menu-add.jsp"/>--%>
+                            <jsp:include page="/WEB-INF/jsp/menu/menu-add.jsp"/>
                         </div>
                     </div>
                     <table class="table table-bordered">
@@ -74,7 +74,7 @@
                                     <!-- 按钮触发模态框 -->
                                     <button class="btn btn-default btn-xs btn-info" data-toggle="modal" data-target="#menu-edit" onClick="Menu.doInitEditMenuForm('${menu.id}')">修改</button>
                                     <!-- 修改用户信息弹出框 -->
-                                    <%--<jsp:include page="/WEB-INF/jsp/menu/menu-edit.jsp"/>--%>
+                                    <jsp:include page="/WEB-INF/jsp/menu/menu-edit.jsp"/>
                                     <button class="btn btn-default btn-xs btn-danger btn-primary" onClick="Menu.doDeleteMenu('${menu.id}')">删除</button>
                                     <!--弹出框-->
                                 </td>
