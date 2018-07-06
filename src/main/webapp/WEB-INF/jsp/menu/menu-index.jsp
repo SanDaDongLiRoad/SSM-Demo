@@ -1,11 +1,24 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8"%>
+<%@page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@page isELIgnored="false" %>
 <html>
 <head>
     <title>管理系统</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <%@include file="/WEB-INF/jsp/include/head-style.inc" %>
+    <script>
+        //根据条件查询客户
+        function doQueryByCondition(pageNo){
+            if(isPositiveInteger(pageNo)){
+                $("#query-menu-form #pageNo").val(pageNo);
+            }else{
+                $("#query-menu-form #pageNo").val(1);
+            }
+            // 表单提交
+            $('#query-menu-form').submit();
+        }
+    </script>
 </head>
 <body>
     <!-- 顶栏 -->

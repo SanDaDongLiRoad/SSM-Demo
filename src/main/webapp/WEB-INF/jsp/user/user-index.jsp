@@ -7,6 +7,18 @@
     <title>管理系统</title>
     <%@include file="/WEB-INF/jsp/include/head-style.inc" %>
     <script type="text/javascript" src="${basePath}/static/js/user/user.js"></script>
+    <script>
+        //根据条件查询客户
+        function doQueryByCondition(pageNo){
+            if(isPositiveInteger(pageNo)){
+                $("#query-user-form #pageNo").val(pageNo);
+            }else{
+                $("#query-user-form #pageNo").val(1);
+            }
+            // 表单提交
+            $('#query-user-form').submit();
+        }
+    </script>
 </head>
 <body>
     <!-- 顶栏 -->
