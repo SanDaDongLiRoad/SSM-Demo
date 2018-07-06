@@ -1,11 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page isELIgnored="false" %>
 <html>
 <head>
     <title>管理系统</title>
     <%@include file="/WEB-INF/jsp/include/head-style.inc" %>
-    <script type="text/javascript" src="${basePath}/static/js/menu/menu.js"></script>
 </head>
 <body>
     <!-- 顶栏 -->
@@ -40,9 +40,8 @@
                         <thead>
                         <tr>
                             <th>菜单名称</th>
-                            <th>菜单图标属性</th>
-                            <th>菜单地址</th>
                             <th>菜单排序</th>
+                            <th>父级菜单</th>
                             <th>创建人</th>
                             <th>创建时间</th>
                             <th>操作</th>
@@ -52,11 +51,12 @@
                         <c:forEach items="${result.rows}" var="menu">
                             <tr>
                                 <td>${menu.name}</td>
-                                <td>${menu.icon}</td>
-                                <td>${menu.url}</td>
                                 <td>${menu.orderNo}</td>
+                                <td>无</td>
                                 <td>${menu.createName}</td>
-                                <td>${menu.createDate}</td>
+                                <td>
+                                    <fmt:formatDate value="${menu.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
+                                </td>
                                 <td>
                                     <!-- 按钮触发模态框 -->
                                     <button class="btn btn-default btn-xs btn-info" data-toggle="modal" data-target="#menu-edit" onClick="Menu.doInitEditMenuForm('${menu.id}')">修改</button>

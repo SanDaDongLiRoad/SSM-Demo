@@ -5,3 +5,4 @@
 <script type="text/javascript" src="${basePath}/static/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${basePath}/static/sweetalert/sweetalert.min.js"></script>
 <script type="text/javascript" src="${basePath}/static/js/Utils.js"></script>
+<script type="text/javascript" src="${basePath}/static/js/menu/menu.js"></script>

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page isELIgnored="false" %>
 <html>
@@ -52,8 +53,9 @@
                                     <td>${user.id}</td>
                                     <td>${user.name}</td>
                                     <td>${user.createName}</td>
-                                    <td>${user.createDate}</td>
-                                   <%-- <td><fmt:formatDate value="${user.createDate}" dateStyle="medium"/></td>--%>
+                                    <td>
+                                        <fmt:formatDate value="${user.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
+                                    </td>
                                     <td>
                                         <!-- 按钮触发模态框 -->
                                         <button class="btn btn-default btn-xs btn-info" data-toggle="modal" data-target="#user-edit" onClick="User.doInitEditUserForm('${user.id}')">修改</button>
