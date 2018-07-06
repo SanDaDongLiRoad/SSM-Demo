@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div class="panel-footer">
+<div class="panel-footer" style="padding: 0px;">
     <c:choose>
         <c:when test="${result.rows != null}">
             <nav style="text-align: center">

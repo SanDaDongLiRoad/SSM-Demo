@@ -29,7 +29,7 @@
             <!-- 菜单栏 -->
             <jsp:include page="/WEB-INF/jsp/common/left-menu.jsp"/>
             <div class="col-md-10">
-                <div class="panel panel-default">
+                <div class="panel panel-default" style="border: 1px solid #35b558;">
                     <div class="panel-heading">
                         <div class="row">
                             <h3 class="col-md-5">菜单管理</h3>
@@ -49,7 +49,7 @@
                             <jsp:include page="/WEB-INF/jsp/menu/menu-add.jsp"/>
                         </div>
                     </div>
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-condensed">
                         <thead>
                         <tr>
                             <th>菜单名称</th>

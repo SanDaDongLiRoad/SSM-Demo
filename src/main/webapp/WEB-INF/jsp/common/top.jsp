@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-12">
             <!--加入导航条标题-->
-            <div class="navbar navbar-default" role="navigation">
+            <div class="navbar navbar-default" role="navigation" style="border: 1px solid #35b558;">
                 <div class="navbar-header">
                     <a href="##" class="navbar-brand">管理系统</a>
                 </div>

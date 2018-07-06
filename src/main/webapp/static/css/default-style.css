@@ -3,3 +3,8 @@
     border:#eeeeee  solid 1px;
     margin:10px;
 }
+.aside-allCategory {
+    margin: 0;
+    border: 1px solid #35b558;
+    background-color: #fff;
+}
