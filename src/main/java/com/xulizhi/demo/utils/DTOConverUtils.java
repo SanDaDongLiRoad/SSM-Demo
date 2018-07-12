@@ -1,8 +1,10 @@
 package com.xulizhi.demo.utils;
 
 import com.xulizhi.demo.domain.Menu;
+import com.xulizhi.demo.domain.Role;
 import com.xulizhi.demo.domain.User;
 import com.xulizhi.demo.dto.MenuDTO;
+import com.xulizhi.demo.dto.RoleDTO;
 import com.xulizhi.demo.dto.UserDTO;
 import org.apache.commons.lang.StringUtils;
 
@@ -126,5 +128,42 @@ public class DTOConverUtils {
             menu.setModifyDate(menuDTO.getModifyDate());
         }
         return menu;
+    }
+
+    public static Role DTOConverRole(RoleDTO roleDTO){
+
+        Role role = new Role();
+
+        if(StringUtils.isNotEmpty(roleDTO.getId())){
+            role.setId(roleDTO.getId());
+        }
+        if(StringUtils.isNotEmpty(roleDTO.getName())){
+            role.setName(roleDTO.getName());
+        }
+        if(StringUtils.isNotEmpty(roleDTO.getRemark())){
+            role.setRemark(roleDTO.getRemark());
+        }
+        if(Objects.equals(roleDTO.getDeleted(),null)){
+            role.setDeleted(roleDTO.getDeleted());
+        }
+        if(StringUtils.isNotEmpty(roleDTO.getCreateId())){
+            role.setCreaterId(roleDTO.getCreateId());
+        }
+        if(StringUtils.isNotEmpty(roleDTO.getCreateName())){
+            role.setCreateName(roleDTO.getCreateName());
+        }
+        if(!Objects.equals(null,roleDTO.getCreateDate())){
+            role.setCreateDate(roleDTO.getCreateDate());
+        }
+        if(StringUtils.isNotEmpty(roleDTO.getModifyId())){
+            role.setModifyId(roleDTO.getModifyId());
+        }
+        if(StringUtils.isNotEmpty(roleDTO.getModifyName())){
+            role.setModifyName(roleDTO.getModifyName());
+        }
+        if(!Objects.equals(null,roleDTO.getModifyDate())){
+            role.setModifyDate(roleDTO.getModifyDate());
+        }
+        return role;
     }
 }

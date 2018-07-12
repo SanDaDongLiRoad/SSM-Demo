@@ -8,6 +8,8 @@ public class User extends BaseDomain {
 
     private String password;//密码
 
+    private String roleId;//角色Id
+
     public String getName() {
         return name;
     }
@@ -24,4 +26,11 @@ public class User extends BaseDomain {
         this.password = password;
     }
 
+    public String getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
+    }
 }
