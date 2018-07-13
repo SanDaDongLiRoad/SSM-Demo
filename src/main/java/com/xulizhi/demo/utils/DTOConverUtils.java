@@ -60,6 +60,9 @@ public class DTOConverUtils {
         if(StringUtils.isNotEmpty(userDTO.getPassword())){
             user.setPassword(userDTO.getPassword());
         }
+        if(StringUtils.isNotEmpty(userDTO.getRoleId())){
+            user.setRoleId(userDTO.getRoleId());
+        }
         if(Objects.equals(userDTO.getDeleted(),null)){
             user.setDeleted(userDTO.getDeleted());
         }
