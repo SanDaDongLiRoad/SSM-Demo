@@ -8,6 +8,7 @@
     <%@include file="/WEB-INF/jsp/include/head-style.inc" %>
     <script type="text/javascript" src="${basePath}/static/plugins/bootstrap-treeview/bootstrap-treeview.js"></script>
     <script type="text/javascript" src="${basePath}/static/js/role/role.js"></script>
+    <script type="text/javascript" src="${basePath}/static/js/BootstrapTreeviewUtils.js"></script>
     <script>
         //根据条件查询角色
         function doQueryByCondition(pageNo){

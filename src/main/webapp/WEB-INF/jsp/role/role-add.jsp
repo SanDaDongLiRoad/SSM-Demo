@@ -16,7 +16,7 @@
                             <div class="form-group">
                                 <label for="roleName" class="col-sm-2 control-label">权限</label>
                                 <div class="col-sm-10">
-                                    <div id="tree"></div>
+                                    <div id="treeview-checkable"></div>
                                 </div>
                             </div>
                             <div class="form-group">
