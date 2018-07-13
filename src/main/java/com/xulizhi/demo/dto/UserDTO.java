@@ -12,6 +12,8 @@ public class UserDTO extends BaseDTO {
 
     private String password;//密码
 
+    private String roleId;//角色ID
+
     private Integer deleted;//是否删除（0:未删除;1:已删除;）
 
     private String createId;//创建人ID
@@ -48,6 +50,14 @@ public class UserDTO extends BaseDTO {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
     }
 
     public String getCreateName() {

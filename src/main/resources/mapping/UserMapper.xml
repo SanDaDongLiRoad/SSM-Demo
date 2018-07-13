@@ -5,6 +5,7 @@
         <id column="id" property="id" jdbcType="VARCHAR" />
         <result column="name" property="name" jdbcType="VARCHAR" />
         <result column="password" property="password" jdbcType="VARCHAR" />
+        <result column="role_id" property="roleId" jdbcType="VARCHAR" />
         <result column="deleted" property="deleted" jdbcType="BIT" />
         <result column="create_id" property="createId" jdbcType="VARCHAR" />
         <result column="create_name" property="createName" jdbcType="VARCHAR" />
@@ -72,8 +73,8 @@
         </where>
     </sql>
     <sql id="Base_Column_List" >
-        id, name, password, deleted, create_id, create_name, create_date, modify_id, modify_name,
-        modify_date
+        id, name, password, role_id, deleted, create_id, create_name, create_date, modify_id,
+        modify_name, modify_date
     </sql>
     <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xulizhi.demo.domain.UserExample" >
         select
@@ -107,13 +108,13 @@
     </delete>
     <insert id="insert" parameterType="com.xulizhi.demo.domain.User" >
         insert into user (id, name, password,
-        deleted, create_id, create_name,
-        create_date, modify_id, modify_name,
-        modify_date)
+        role_id, deleted, create_id,
+        create_name, create_date, modify_id,
+        modify_name, modify_date)
         values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
-        #{deleted,jdbcType=BIT}, #{createId,jdbcType=VARCHAR}, #{createName,jdbcType=VARCHAR},
-        #{createDate,jdbcType=TIMESTAMP}, #{modifyId,jdbcType=VARCHAR}, #{modifyName,jdbcType=VARCHAR},
-        #{modifyDate,jdbcType=TIMESTAMP})
+        #{roleId,jdbcType=VARCHAR}, #{deleted,jdbcType=BIT}, #{createId,jdbcType=VARCHAR},
+        #{createName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{modifyId,jdbcType=VARCHAR},
+        #{modifyName,jdbcType=VARCHAR}, #{modifyDate,jdbcType=TIMESTAMP})
     </insert>
     <insert id="insertSelective" parameterType="com.xulizhi.demo.domain.User" >
         insert into user
@@ -126,6 +127,9 @@
             </if>
             <if test="password != null" >
                 password,
+            </if>
+            <if test="roleId != null" >
+                role_id,
             </if>
             <if test="deleted != null" >
                 deleted,
@@ -158,6 +162,9 @@
             </if>
             <if test="password != null" >
                 #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="roleId != null" >
+                #{roleId,jdbcType=VARCHAR},
             </if>
             <if test="deleted != null" >
                 #{deleted,jdbcType=BIT},
@@ -200,6 +207,9 @@
             <if test="record.password != null" >
                 password = #{record.password,jdbcType=VARCHAR},
             </if>
+            <if test="record.roleId != null" >
+                role_id = #{record.roleId,jdbcType=VARCHAR},
+            </if>
             <if test="record.deleted != null" >
                 deleted = #{record.deleted,jdbcType=BIT},
             </if>
@@ -231,6 +241,7 @@
         set id = #{record.id,jdbcType=VARCHAR},
         name = #{record.name,jdbcType=VARCHAR},
         password = #{record.password,jdbcType=VARCHAR},
+        role_id = #{record.roleId,jdbcType=VARCHAR},
         deleted = #{record.deleted,jdbcType=BIT},
         create_id = #{record.createId,jdbcType=VARCHAR},
         create_name = #{record.createName,jdbcType=VARCHAR},
@@ -250,6 +261,9 @@
             </if>
             <if test="password != null" >
                 password = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="roleId != null" >
+                role_id = #{roleId,jdbcType=VARCHAR},
             </if>
             <if test="deleted != null" >
                 deleted = #{deleted,jdbcType=BIT},
@@ -279,6 +293,7 @@
         update user
         set name = #{name,jdbcType=VARCHAR},
         password = #{password,jdbcType=VARCHAR},
+        role_id = #{roleId,jdbcType=VARCHAR},
         deleted = #{deleted,jdbcType=BIT},
         create_id = #{createId,jdbcType=VARCHAR},
         create_name = #{createName,jdbcType=VARCHAR},
