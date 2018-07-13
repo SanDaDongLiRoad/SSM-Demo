@@ -7,8 +7,8 @@ function initTreeList(data,treeElement){
     var $checkableTree =treeElement
         .treeview({
             data: data, //数据
-            showIcon: false,
             showCheckbox: true,
+            multiSelect : true,
             levels: 0,
             onNodeChecked: function(event, node) { //选中节点
                 var selectNodes = getChildNodeIdArr(node); //获取所有子节点
