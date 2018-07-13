@@ -41,7 +41,7 @@
                                 </div>
                             </form>
                             <!-- 按钮触发模态框 -->
-                            <button class="btn btn-default col-md-2" data-toggle="modal" data-target="#user-add" style="margin-top: 10px">
+                            <button id="user-add-modal-btn" class="btn btn-default col-md-2" data-toggle="modal" data-target="#user-add" style="margin-top: 10px">
                                 添加用户信息
                                 <sapn class="glyphicon glyphicon-plus"/>
                             </button>

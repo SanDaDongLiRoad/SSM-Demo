@@ -16,6 +16,9 @@ User = {
 
         //修改用户信息
         $("#user-edit #edit-user-btn").on("click",User.doEditUser);
+
+        //查询角色列表
+        $("#user-add-modal-btn").on("click", User.doQueryRoleList);
     },
 
     //初始化编辑客户表单数据
@@ -50,7 +53,8 @@ User = {
     doSaveUser : function(){
         var params = {
             'name': $("#add-user-form #userName").val(),
-            'password' : $("#add-user-form #password").val()
+            'password' : $("#add-user-form #password").val(),
+            'roleId':$('#add-user-form #userRole option:selected').val()//选中的值
         };
         $.ajax({
             url : getLocalhostPath()+"/user/saveUser",
@@ -132,7 +136,8 @@ User = {
         var params = {
             'id': $("#user-edit #id").val(),
             'name':$("#user-edit #userName").val(),
-            'password':$("#user-edit #password").val()
+            'password':$("#user-edit #password").val(),
+            'roleId':$('#user-edit #userRole option:selected').val()//选中的值
         };
         $.ajax({
             url : getLocalhostPath()+"/user/updateUser",
@@ -161,6 +166,23 @@ User = {
                         showConfirmButton: false
                     });
                 }
+            }
+        });
+    },
+    //初始化新增客户时角色列表
+    doQueryRoleList : function(){
+        $.ajax({
+            url : getLocalhostPath()+"/role/queryRoleList",
+            type : "GET",
+            dataType : "json",
+            success : function (data) {
+                var selectElement = $('#add-user-form #userRole');
+                var optionElement = "";
+                for(var i=0;i<data.length;i++){
+                    var role = data[i];
+                    optionElement+="<option value=\'"+role.id+"\'>"+role.name+"</option>";
+                }
+                selectElement.append(optionElement);
             }
         });
     }

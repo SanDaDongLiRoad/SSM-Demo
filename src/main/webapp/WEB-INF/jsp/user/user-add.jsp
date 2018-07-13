@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page isELIgnored="false" %>
 <!-- 模态框（Modal） -->
@@ -13,6 +14,14 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <form id="add-user-form" class="form-horizontal" role="form" method="post">
+                            <div class="form-group">
+                                <label for="userRole" class="col-sm-2 control-label">角&nbsp;&nbsp;&nbsp;&nbsp;色</label>
+                                <div class="col-sm-10">
+                                    <select id="userRole" name="userRole" class="form-control">
+                                        <option value>请选择角色</option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label for="userName" class="col-sm-2 control-label">用户名</label>
                                 <div class="col-sm-10">
