@@ -14,6 +14,12 @@
                     <div class="panel-body">
                         <form id="add-role-form" class="form-horizontal" role="form" method="post">
                             <div class="form-group">
+                                <label for="roleName" class="col-sm-2 control-label">权限</label>
+                                <div class="col-sm-10">
+                                    <div id="tree"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label for="roleName" class="col-sm-2 control-label">角色名称</label>
                                 <div class="col-sm-10">
                                     <input type="text" id="roleName" name="roleName" class="form-control" placeholder="请输入角色名称"/>
