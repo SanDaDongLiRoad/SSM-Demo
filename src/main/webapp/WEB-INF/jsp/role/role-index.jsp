@@ -6,6 +6,7 @@
 <head>
     <title>管理系统</title>
     <%@include file="/WEB-INF/jsp/include/head-style.inc" %>
+    <script type="text/javascript" src="${basePath}/static/plugins/bootstrap-treeview/bootstrap-treeview.js"></script>
     <script type="text/javascript" src="${basePath}/static/js/role/role.js"></script>
     <script>
         //根据条件查询角色
@@ -41,7 +42,7 @@
                                 </div>
                             </form>
                             <!-- 按钮触发模态框 -->
-                            <button class="btn btn-default col-md-2" data-toggle="modal" data-target="#role-add" style="margin-top: 10px">
+                            <button class="btn btn-default col-md-2" data-toggle="modal" data-target="#role-add" style="margin-top: 10px" onclick="Role.doInitMenuTreeList();">
                                 添加角色
                                 <sapn class="glyphicon glyphicon-plus"/>
                             </button>
