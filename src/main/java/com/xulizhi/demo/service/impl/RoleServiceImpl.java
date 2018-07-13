@@ -93,4 +93,15 @@ public class RoleServiceImpl implements RoleService {
         editRole.setModifyName("xulizhi");
         roleMapper.updateByPrimaryKey(editRole);
     }
+
+    @Override
+    public List<Role> queryRoleList() throws Exception {
+        //查询客户角色列表
+        RoleExample example = new RoleExample();
+        RoleExample.Criteria criteria = example.createCriteria();
+        criteria.andDeletedEqualTo(false);
+        List<Role> roleList = roleMapper.selectByExample(example);
+        logger.info("roleList:{}",JSONObject.toJSONString(roleList));
+        return roleList;
+    }
 }

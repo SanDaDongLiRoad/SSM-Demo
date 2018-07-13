@@ -4,6 +4,8 @@ import com.xulizhi.demo.domain.Role;
 import com.xulizhi.demo.dto.RoleDTO;
 import com.xulizhi.demo.utils.DataGridResult;
 
+import java.util.List;
+
 public interface RoleService {
 
     /**
@@ -43,4 +45,11 @@ public interface RoleService {
      * @throws Exception
      */
     void updateRole(RoleDTO roleDTO) throws Exception;
+
+    /**
+     * 查询角色信息列表
+     * @return
+     * @throws Exception
+     */
+    List<Role> queryRoleList() throws Exception;
 }

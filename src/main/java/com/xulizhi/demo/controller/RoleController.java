@@ -13,6 +13,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 @RequestMapping("role")
 public class RoleController {
@@ -143,5 +146,23 @@ public class RoleController {
         }
         logger.info("tReturnInfo:{}",tReturnInfo);
         return JSONObject.toJSONString(tReturnInfo);
+    }
+
+    /**
+     * 查询角色列表
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value="queryRoleList",method= RequestMethod.GET)
+    public List<Role> queryRoleList(){
+
+        List<Role> roleList = new ArrayList<Role>();
+        try{
+            roleList = roleService.queryRoleList();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        logger.info("roleList:{}", JSONObject.toJSONString(roleList));
+        return roleList;
     }
 }
