@@ -14,7 +14,7 @@
                     <div class="panel-body">
                         <form id="add-role-form" class="form-horizontal" role="form" method="post">
                             <div class="form-group">
-                                <label for="roleName" class="col-sm-2 control-label">权限</label>
+                                <label for="roleName" class="col-sm-2 control-label">权&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;限</label>
                                 <div class="col-sm-10">
                                     <div id="treeview-checkable"></div>
                                 </div>
@@ -26,7 +26,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="remark" class="col-sm-2 control-label">备&nbsp;&nbsp;&nbsp;&nbsp;注</label>
+                                <label for="remark" class="col-sm-2 control-label">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注</label>
                                 <div class="col-sm-10">
                                     <input type="text" id="remark" name="remark" class="form-control" placeholder="备注"/>
                                 </div>
