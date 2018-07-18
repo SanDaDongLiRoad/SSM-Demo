@@ -32,21 +32,36 @@
                 <div class="panel panel-default" style="border: 1px solid #35b558;">
                     <div class="panel-heading">
                         <div class="row">
-                            <h3 class="col-md-5">用户管理</h3>
-                            <form id="query-user-form" class="bs-example bs-example-form col-md-5" role="form" style="margin: 10px 0 10px 0;" action="${basePath}/user/queryUserListByPageNo" method="get">
-                                <input id="pageNo" name="pageNo" type="hidden" value="1"/>
-                                <div class="input-group">
-                                    <input id="userName" name="userName" type="text" class="form-control" placeholder="请输入姓名" value="${userName}">
-                                    <span id="serach-user" class="input-group-addon btn">搜索</span>
-                                </div>
-                            </form>
-                            <!-- 按钮触发模态框 -->
-                            <button id="user-add-modal-btn" class="btn btn-default col-md-2" data-toggle="modal" data-target="#user-add" style="margin-top: 10px">
-                                添加用户信息
-                                <sapn class="glyphicon glyphicon-plus"/>
-                            </button>
+                            <div class="col-md-4">
+                                <h3>用户管理</h3>
+                            </div>
+                            <div class="col-md-4">
+                                <form id="query-user-form" class="bs-example bs-example-form" role="form" style="margin: 10px 0 10px 0;" action="${basePath}/user/queryUserListByPageNo" method="get">
+                                    <input id="pageNo" name="pageNo" type="hidden" value="1"/>
+                                    <div class="input-group">
+                                        <input id="userName" name="userName" type="text" class="form-control" placeholder="请输入姓名" value="${userName}">
+                                        <span id="serach-user" class="input-group-addon btn">搜索</span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-2">
+                                <!-- 按钮触发模态框 -->
+                                <button id="user-add-modal-btn" class="btn btn-default" data-toggle="modal" data-target="#user-add" style="margin-top: 10px">
+                                    添加用户信息
+                                    <sapn class="glyphicon glyphicon-plus"/>
+                                </button>
+                            </div>
                             <!-- 添加用户信息弹出框 -->
                             <jsp:include page="/WEB-INF/jsp/user/user-add.jsp"/>
+                            <!-- 按钮触发模态框 -->
+                            <div class="col-md-2">
+                                <button id="user-batch-add-modal-btn" class="btn btn-default" data-toggle="modal" data-target="#user-batch-add" style="margin-top: 10px">
+                                    批量添加用户
+                                    <sapn class="glyphicon glyphicon-plus"/>
+                                </button>
+                            </div>
+                            <!-- 批量新增用户弹出框 -->
+                            <jsp:include page="/WEB-INF/jsp/user/user-batch-add.jsp"/>
                         </div>
                     </div>
                     <table class="table table-bordered table-condensed">
