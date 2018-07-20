@@ -10,6 +10,7 @@ import com.xulizhi.demo.mapper.UserMapper;
 import com.xulizhi.demo.service.UserService;
 import com.xulizhi.demo.utils.DTOConverUtils;
 import com.xulizhi.demo.utils.DataGridResult;
+import com.xulizhi.demo.utils.ExcelUtil;
 import com.xulizhi.demo.utils.UUIDUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -17,6 +18,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.util.List;
 import java.util.Objects;
 
@@ -95,5 +97,15 @@ public class UserServiceImpl implements UserService {
         editUser.setModifyId("2d707b974930489b94c5a4cc1af5e1d3");
         editUser.setModifyName("xulizhi");
         userMapper.updateByPrimaryKey(editUser);
+    }
+
+    @Override
+    public void uploadUserListFile(File userListFile) throws Exception {
+        List<String[]> userlist = ExcelUtil.getExcelDataOne(userListFile);
+        for(int i=0;i<userlist.size();i++) {
+            String[] userArr = userlist.get(i);
+            User user = new User();
+            user.setId(UUIDUtils.uuid());
+        }
     }
 }

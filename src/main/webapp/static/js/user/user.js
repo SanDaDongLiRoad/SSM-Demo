@@ -19,6 +19,9 @@ User = {
 
         //查询角色列表
         $("#user-add-modal-btn").on("click", User.doQueryRoleList);
+
+        //查询角色列表
+        $("#batch-add-user-btn").on("click", User.doUploadUserListFile);
     },
 
     //初始化编辑客户表单数据
@@ -183,6 +186,26 @@ User = {
                     optionElement+="<option value=\'"+role.id+"\'>"+role.name+"</option>";
                 }
                 selectElement.append(optionElement);
+            }
+        });
+    },
+
+    //批量添加用户
+    doUploadUserListFile : function() {
+        var formData = new FormData($("#batch-add-user-form")[0]);
+        $.ajax({
+            url: getLocalhostPath()+"/user/uploadUserListFile",
+            type: 'POST',
+            data: formData,
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (returndata) {
+                alert(returndata);
+            },
+            error: function (returndata) {
+                alert(returndata);
             }
         });
     }

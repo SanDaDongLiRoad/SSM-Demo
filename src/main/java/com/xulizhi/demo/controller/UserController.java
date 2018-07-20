@@ -6,12 +6,17 @@ import com.xulizhi.demo.dto.UserDTO;
 import com.xulizhi.demo.service.UserService;
 import com.xulizhi.demo.utils.DataGridResult;
 import com.xulizhi.demo.utils.ReturnInfo;
+import org.apache.commons.fileupload.disk.DiskFileItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.io.File;
 
 
 @Controller
@@ -142,6 +147,24 @@ public class UserController {
             returnInfo.setFlag("false");
             returnInfo.setMes("修改失败!");
             returnInfo.setCode("2001");
+        }
+        return returnInfo;
+    }
+
+    /**
+     * 批量上传新增用户Eexcel
+     */
+    @RequestMapping(value = "/uploadUserListFile", method = RequestMethod.POST)
+    @ResponseBody
+    public ReturnInfo uploadUserListFile(@RequestParam("userListFile") MultipartFile userListFile) {
+        ReturnInfo returnInfo = new ReturnInfo();
+        CommonsMultipartFile commonsMultipartFile= (CommonsMultipartFile)userListFile;
+        DiskFileItem diskFileItem = (DiskFileItem)commonsMultipartFile.getFileItem();
+        File usersFile = diskFileItem.getStoreLocation();
+        try {
+            userService.uploadUserListFile(usersFile);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return returnInfo;
     }

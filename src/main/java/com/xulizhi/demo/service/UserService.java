@@ -4,6 +4,8 @@ import com.xulizhi.demo.domain.User;
 import com.xulizhi.demo.dto.UserDTO;
 import com.xulizhi.demo.utils.DataGridResult;
 
+import java.io.File;
+
 public interface UserService {
 
     /**
@@ -42,4 +44,11 @@ public interface UserService {
      * @throws Exception
      */
     void updateUser(UserDTO userDTO) throws Exception;
+
+    /**
+     * 批量上传新增用户Eexcel
+     * @param userListFile
+     * @throws Exception
+     */
+    void uploadUserListFile(File userListFile)throws Exception;
 }
