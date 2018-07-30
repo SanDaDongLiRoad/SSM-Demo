@@ -180,11 +180,11 @@ public class MenuController {
             for(int i=0;i<menuDTOList.size();i++){
                 TreeBuilder.Node node = new TreeBuilder.Node();
                 node.setId(menuDTOList.get(i).getId());
-                node.setPid(menuDTOList.get(i).getParentId());
-                node.setName(menuDTOList.get(i).getName());
+                node.setParentId(menuDTOList.get(i).getParentId());
+                node.setText(menuDTOList.get(i).getName());
                 nodeList.add(node);
             }
-            List<TreeBuilder.Node> nodes = new TreeBuilder(nodeList).buildTree();
+            List<TreeBuilder.Node> nodes = new TreeBuilder().buildTree(nodeList);
             returnInfo.setData(JSONObject.toJSONString(nodes));
             returnInfo.setMes("查询成功!");
         }catch(Exception e){

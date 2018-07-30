@@ -2,6 +2,7 @@ package com.xulizhi.demo.utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * 构造目录JSON树
@@ -9,65 +10,15 @@ import java.util.List;
  */
 public class TreeBuilder {
 
-    List<Node> nodes = new ArrayList<Node>();
-
-    public TreeBuilder(List<Node> nodes) {
-        this.nodes = nodes;
-    }
-
-    /**
-     * 构建树形结构
-     * @return
-     */
-    public List<Node> buildTree() {
-        List<Node> treeNodes = new ArrayList<>();
-        List<Node> rootNodes = getRootNodes();//获取集合中所有的根节点
-        for (Node rootNode : rootNodes) {
-            // 递归子节点
-            buildChildNodes(rootNode);
-            treeNodes.add(rootNode);
-        }
-        return treeNodes;
-    }
-
-    /**
-     * 递归子节点
-     * @param node
-     */
-    public void buildChildNodes(Node node) {
-        List<Node> children = getChildNodes(node);// 获取父节点下所有的子节点
-        if (!children.isEmpty()) {
-            for (Node child : children) {
-                buildChildNodes(child);
-            }
-            node.setChildren(children);
-        }
-    }
-
-    /**
-     * 获取父节点下所有的子节点
-     * @param pnode
-     * @return
-     */
-    public List<Node> getChildNodes(Node pnode) {
-        List<Node> childNodes = new ArrayList<>();
-        for (Node n : nodes) {
-            if (pnode.getId().equals(n.getPid())) {
-                childNodes.add(n);
-            }
-        }
-        return childNodes;
-    }
-
     /**
      * 判断是否为根节点
      * @param node
      * @return
      */
-    public boolean rootNode(Node node) {
+    public boolean rootNode(Node node,List<Node> nodeList) {
         boolean isRootNode = true;
-        for (Node n : nodes) {
-            if (node.getPid().equals(n.getId())) {
+        for (Node n : nodeList) {
+            if (Objects.equals(node.getParentId(),n.getId())) {
                 isRootNode = false;
                 break;
             }
@@ -77,35 +28,76 @@ public class TreeBuilder {
 
     /**
      * 获取集合中所有的根节点
+     * @param nodeList
      * @return
      */
-    public List<Node> getRootNodes() {
+    public List<Node> getRootNodes(List<Node> nodeList) {
         List<Node> rootNodes = new ArrayList<>();
-        for (Node n : nodes) {
+        for (Node n : nodeList) {
             // 判断是否为根节点
-            if (rootNode(n)) {
+            if (rootNode(n,nodeList)) {
                 rootNodes.add(n);
             }
         }
         return rootNodes;
     }
 
+    /**
+     * 获取父节点下所有的子节点
+     * @param node
+     * @param nodeList
+     * @return
+     */
+    public List<Node> getChildNodes(Node node,List<Node> nodeList) {
+        List<Node> childNodes = new ArrayList<>();
+        for (Node n : nodeList) {
+            if (Objects.equals(node.getId(),n.getParentId())) {
+                childNodes.add(n);
+            }
+        }
+        return childNodes;
+    }
+
+    /**
+     * 递归子节点
+     * @param node
+     * @param nodeList
+     */
+    public void buildChildNodes(Node node,List<Node> nodeList) {
+        List<Node> children = getChildNodes(node,nodeList);// 获取父节点下所有的子节点
+        if (!children.isEmpty()) {
+            for (Node child : children) {
+                buildChildNodes(child,nodeList);
+            }
+            node.setNodes(children);
+        }
+    }
+
+    /**
+     * 构建树形结构
+     * @param nodeList 所有节点集合
+     * @return
+     */
+    public List<Node> buildTree(List<Node> nodeList) {
+        List<Node> treeNodes = new ArrayList<>();
+        List<Node> rootNodes = getRootNodes(nodeList);//获取集合中所有的根节点
+        for (Node rootNode : rootNodes) {
+            // 递归子节点
+            buildChildNodes(rootNode,nodeList);
+            treeNodes.add(rootNode);
+        }
+        return treeNodes;
+    }
+
+    /**
+     * 树节点类
+     */
     public static class Node {
 
         private String id;
-        private String pid;
-        private String name;
-        private List<Node> children;
-
-        public Node() {
-        }
-
-        public Node(String id, String pid, String name) {
-            super();
-            this.id = id;
-            this.pid = pid;
-            this.name = name;
-        }
+        private String parentId;
+        private String text;
+        private List<Node> nodes;
 
         public String getId() {
             return id;
@@ -115,29 +107,28 @@ public class TreeBuilder {
             this.id = id;
         }
 
-        public String getPid() {
-            return pid;
+        public String getParentId() {
+            return parentId;
         }
 
-        public void setPid(String pid) {
-            this.pid = pid;
+        public void setParentId(String parentId) {
+            this.parentId = parentId;
         }
 
-        public String getName() {
-            return name;
+        public String getText() {
+            return text;
         }
 
-        public void setName(String name) {
-            this.name = name;
+        public void setText(String text) {
+            this.text = text;
         }
 
-
-        public List<Node> getChildren() {
-            return children;
+        public List<Node> getNodes() {
+            return nodes;
         }
 
-        public void setChildren(List<Node> children) {
-            this.children = children;
+        public void setNodes(List<Node> nodes) {
+            this.nodes = nodes;
         }
     }
 }
