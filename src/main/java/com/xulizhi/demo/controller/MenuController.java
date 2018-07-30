@@ -6,6 +6,7 @@ import com.xulizhi.demo.dto.MenuDTO;
 import com.xulizhi.demo.service.MenuService;
 import com.xulizhi.demo.utils.DataGridResult;
 import com.xulizhi.demo.utils.ReturnInfo;
+import com.xulizhi.demo.utils.TreeBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.ArrayList;
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("menu")
 public class MenuController {
 
@@ -167,5 +168,33 @@ public class MenuController {
         }
         return returnInfo;
     }
+
+    @RequestMapping(value="queryMenuTreeList",method=RequestMethod.GET)
+    public ReturnInfo queryMenuTreeList(){
+
+        ReturnInfo returnInfo = new ReturnInfo();
+        try{
+            MenuDTO menuDTO = new MenuDTO();
+            List<TreeBuilder.Node> nodeList = new ArrayList<TreeBuilder.Node>();
+            List<MenuDTO> menuDTOList = menuService.queryMenuListByCondition(menuDTO);
+            for(int i=0;i<menuDTOList.size();i++){
+                TreeBuilder.Node node = new TreeBuilder.Node();
+                node.setId(menuDTOList.get(i).getId());
+                node.setPid(menuDTOList.get(i).getParentId());
+                node.setName(menuDTOList.get(i).getName());
+                nodeList.add(node);
+            }
+            List<TreeBuilder.Node> nodes = new TreeBuilder(nodeList).buildTree();
+            returnInfo.setData(JSONObject.toJSONString(nodes));
+            returnInfo.setMes("查询成功!");
+        }catch(Exception e){
+            e.printStackTrace();
+            returnInfo.setFlag("false");
+            returnInfo.setMes("查询失败!");
+            returnInfo.setCode("2001");
+        }
+        return returnInfo;
+    }
+
 
 }

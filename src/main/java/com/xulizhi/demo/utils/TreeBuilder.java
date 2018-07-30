@@ -1,7 +1,5 @@
 package com.xulizhi.demo.utils;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,20 +9,10 @@ import java.util.List;
  */
 public class TreeBuilder {
 
-    List<Node> nodes = new ArrayList<>();
+    List<Node> nodes = new ArrayList<Node>();
 
     public TreeBuilder(List<Node> nodes) {
         this.nodes = nodes;
-    }
-
-    /**
-     * 构建JSON树形结构
-     * @return
-     */
-    public String buildJSONTree() {
-        List<Node> nodeTree = buildTree();// 构建树形结构
-        JSONArray jsonArray = JSONArray.parseArray(JSONObject.toJSONString(nodeTree));
-        return jsonArray.toString();
     }
 
     /**
