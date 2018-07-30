@@ -6,7 +6,6 @@ import com.xulizhi.demo.dto.MenuDTO;
 import com.xulizhi.demo.service.MenuService;
 import com.xulizhi.demo.utils.DataGridResult;
 import com.xulizhi.demo.utils.ReturnInfo;
-import com.xulizhi.demo.utils.TreeBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("menu")
 public class MenuController {
 
@@ -169,23 +168,21 @@ public class MenuController {
         return returnInfo;
     }
 
-    @RequestMapping(value="queryMenuTreeList",method=RequestMethod.GET)
-    public ReturnInfo queryMenuTreeList(){
+    /**
+     * 查询菜单树结构JSON串
+     * @param menuDTO
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value="queryMenuTreeList",method=RequestMethod.POST)
+    public ReturnInfo queryMenuTreeList(@RequestBody MenuDTO menuDTO){
+
+        logger.info("menuDTO:{}",JSONObject.toJSONString(menuDTO));
 
         ReturnInfo returnInfo = new ReturnInfo();
         try{
-            MenuDTO menuDTO = new MenuDTO();
-            List<TreeBuilder.Node> nodeList = new ArrayList<TreeBuilder.Node>();
-            List<MenuDTO> menuDTOList = menuService.queryMenuListByCondition(menuDTO);
-            for(int i=0;i<menuDTOList.size();i++){
-                TreeBuilder.Node node = new TreeBuilder.Node();
-                node.setId(menuDTOList.get(i).getId());
-                node.setParentId(menuDTOList.get(i).getParentId());
-                node.setText(menuDTOList.get(i).getName());
-                nodeList.add(node);
-            }
-            List<TreeBuilder.Node> nodes = new TreeBuilder().buildTree(nodeList);
-            returnInfo.setData(JSONObject.toJSONString(nodes));
+            String menuTreeJsonStr = menuService.queryMenuTreeList(menuDTO);
+            returnInfo.setData(menuTreeJsonStr);
             returnInfo.setMes("查询成功!");
         }catch(Exception e){
             e.printStackTrace();
@@ -195,6 +192,5 @@ public class MenuController {
         }
         return returnInfo;
     }
-
 
 }

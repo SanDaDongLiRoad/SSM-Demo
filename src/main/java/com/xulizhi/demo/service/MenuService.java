@@ -51,4 +51,12 @@ public interface MenuService {
      * @throws Exception
      */
     void updateMenu(MenuDTO menuDTO) throws Exception;
+
+    /**
+     * 查询菜单树结构JSON串
+     * @param menuDTO
+     * @return
+     * @throws Exception
+     */
+    String queryMenuTreeList(MenuDTO menuDTO) throws Exception;
 }

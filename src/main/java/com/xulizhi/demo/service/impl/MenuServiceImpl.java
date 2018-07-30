@@ -10,6 +10,7 @@ import com.xulizhi.demo.mapper.MenuMapper;
 import com.xulizhi.demo.service.MenuService;
 import com.xulizhi.demo.utils.DTOConverUtils;
 import com.xulizhi.demo.utils.DataGridResult;
+import com.xulizhi.demo.utils.TreeBuilder;
 import com.xulizhi.demo.utils.UUIDUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -120,5 +121,22 @@ public class MenuServiceImpl implements MenuService {
         editMenu.setModifyId("2d707b974930489b94c5a4cc1af5e1d3");
         editMenu.setModifyName("xulizhi");
         menuMapper.updateByPrimaryKey(editMenu);
+    }
+
+    @Override
+    public String queryMenuTreeList(MenuDTO menuDTO) throws Exception {
+        logger.info("menuDTO{}",menuDTO);
+        List<TreeBuilder.Node> nodeList = new ArrayList<TreeBuilder.Node>();
+        List<MenuDTO> menuDTOList = queryMenuListByCondition(menuDTO);
+        for(int i=0;i<menuDTOList.size();i++){
+            TreeBuilder.Node node = new TreeBuilder.Node();
+            node.setId(menuDTOList.get(i).getId());
+            node.setParentId(menuDTOList.get(i).getParentId());
+            node.setText(menuDTOList.get(i).getName());
+            nodeList.add(node);
+        }
+        List<TreeBuilder.Node> nodes = new TreeBuilder().buildTree(nodeList);
+        logger.info("nodes{}",nodes);
+        return JSONObject.toJSONString(nodes);
     }
 }
