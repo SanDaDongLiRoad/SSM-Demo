@@ -169,4 +169,41 @@ public class DTOConverUtils {
         }
         return role;
     }
+
+    public static RoleDTO roleConverDTO(Role role){
+
+        RoleDTO roleDTO = new RoleDTO();
+
+        if(StringUtils.isNotEmpty(role.getId())){
+            roleDTO.setId(role.getId());
+        }
+        if(StringUtils.isNotEmpty(role.getName())){
+            roleDTO.setName(role.getName());
+        }
+        if(StringUtils.isNotEmpty(role.getRemark())){
+            roleDTO.setRemark(role.getRemark());
+        }
+        if(Objects.equals(role.getDeleted(),null)){
+            roleDTO.setDeleted(role.getDeleted());
+        }
+        if(StringUtils.isNotEmpty(role.getCreaterId())){
+            roleDTO.setCreateId(role.getCreaterId());
+        }
+        if(StringUtils.isNotEmpty(role.getCreateName())){
+            roleDTO.setCreateName(role.getCreateName());
+        }
+        if(!Objects.equals(null,role.getCreateDate())){
+            roleDTO.setCreateDate(role.getCreateDate());
+        }
+        if(StringUtils.isNotEmpty(role.getModifyId())){
+            roleDTO.setModifyId(role.getModifyId());
+        }
+        if(StringUtils.isNotEmpty(role.getModifyName())){
+            roleDTO.setModifyName(role.getModifyName());
+        }
+        if(!Objects.equals(null,role.getModifyDate())){
+            roleDTO.setModifyDate(role.getModifyDate());
+        }
+        return roleDTO;
+    }
 }
