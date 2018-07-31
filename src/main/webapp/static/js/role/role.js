@@ -48,7 +48,15 @@ Role = {
 
     //保存角色
     doSaveRole : function(){
+        var nodes = $('#add-role-form #treeview-checkable').treeview('getChecked');
+        var menuIdList=new Array();
+        if(nodes!=undefined){
+            for(var i=0;i<nodes.length;i++){
+                menuIdList[i] = nodes[i].id;
+            }
+        }
         var params = {
+            'menuIdList':menuIdList,
             'name': $("#add-role-form #roleName").val(),
             'remark' : $("#add-role-form #remark").val()
         };

@@ -3,6 +3,7 @@ package com.xulizhi.demo.dto;
 import com.xulizhi.demo.common.BaseDTO;
 
 import java.util.Date;
+import java.util.List;
 
 public class RoleDTO extends BaseDTO {
 
@@ -25,6 +26,8 @@ public class RoleDTO extends BaseDTO {
     private String modifyName;
 
     private Date modifyDate;
+
+    private List<String> menuIdList;//菜单ID集合
 
     public String getId() {
         return id;
@@ -104,5 +107,13 @@ public class RoleDTO extends BaseDTO {
 
     public void setModifyDate(Date modifyDate) {
         this.modifyDate = modifyDate;
+    }
+
+    public List<String> getMenuIdList() {
+        return menuIdList;
+    }
+
+    public void setMenuIdList(List<String> menuIdList) {
+        this.menuIdList = menuIdList;
     }
 }

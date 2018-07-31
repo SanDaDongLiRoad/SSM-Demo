@@ -5,8 +5,10 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.xulizhi.demo.domain.Role;
 import com.xulizhi.demo.domain.RoleExample;
+import com.xulizhi.demo.domain.RoleMenu;
 import com.xulizhi.demo.dto.RoleDTO;
 import com.xulizhi.demo.mapper.RoleMapper;
+import com.xulizhi.demo.service.RoleMenuService;
 import com.xulizhi.demo.service.RoleService;
 import com.xulizhi.demo.utils.DTOConverUtils;
 import com.xulizhi.demo.utils.DataGridResult;
@@ -27,6 +29,9 @@ public class RoleServiceImpl implements RoleService {
 
     @Autowired
     private RoleMapper roleMapper;
+
+    @Autowired
+    private RoleMenuService roleMenuService;
 
     @Override
     public DataGridResult queryRoleListByCondition(RoleDTO roleDTO) throws Exception {
@@ -74,7 +79,16 @@ public class RoleServiceImpl implements RoleService {
         logger.info("roleDTO:{}",JSONObject.toJSONString(roleDTO));
         Role role = DTOConverUtils.DTOConverRole(roleDTO);
         role.setId(UUIDUtils.uuid());
+        //保存角色
         roleMapper.insertSelective(role);
+        //保存角色权限关系
+        for(int i=0;i<roleDTO.getMenuIdList().size();i++){
+            RoleMenu roleMenu = new RoleMenu();
+            roleMenu.setId(UUIDUtils.uuid());
+            roleMenu.setRoleId(role.getId());
+            roleMenu.setMenuId(roleDTO.getMenuIdList().get(i));
+            roleMenuService.saveRoleMenuRelation(roleMenu);
+        }
     }
 
     @Override
