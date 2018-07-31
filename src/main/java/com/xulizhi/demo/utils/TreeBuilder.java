@@ -1,10 +1,6 @@
 package com.xulizhi.demo.utils;
 
-import com.xulizhi.demo.constants.EBootStrapTreeViewNodeState;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * 构造目录JSON树
@@ -99,7 +95,7 @@ public class TreeBuilder {
         private String id;
         private String parentId;
         private String text;
-        private String state = EBootStrapTreeViewNodeState.UnChecked.getValue();//默认未勾选状态
+        private Map<String, Object> state;
         private List<Node> nodes;
 
         public String getId() {
@@ -126,11 +122,11 @@ public class TreeBuilder {
             this.text = text;
         }
 
-        public String getState() {
+        public Map<String, Object> getState() {
             return state;
         }
 
-        public void setState(String state) {
+        public void setState(Map<String, Object> state) {
             this.state = state;
         }
 

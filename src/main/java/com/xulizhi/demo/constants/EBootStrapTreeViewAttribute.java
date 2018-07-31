@@ -1,13 +1,13 @@
 package com.xulizhi.demo.constants;
 
-public enum EBootStrapTreeViewNodeState {
+public enum EBootStrapTreeViewAttribute {
 
     Checked("已勾选", "{checked:true}"),UnChecked("未勾选", "{checked:false}");
 
     private String name;
     private String value;
 
-    EBootStrapTreeViewNodeState(String name, String value) {
+    EBootStrapTreeViewAttribute(String name, String value) {
         this.name = name;
         this.value = value;
     }

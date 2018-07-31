@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -36,5 +37,20 @@ public class RoleMenuServiceImpl implements RoleMenuService {
         RoleMenuExample.Criteria criteria = example.createCriteria();
         criteria.andRoleIdEqualTo(roleId);
         roleMenuMapper.deleteByExample(example);
+    }
+
+    @Override
+    public List<String> queryMenuIdsByRoleId(String roleId) throws Exception {
+        logger.info("roleId:{}",roleId );
+        RoleMenuExample example = new RoleMenuExample();
+        RoleMenuExample.Criteria criteria = example.createCriteria();
+        criteria.andRoleIdEqualTo(roleId);
+        List<RoleMenu> roleMenuList = roleMenuMapper.selectByExample(example);
+        List<String> menuIds = new ArrayList<String>();
+        for(int i=0;i<roleMenuList.size();i++){
+            menuIds.add(roleMenuList.get(i).getMenuId());
+        }
+
+        return menuIds;
     }
 }

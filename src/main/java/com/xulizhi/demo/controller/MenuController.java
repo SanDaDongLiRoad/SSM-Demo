@@ -3,6 +3,7 @@ package com.xulizhi.demo.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.xulizhi.demo.domain.Menu;
 import com.xulizhi.demo.dto.MenuDTO;
+import com.xulizhi.demo.dto.RoleMenuDTO;
 import com.xulizhi.demo.service.MenuService;
 import com.xulizhi.demo.utils.DataGridResult;
 import com.xulizhi.demo.utils.ReturnInfo;
@@ -170,18 +171,18 @@ public class MenuController {
 
     /**
      * 查询菜单树结构JSON串
-     * @param menuDTO
+     * @param roleMenuDTO
      * @return
      */
     @ResponseBody
     @RequestMapping(value="queryMenuTreeList",method=RequestMethod.POST)
-    public ReturnInfo queryMenuTreeList(@RequestBody MenuDTO menuDTO){
+    public ReturnInfo queryMenuTreeList(@RequestBody RoleMenuDTO roleMenuDTO){
 
-        logger.info("menuDTO:{}",JSONObject.toJSONString(menuDTO));
+        logger.info("menuDTO:{}",JSONObject.toJSONString(roleMenuDTO));
 
         ReturnInfo returnInfo = new ReturnInfo();
         try{
-            String menuTreeJsonStr = menuService.queryMenuTreeList(menuDTO);
+            String menuTreeJsonStr = menuService.queryMenuTreeList(roleMenuDTO);
             returnInfo.setData(menuTreeJsonStr);
             returnInfo.setMes("查询成功!");
         }catch(Exception e){

@@ -43,7 +43,7 @@
                                 </div>
                             </form>
                             <!-- 按钮触发模态框 -->
-                            <button class="btn btn-default col-md-2" data-toggle="modal" data-target="#role-add" style="margin-top: 10px" onclick="Role.doInitMenuTreeList('add');">
+                            <button class="btn btn-default col-md-2" data-toggle="modal" data-target="#role-add" style="margin-top: 10px" onclick="Role.doInitMenuTreeList('add','');">
                                 添加角色
                                 <sapn class="glyphicon glyphicon-plus"/>
                             </button>

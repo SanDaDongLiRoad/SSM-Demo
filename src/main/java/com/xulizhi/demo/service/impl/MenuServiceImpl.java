@@ -1,13 +1,18 @@
 package com.xulizhi.demo.service.impl;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.xulizhi.demo.constants.EBootStrapTreeViewAttribute;
 import com.xulizhi.demo.domain.Menu;
 import com.xulizhi.demo.domain.MenuExample;
 import com.xulizhi.demo.dto.MenuDTO;
+import com.xulizhi.demo.dto.RoleMenuDTO;
 import com.xulizhi.demo.mapper.MenuMapper;
 import com.xulizhi.demo.service.MenuService;
+import com.xulizhi.demo.service.RoleMenuService;
 import com.xulizhi.demo.utils.DTOConverUtils;
 import com.xulizhi.demo.utils.DataGridResult;
 import com.xulizhi.demo.utils.TreeBuilder;
@@ -18,9 +23,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Service
 public class MenuServiceImpl implements MenuService {
@@ -29,6 +32,9 @@ public class MenuServiceImpl implements MenuService {
 
     @Autowired
     private MenuMapper menuMapper;
+
+    @Autowired
+    private RoleMenuService roleMenuService;
 
     @Override
     public List<MenuDTO> queryMenuListByCondition(MenuDTO menuDTO) throws Exception{
@@ -124,19 +130,29 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
-    public String queryMenuTreeList(MenuDTO menuDTO) throws Exception {
-        logger.info("menuDTO{}",menuDTO);
+    public String queryMenuTreeList(RoleMenuDTO roleMenuDTO) throws Exception {
+        logger.info("roleMenuDTO{}",roleMenuDTO);
         List<TreeBuilder.Node> nodeList = new ArrayList<TreeBuilder.Node>();
+        MenuDTO menuDTO = new MenuDTO();
         List<MenuDTO> menuDTOList = queryMenuListByCondition(menuDTO);
+        List<String> menuIds = new ArrayList<String>();
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("checked", true);
+        if(StringUtils.isNotEmpty(roleMenuDTO.getRoleId())){
+            menuIds = roleMenuService.queryMenuIdsByRoleId(roleMenuDTO.getRoleId());
+        }
         for(int i=0;i<menuDTOList.size();i++){
             TreeBuilder.Node node = new TreeBuilder.Node();
             node.setId(menuDTOList.get(i).getId());
             node.setParentId(menuDTOList.get(i).getParentId());
             node.setText(menuDTOList.get(i).getName());
+            if(menuIds.contains(node.getId())){
+                node.setState(map);
+            }
             nodeList.add(node);
         }
         List<TreeBuilder.Node> nodes = new TreeBuilder().buildTree(nodeList);
-        logger.info("nodes{}",nodes);
-        return JSONObject.toJSONString(nodes);
+        logger.info("nodes{}", JSONObject.toJSONString(nodes, SerializerFeature.DisableCircularReferenceDetect));
+        return JSONObject.toJSONString(nodes, SerializerFeature.DisableCircularReferenceDetect);
     }
 }

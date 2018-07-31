@@ -20,7 +20,7 @@ Role = {
 
     //初始化编辑角色表单数据
     doInitEditRoleForm : function(id){
-        Role.doInitMenuTreeList('edit');
+        Role.doInitMenuTreeList('edit',id);
         $.ajax({
             url : getLocalhostPath()+"/role/queryRoleById?id="+id,
             type : "GET",
@@ -175,8 +175,10 @@ Role = {
     },
 
     //初始化树菜单列表
-    doInitMenuTreeList : function (type) {
-        var params = {};
+    doInitMenuTreeList : function (type,id) {
+        var params = {
+            'roleId': id,
+        };
         $.ajax({
             url : getLocalhostPath()+"/menu/queryMenuTreeList",
             type : "POST",
@@ -184,6 +186,7 @@ Role = {
             contentType : "application/json",
             dataType : "json",
             success : function (data) {
+                console.log(data.data);
                 initTreeList(data.data,$('#'+type+'-role-form #treeview-checkable'));
             }
         });

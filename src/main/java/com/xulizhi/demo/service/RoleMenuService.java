@@ -19,4 +19,12 @@ public interface RoleMenuService {
      * @throws Exception
      */
     void deleteRoleMenuRelation(String roleId) throws Exception;
+
+    /**
+     * 根据角色Id查询菜单ID集合
+     * @param roleId
+     * @return
+     * @throws Exception
+     */
+    List<String> queryMenuIdsByRoleId(String roleId) throws Exception;
 }

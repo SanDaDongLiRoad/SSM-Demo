@@ -3,7 +3,9 @@ package com.xulizhi.demo.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.xulizhi.demo.domain.Role;
 import com.xulizhi.demo.dto.RoleDTO;
+import com.xulizhi.demo.service.RoleMenuService;
 import com.xulizhi.demo.service.RoleService;
+import com.xulizhi.demo.utils.DTOConverUtils;
 import com.xulizhi.demo.utils.DataGridResult;
 import com.xulizhi.demo.utils.ReturnInfo;
 import org.slf4j.Logger;
@@ -24,6 +26,9 @@ public class RoleController {
 
     @Autowired
     private RoleService roleService;
+
+    @Autowired
+    private RoleMenuService roleMenuService;
 
     /**
      * 分页查询角色列表
@@ -137,7 +142,10 @@ public class RoleController {
 
         try{
             Role role = roleService.queryRoleById(id);
-            tReturnInfo.setData(JSONObject.toJSONString(role));
+            RoleDTO roleDTO = DTOConverUtils.roleConverDTO(role);
+            List<String> menuIds = roleMenuService.queryMenuIdsByRoleId(id);
+            roleDTO.setMenuIdList(menuIds);
+            tReturnInfo.setData(JSONObject.toJSONString(roleDTO));
             tReturnInfo.setMes("deal ok");
         }catch(Exception e){
             e.printStackTrace();

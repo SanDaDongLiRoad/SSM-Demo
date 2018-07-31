@@ -2,7 +2,9 @@ package com.xulizhi.demo.service;
 
 import com.xulizhi.demo.domain.Menu;
 import com.xulizhi.demo.dto.MenuDTO;
+import com.xulizhi.demo.dto.RoleMenuDTO;
 import com.xulizhi.demo.utils.DataGridResult;
+import com.xulizhi.demo.utils.TreeBuilder;
 
 import java.util.List;
 
@@ -54,9 +56,9 @@ public interface MenuService {
 
     /**
      * 查询菜单树结构JSON串
-     * @param menuDTO
+     * @param roleMenuDTO
      * @return
      * @throws Exception
      */
-    String queryMenuTreeList(MenuDTO menuDTO) throws Exception;
+    String queryMenuTreeList(RoleMenuDTO roleMenuDTO) throws Exception;
 }
