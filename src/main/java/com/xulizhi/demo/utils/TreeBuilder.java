@@ -1,5 +1,7 @@
 package com.xulizhi.demo.utils;
 
+import com.xulizhi.demo.constants.EBootStrapTreeViewNodeState;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -97,7 +99,7 @@ public class TreeBuilder {
         private String id;
         private String parentId;
         private String text;
-        private String state;
+        private String state = EBootStrapTreeViewNodeState.UnChecked.getValue();//默认未勾选状态
         private List<Node> nodes;
 
         public String getId() {
