@@ -97,6 +97,7 @@ public class TreeBuilder {
         private String id;
         private String parentId;
         private String text;
+        private String state;
         private List<Node> nodes;
 
         public String getId() {
@@ -121,6 +122,14 @@ public class TreeBuilder {
 
         public void setText(String text) {
             this.text = text;
+        }
+
+        public String getState() {
+            return state;
+        }
+
+        public void setState(String state) {
+            this.state = state;
         }
 
         public List<Node> getNodes() {
