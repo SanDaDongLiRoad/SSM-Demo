@@ -94,7 +94,10 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public void deleteRoleById(String id) throws Exception {
         logger.info("id{}",id);
+        //删除角色
         roleMapper.deleteByPrimaryKey(id);
+        //删除角色权限关系
+        roleMenuService.deleteRoleMenuRelation(id);
     }
 
     @Override
