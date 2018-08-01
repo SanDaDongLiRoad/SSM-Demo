@@ -124,7 +124,9 @@ public class RoleServiceImpl implements RoleService {
             roleMenu.setRoleId(roleDTO.getId());
             roleMenuService.saveRoleMenuRelation(roleMenu);
         }
-        roleMenuService.deleteRoleMenuRelationByRoleIdAndMenuIds(roleDTO.getId(),oldMenuIds);
+        if(!oldMenuIds.isEmpty()) {
+            roleMenuService.deleteRoleMenuRelationByRoleIdAndMenuIds(roleDTO.getId(), oldMenuIds);
+        }
     }
 
     @Override
