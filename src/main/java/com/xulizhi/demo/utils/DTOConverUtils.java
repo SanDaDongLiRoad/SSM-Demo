@@ -87,6 +87,46 @@ public class DTOConverUtils {
         return user;
     }
 
+    public static UserDTO userConverDTO(User user){
+
+        UserDTO userDTO = new UserDTO();
+
+        if(StringUtils.isNotEmpty(user.getId())){
+            userDTO.setId(user.getId());
+        }
+        if(StringUtils.isNotEmpty(user.getName())){
+            userDTO.setName(user.getName());
+        }
+        if(StringUtils.isNotEmpty(user.getPassword())){
+            userDTO.setPassword(user.getPassword());
+        }
+        if(StringUtils.isNotEmpty(user.getRoleId())){
+            userDTO.setRoleId(user.getRoleId());
+        }
+        if(Objects.equals(user.getDeleted(),null)){
+            userDTO.setDeleted(user.getDeleted());
+        }
+        if(StringUtils.isNotEmpty(user.getCreaterId())){
+            userDTO.setCreateId(user.getCreaterId());
+        }
+        if(StringUtils.isNotEmpty(user.getCreateName())){
+            userDTO.setCreateName(userDTO.getCreateName());
+        }
+        if(!Objects.equals(null,user.getCreateDate())){
+            userDTO.setCreateDate(user.getCreateDate());
+        }
+        if(StringUtils.isNotEmpty(user.getModifyId())){
+            userDTO.setModifyId(user.getModifyId());
+        }
+        if(StringUtils.isNotEmpty(user.getModifyName())){
+            userDTO.setModifyName(user.getModifyName());
+        }
+        if(!Objects.equals(null,user.getModifyDate())){
+            userDTO.setModifyDate(user.getModifyDate());
+        }
+        return userDTO;
+    }
+
     public static Menu DTOConverMenu(MenuDTO menuDTO){
 
         Menu menu = new Menu();

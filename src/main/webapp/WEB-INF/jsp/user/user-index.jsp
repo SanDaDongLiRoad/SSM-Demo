@@ -46,7 +46,7 @@
                             </div>
                             <div class="col-md-2">
                                 <!-- 按钮触发模态框 -->
-                                <button id="user-add-modal-btn" class="btn btn-default" data-toggle="modal" data-target="#user-add" style="margin-top: 10px">
+                                <button id="user-add-modal-btn" class="btn btn-default" data-toggle="modal" data-target="#user-add" style="margin-top: 10px" onClick="User.doInitRoleList('add','')">
                                     添加用户信息
                                     <sapn class="glyphicon glyphicon-plus"/>
                                 </button>

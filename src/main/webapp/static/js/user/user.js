@@ -18,9 +18,6 @@ User = {
         $("#user-edit #edit-user-btn").on("click",User.doEditUser);
 
         //查询角色列表
-        $("#user-add-modal-btn").on("click", User.doQueryRoleList);
-
-        //查询角色列表
         $("#batch-add-user-btn").on("click", User.doUploadUserListFile);
     },
 
@@ -36,6 +33,7 @@ User = {
                     $("#edit-user-form #userName").val(result.name);
                     $("#edit-user-form #password").val(result.password);
                     $("#edit-user-form #id").val(result.id);
+                    User.doInitRoleList('edit',result.roleId);
                 }
             }
         });
@@ -173,17 +171,22 @@ User = {
         });
     },
     //初始化新增客户时角色列表
-    doQueryRoleList : function(){
+    doInitRoleList : function(type,roleId){
         $.ajax({
             url : getLocalhostPath()+"/role/queryRoleList",
             type : "GET",
             dataType : "json",
             success : function (data) {
-                var selectElement = $('#add-user-form #userRole');
+                var selectElement = $('#'+type+'-user-form #userRole');
+                selectElement.empty();
                 var optionElement = "";
                 for(var i=0;i<data.length;i++){
                     var role = data[i];
-                    optionElement+="<option value=\'"+role.id+"\'>"+role.name+"</option>";
+                    if(roleId != undefined && roleId!='' && roleId==role.id){
+                        optionElement+="<option value=\'"+role.id+"\' selected=\'selected\'>"+role.name+"</option>";
+                    }else{
+                        optionElement+="<option value=\'"+role.id+"\'>"+role.name+"</option>";
+                    }
                 }
                 selectElement.append(optionElement);
             }

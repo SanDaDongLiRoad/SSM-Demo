@@ -90,10 +90,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public void updateUser(UserDTO userDTO) throws Exception {
 
-        logger.info("userDTO{}",userDTO);
+        logger.info("userDTO{}",JSONObject.toJSONString(userDTO));
         User editUser = queryUserById(userDTO.getId());
         editUser.setName(userDTO.getName());
         editUser.setPassword(userDTO.getPassword());
+        editUser.setRoleId(userDTO.getRoleId());
         editUser.setModifyId("2d707b974930489b94c5a4cc1af5e1d3");
         editUser.setModifyName("xulizhi");
         userMapper.updateByPrimaryKey(editUser);

@@ -15,6 +15,14 @@
                         <form id="edit-user-form" class="form-horizontal" role="form" method="post">
                             <input type="hidden" id = "id" name="id" value="${user.id}"/>
                             <div class="form-group">
+                                <label for="userRole" class="col-sm-2 control-label">角&nbsp;&nbsp;&nbsp;&nbsp;色</label>
+                                <div class="col-sm-10">
+                                    <select id="userRole" name="userRole" class="form-control">
+                                        <option value>请选择角色</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label for="userName" class="col-sm-2 control-label">用户名</label>
                                 <div class="col-sm-10">
                                     <input type="text" id="userName" name="userName" class="form-control" placeholder="请输入用户名" value="${user.name}"/>
