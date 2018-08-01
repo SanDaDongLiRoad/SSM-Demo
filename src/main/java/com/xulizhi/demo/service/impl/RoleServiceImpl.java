@@ -19,6 +19,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -97,18 +98,33 @@ public class RoleServiceImpl implements RoleService {
         //删除角色
         roleMapper.deleteByPrimaryKey(id);
         //删除角色权限关系
-        roleMenuService.deleteRoleMenuRelation(id);
+        roleMenuService.deleteRoleMenuRelationByRoleId(id);
     }
 
     @Override
     public void updateRole(RoleDTO roleDTO) throws Exception {
-        logger.info("roleDTO{}",roleDTO);
+        logger.info("roleDTO{}",JSONObject.toJSONString(roleDTO));
         Role editRole = queryRoleById(roleDTO.getId());
         editRole.setName(roleDTO.getName());
         editRole.setRemark(roleDTO.getRemark());
         editRole.setModifyId("2d707b974930489b94c5a4cc1af5e1d3");
         editRole.setModifyName("xulizhi");
         roleMapper.updateByPrimaryKey(editRole);
+        //更新角色权限关系表
+        List<String> newMenuIds = new ArrayList<String>();
+        for(int i=0;i<roleDTO.getMenuIdList().size();i++){
+            newMenuIds.add(roleDTO.getMenuIdList().get(i));
+        }
+        List<String> oldMenuIds = roleMenuService.queryMenuIdsByRoleId(roleDTO.getId());
+        newMenuIds.removeAll(oldMenuIds);//角色新增的权限集合
+        oldMenuIds.removeAll(roleDTO.getMenuIdList());//角色删除的权限集合
+        for(int i=0;i<newMenuIds.size();i++) {
+            RoleMenu roleMenu = new RoleMenu();
+            roleMenu.setMenuId(newMenuIds.get(i));
+            roleMenu.setRoleId(roleDTO.getId());
+            roleMenuService.saveRoleMenuRelation(roleMenu);
+        }
+        roleMenuService.deleteRoleMenuRelationByRoleIdAndMenuIds(roleDTO.getId(),oldMenuIds);
     }
 
     @Override

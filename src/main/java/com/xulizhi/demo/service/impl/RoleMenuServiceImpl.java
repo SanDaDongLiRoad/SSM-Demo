@@ -31,11 +31,21 @@ public class RoleMenuServiceImpl implements RoleMenuService {
     }
 
     @Override
-    public void deleteRoleMenuRelation(String roleId) throws Exception {
+    public void deleteRoleMenuRelationByRoleId(String roleId) throws Exception {
         logger.info("roleId:{}",roleId );
         RoleMenuExample example = new RoleMenuExample();
         RoleMenuExample.Criteria criteria = example.createCriteria();
         criteria.andRoleIdEqualTo(roleId);
+        roleMenuMapper.deleteByExample(example);
+    }
+
+    @Override
+    public void deleteRoleMenuRelationByRoleIdAndMenuIds(String roleId, List<String> menuIds) throws Exception {
+        logger.info("roleId:{},menuIds:{}",roleId,JSONObject.toJSONString(menuIds));
+        RoleMenuExample example = new RoleMenuExample();
+        RoleMenuExample.Criteria criteria = example.createCriteria();
+        criteria.andRoleIdEqualTo(roleId);
+        criteria.andMenuIdIn(menuIds);
         roleMenuMapper.deleteByExample(example);
     }
 

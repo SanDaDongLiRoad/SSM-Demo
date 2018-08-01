@@ -14,11 +14,19 @@ public interface RoleMenuService {
     void saveRoleMenuRelation(RoleMenu roleMenu)throws Exception;
 
     /**
-     * 删除角色权限关系
+     * 删除角色权限关系byRoleId
      * @param roleId
      * @throws Exception
      */
-    void deleteRoleMenuRelation(String roleId) throws Exception;
+    void deleteRoleMenuRelationByRoleId(String roleId) throws Exception;
+
+    /**
+     * 删除角色权限关系byRoleIdAndMenuIds
+     * @param roleId
+     * @param menuIds
+     * @throws Exception
+     */
+    void deleteRoleMenuRelationByRoleIdAndMenuIds(String roleId,List<String> menuIds) throws Exception;
 
     /**
      * 根据角色Id查询菜单ID集合

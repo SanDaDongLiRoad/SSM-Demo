@@ -138,7 +138,15 @@ Role = {
 
     //修改角色信息
     doEditRole : function(){
+        var nodes = $('#edit-role-form #treeview-checkable').treeview('getChecked');
+        var menuIdList=new Array();
+        if(nodes!=undefined){
+            for(var i=0;i<nodes.length;i++){
+                menuIdList[i] = nodes[i].id;
+            }
+        }
         var params = {
+            'menuIdList':menuIdList,
             'id': $("#role-edit #id").val(),
             'name':$("#role-edit #roleName").val(),
             'remark':$("#role-edit #remark").val()
