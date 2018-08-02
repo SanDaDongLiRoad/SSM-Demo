@@ -171,6 +171,25 @@ public class MenuServiceImpl implements MenuService {
                 menuList.add(menu);
             }
         }
+        //对集合元素进行排序
+        Collections.sort(menuList, new Comparator<Menu>(){
+            /*
+             * int compare(Menu m1, Menu m2) 返回一个基本类型的整型，
+             * 返回负数表示：m1小于m2，
+             * 返回0 表示：m1和m2相等，
+             * 返回正数表示：p1大于p2
+             */
+            public int compare(Menu m1, Menu m2) {
+                //按照Menu的orderNo进行升序排列
+                if(m1.getOrderNo() > m2.getOrderNo()){
+                    return 1;
+                }
+                if(m1.getOrderNo() == m2.getOrderNo()){
+                    return 0;
+                }
+                return -1;
+            }
+        });
         return menuList;
     }
 }
