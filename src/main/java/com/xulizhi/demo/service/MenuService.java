@@ -61,4 +61,12 @@ public interface MenuService {
      * @throws Exception
      */
     String queryMenuTreeList(RoleMenuDTO roleMenuDTO) throws Exception;
+
+    /**
+     * 根据用户ID一级菜单
+     * @param roleId
+     * @return
+     * @throws Exception
+     */
+    List<Menu> queryTopMenuListByUserId(String roleId) throws Exception;
 }

@@ -9,13 +9,10 @@
                 <div class="container-fluid">
                     <!--加入导航条标题-->
                     <div class="navbar-header">
-                        <a href="##" class="navbar-brand">管理系统</a>
+                        <a href="##" class="navbar-brand"><b>管理系统</b></a>
                     </div>
-                    <div>
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">iOS</a></li>
-                            <li><a href="#">SVN</a></li>
-                        </ul>
+                    <div style="margin-left: 170px;">
+                        <ul id="top-menu-list" class="nav navbar-nav"></ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
                                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" style="margin: 8px;">

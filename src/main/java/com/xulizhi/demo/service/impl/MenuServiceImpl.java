@@ -6,11 +6,13 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.xulizhi.demo.domain.Menu;
 import com.xulizhi.demo.domain.MenuExample;
+import com.xulizhi.demo.domain.User;
 import com.xulizhi.demo.dto.MenuDTO;
 import com.xulizhi.demo.dto.RoleMenuDTO;
 import com.xulizhi.demo.mapper.MenuMapper;
 import com.xulizhi.demo.service.MenuService;
 import com.xulizhi.demo.service.RoleMenuService;
+import com.xulizhi.demo.service.UserService;
 import com.xulizhi.demo.utils.DTOConverUtils;
 import com.xulizhi.demo.utils.DataGridResult;
 import com.xulizhi.demo.utils.TreeBuilder;
@@ -33,6 +35,9 @@ public class MenuServiceImpl implements MenuService {
 
     @Autowired
     private RoleMenuService roleMenuService;
+
+    @Autowired
+    private UserService userService;
 
     @Override
     public List<MenuDTO> queryMenuListByCondition(MenuDTO menuDTO) throws Exception{
@@ -129,7 +134,7 @@ public class MenuServiceImpl implements MenuService {
 
     @Override
     public String queryMenuTreeList(RoleMenuDTO roleMenuDTO) throws Exception {
-        logger.info("roleMenuDTO{}",roleMenuDTO);
+        logger.info("roleMenuDTO{}",JSONObject.toJSONString(roleMenuDTO));
         List<TreeBuilder.Node> nodeList = new ArrayList<TreeBuilder.Node>();
         MenuDTO menuDTO = new MenuDTO();
         List<MenuDTO> menuDTOList = queryMenuListByCondition(menuDTO);
@@ -152,5 +157,20 @@ public class MenuServiceImpl implements MenuService {
         List<TreeBuilder.Node> nodes = new TreeBuilder().buildTree(nodeList);
         logger.info("nodes{}", JSONObject.toJSONString(nodes, SerializerFeature.DisableCircularReferenceDetect));
         return JSONObject.toJSONString(nodes, SerializerFeature.DisableCircularReferenceDetect);
+    }
+
+    @Override
+    public List<Menu> queryTopMenuListByUserId(String userId) throws Exception {
+        logger.info("userId{}",userId);
+        User user = userService.queryUserById(userId);
+        List<String> menuIds = roleMenuService.queryMenuIdsByRoleId(user.getRoleId());
+        List<Menu> menuList = new ArrayList<Menu>();
+        for(int i=0;i<menuIds.size();i++){
+            Menu menu = queryMenuById(menuIds.get(i));
+            if(Objects.equals(menu.getParentId(),"0")) {
+                menuList.add(menu);
+            }
+        }
+        return menuList;
     }
 }

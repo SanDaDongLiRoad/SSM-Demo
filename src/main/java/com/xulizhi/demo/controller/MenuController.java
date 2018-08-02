@@ -194,4 +194,24 @@ public class MenuController {
         return returnInfo;
     }
 
+
+    @ResponseBody
+    @RequestMapping(value="queryTopMenuListByUserId",method=RequestMethod.GET)
+    public ReturnInfo queryTopMenuListByUserId(@RequestParam String userId){
+
+        logger.info("userId:{}",userId);
+
+        ReturnInfo returnInfo = new ReturnInfo();
+        try{
+            List<Menu> menuList = menuService.queryTopMenuListByUserId(userId);
+            returnInfo.setMes("查询成功!");
+            returnInfo.setData(JSONObject.toJSONString(menuList));
+        }catch(Exception e){
+            e.printStackTrace();
+            returnInfo.setFlag("false");
+            returnInfo.setMes("查询失败!");
+            returnInfo.setCode("2001");
+        }
+        return returnInfo;
+    }
 }
