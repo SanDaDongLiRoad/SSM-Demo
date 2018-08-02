@@ -5,7 +5,7 @@
 <div class="container" id="top">
     <div class="row">
         <div class="col-md-12">
-            <nav class="navbar navbar-default" role="navigation" style="border: 1px solid #35b558;">
+            <div class="navbar navbar-default" role="navigation" style="border: 1px solid #35b558;">
                 <div class="container-fluid">
                     <!--加入导航条标题-->
                     <div class="navbar-header">
@@ -40,7 +40,7 @@
                         </ul>
                     </div>
                 </div>
-            </nav>
+            </div>
         </div>
     </div>
 </div>
