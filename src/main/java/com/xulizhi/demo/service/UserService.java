@@ -51,4 +51,12 @@ public interface UserService {
      * @throws Exception
      */
     void uploadUserListFile(File userListFile)throws Exception;
+
+    /**
+     * 根据用户名查询客户信息
+     * @param userName
+     * @return
+     * @throws Exception
+     */
+    User queryUserByUserName(String userName) throws Exception;
 }

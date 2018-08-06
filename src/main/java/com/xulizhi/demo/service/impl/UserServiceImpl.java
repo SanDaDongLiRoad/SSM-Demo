@@ -109,4 +109,24 @@ public class UserServiceImpl implements UserService {
             user.setId(UUIDUtils.uuid());
         }
     }
+
+    @Override
+    public User queryUserByUserName(String userName) throws Exception {
+        logger.info("userName{}",userName);
+
+        if(Objects.equals(userName,null)){
+            throw new Exception("userName is null !");
+        }
+        //查询客户列表
+        UserExample example = new UserExample();
+        UserExample.Criteria criteria = example.createCriteria();
+        if(StringUtils.isNotEmpty(userName)){
+            criteria.andNameEqualTo(userName);
+        }
+        List<User> userList = userMapper.selectByExample(example);
+
+        logger.info("user{}",JSONObject.toJSONString(userList.get(0)));
+
+        return userList.get(0);
+    }
 }
