@@ -179,12 +179,13 @@ public class MenuServiceImpl implements MenuService {
              * 返回0 表示：m1和m2相等，
              * 返回正数表示：p1大于p2
              */
+            @Override
             public int compare(Menu m1, Menu m2) {
                 //按照Menu的orderNo进行升序排列
                 if(m1.getOrderNo() > m2.getOrderNo()){
                     return 1;
                 }
-                if(m1.getOrderNo() == m2.getOrderNo()){
+                if(Objects.equals(m1.getOrderNo(),m2.getOrderNo())){
                     return 0;
                 }
                 return -1;
