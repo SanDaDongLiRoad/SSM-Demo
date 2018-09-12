@@ -16,6 +16,9 @@ import java.util.regex.Pattern;
 
 public class ExcelUtil {
 
+    //判断是否是科学计数法格式
+    private static Pattern SCIENTIFIC_NOTATION_PATTERN = Pattern.compile("[0-9]+");
+
     /**
      * 读出excel内容
      *
@@ -65,8 +68,7 @@ public class ExcelUtil {
                             } else {
                                 cellValue = cell.getNumericCellValue() + "";
                                 //判断是否是科学计数法格式
-                                Pattern pattern = Pattern.compile("^((-?\\d+.?\\d*)[Ee]{1}(-?\\d+))$");
-                                if(pattern.matcher(cellValue).matches()){
+                                if(SCIENTIFIC_NOTATION_PATTERN.matcher(cellValue).matches()){
                                     cellValue = (new BigDecimal(cellValue)).toPlainString();
                                 }else {
                                     try {
