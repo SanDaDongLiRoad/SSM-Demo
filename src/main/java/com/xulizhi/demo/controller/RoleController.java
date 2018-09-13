@@ -2,7 +2,7 @@ package com.xulizhi.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.xulizhi.demo.domain.Role;
-import com.xulizhi.demo.dto.RoleDTO;
+import com.xulizhi.demo.dto.RoleDto;
 import com.xulizhi.demo.service.RoleMenuService;
 import com.xulizhi.demo.service.RoleService;
 import com.xulizhi.demo.utils.DtoConverUtils;
@@ -43,7 +43,7 @@ public class RoleController {
 
         ModelAndView modelAndView = new ModelAndView();
         DataGridResult result = new DataGridResult();
-        RoleDTO roleDTO = new RoleDTO();
+        RoleDto roleDTO = new RoleDto();
         roleDTO.setName(name);
         roleDTO.setPageNo(pageNo);
         try{
@@ -65,7 +65,7 @@ public class RoleController {
      */
     @ResponseBody
     @RequestMapping(value="saveRole",method = RequestMethod.POST)
-    public ReturnInfo saveUser(@RequestBody RoleDTO roleDTO){
+    public ReturnInfo saveUser(@RequestBody RoleDto roleDTO){
         ReturnInfo returnInfo = new ReturnInfo();
         try {
             roleService.saveRole(roleDTO);
@@ -110,7 +110,7 @@ public class RoleController {
      */
     @ResponseBody
     @RequestMapping(value="updateRole",method=RequestMethod.POST)
-    public ReturnInfo updateUser(@RequestBody RoleDTO roleDTO){
+    public ReturnInfo updateUser(@RequestBody RoleDto roleDTO){
 
         logger.info("roleDTO:{}", JSONObject.toJSONString(roleDTO));
 
@@ -142,7 +142,7 @@ public class RoleController {
 
         try{
             Role role = roleService.queryRoleById(id);
-            RoleDTO roleDTO = DtoConverUtils.roleConverDTO(role);
+            RoleDto roleDTO = DtoConverUtils.roleConverDTO(role);
             List<String> menuIds = roleMenuService.queryMenuIdsByRoleId(id);
             roleDTO.setMenuIdList(menuIds);
             tReturnInfo.setData(JSONObject.toJSONString(roleDTO));

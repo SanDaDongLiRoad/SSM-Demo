@@ -3,9 +3,9 @@ package com.xulizhi.demo.utils;
 import com.xulizhi.demo.domain.Menu;
 import com.xulizhi.demo.domain.Role;
 import com.xulizhi.demo.domain.User;
-import com.xulizhi.demo.dto.MenuDTO;
-import com.xulizhi.demo.dto.RoleDTO;
-import com.xulizhi.demo.dto.UserDTO;
+import com.xulizhi.demo.dto.MenuDto;
+import com.xulizhi.demo.dto.RoleDto;
+import com.xulizhi.demo.dto.UserDto;
 import org.apache.commons.lang.StringUtils;
 
 import java.util.Objects;
@@ -15,9 +15,9 @@ import java.util.Objects;
  */
 public class DtoConverUtils {
 
-    public static MenuDTO menuConverDTO(Menu menu){
+    public static MenuDto menuConverDTO(Menu menu){
 
-        MenuDTO menuDTO = new MenuDTO();
+        MenuDto menuDTO = new MenuDto();
 
         if(StringUtils.isNotEmpty(menu.getId())){
             menuDTO.setId(menu.getId());
@@ -50,7 +50,7 @@ public class DtoConverUtils {
         return menuDTO;
     }
 
-    public static User DTOConverUser(UserDTO userDTO){
+    public static User DTOConverUser(UserDto userDTO){
 
         User user = new User();
 
@@ -90,9 +90,9 @@ public class DtoConverUtils {
         return user;
     }
 
-    public static UserDTO userConverDTO(User user){
+    public static UserDto userConverDTO(User user){
 
-        UserDTO userDTO = new UserDTO();
+        UserDto userDTO = new UserDto();
 
         if(StringUtils.isNotEmpty(user.getId())){
             userDTO.setId(user.getId());
@@ -130,7 +130,7 @@ public class DtoConverUtils {
         return userDTO;
     }
 
-    public static Menu DTOConverMenu(MenuDTO menuDTO){
+    public static Menu DTOConverMenu(MenuDto menuDTO){
 
         Menu menu = new Menu();
 
@@ -176,7 +176,7 @@ public class DtoConverUtils {
         return menu;
     }
 
-    public static Role DTOConverRole(RoleDTO roleDTO){
+    public static Role DTOConverRole(RoleDto roleDTO){
 
         Role role = new Role();
 
@@ -213,9 +213,9 @@ public class DtoConverUtils {
         return role;
     }
 
-    public static RoleDTO roleConverDTO(Role role){
+    public static RoleDto roleConverDTO(Role role){
 
-        RoleDTO roleDTO = new RoleDTO();
+        RoleDto roleDTO = new RoleDto();
 
         if(StringUtils.isNotEmpty(role.getId())){
             roleDTO.setId(role.getId());

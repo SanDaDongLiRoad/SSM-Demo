@@ -1,10 +1,9 @@
 package com.xulizhi.demo.service;
 
 import com.xulizhi.demo.domain.Menu;
-import com.xulizhi.demo.dto.MenuDTO;
-import com.xulizhi.demo.dto.RoleMenuDTO;
+import com.xulizhi.demo.dto.MenuDto;
+import com.xulizhi.demo.dto.RoleMenuDto;
 import com.xulizhi.demo.utils.DataGridResult;
-import com.xulizhi.demo.utils.TreeBuilder;
 
 import java.util.List;
 
@@ -15,7 +14,7 @@ public interface MenuService {
      * @param menuDTO
      * @return
      */
-    List<MenuDTO> queryMenuListByCondition(MenuDTO menuDTO) throws Exception;
+    List<MenuDto> queryMenuListByCondition(MenuDto menuDTO) throws Exception;
 
     /**
      * 分页查询客户列表
@@ -23,14 +22,14 @@ public interface MenuService {
      * @return
      * @throws Exception
      */
-    DataGridResult queryMenuListByPageNo(MenuDTO menuDTO) throws Exception;
+    DataGridResult queryMenuListByPageNo(MenuDto menuDTO) throws Exception;
 
     /**
      * 保存菜单信息
      * @param menuDTO
      * @throws Exception
      */
-    void saveMenu(MenuDTO menuDTO)throws Exception;
+    void saveMenu(MenuDto menuDTO)throws Exception;
 
     /**
      * 根据用户Id删除菜单
@@ -52,7 +51,7 @@ public interface MenuService {
      * @param menuDTO
      * @throws Exception
      */
-    void updateMenu(MenuDTO menuDTO) throws Exception;
+    void updateMenu(MenuDto menuDTO) throws Exception;
 
     /**
      * 查询菜单树结构JSON串
@@ -60,7 +59,7 @@ public interface MenuService {
      * @return
      * @throws Exception
      */
-    String queryMenuTreeList(RoleMenuDTO roleMenuDTO) throws Exception;
+    String queryMenuTreeList(RoleMenuDto roleMenuDTO) throws Exception;
 
     /**
      * 根据用户ID一级菜单

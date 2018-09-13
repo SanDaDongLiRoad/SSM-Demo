@@ -7,8 +7,8 @@ import com.github.pagehelper.PageInfo;
 import com.xulizhi.demo.domain.Menu;
 import com.xulizhi.demo.domain.MenuExample;
 import com.xulizhi.demo.domain.User;
-import com.xulizhi.demo.dto.MenuDTO;
-import com.xulizhi.demo.dto.RoleMenuDTO;
+import com.xulizhi.demo.dto.MenuDto;
+import com.xulizhi.demo.dto.RoleMenuDto;
 import com.xulizhi.demo.mapper.MenuMapper;
 import com.xulizhi.demo.service.MenuService;
 import com.xulizhi.demo.service.RoleMenuService;
@@ -40,7 +40,7 @@ public class MenuServiceImpl implements MenuService {
     private UserService userService;
 
     @Override
-    public List<MenuDTO> queryMenuListByCondition(MenuDTO menuDTO) throws Exception{
+    public List<MenuDto> queryMenuListByCondition(MenuDto menuDTO) throws Exception{
 
         logger.info("menuDTO:{}", JSONObject.toJSONString(menuDTO));
 
@@ -53,10 +53,10 @@ public class MenuServiceImpl implements MenuService {
         }
         List<Menu> menuList = menuMapper.selectByExample(menuExample);
 
-        List<MenuDTO> menuDTOList = new ArrayList<MenuDTO>();
+        List<MenuDto> menuDTOList = new ArrayList<MenuDto>();
 
         for(int i=0;i<menuList.size();i++){
-            MenuDTO converMenuDTO = DtoConverUtils.menuConverDTO(menuList.get(i));
+            MenuDto converMenuDTO = DtoConverUtils.menuConverDTO(menuList.get(i));
             menuDTOList.add(converMenuDTO);
         }
 
@@ -64,7 +64,7 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
-    public DataGridResult queryMenuListByPageNo(MenuDTO menuDTO) throws Exception {
+    public DataGridResult queryMenuListByPageNo(MenuDto menuDTO) throws Exception {
 
         logger.info("menuDTO:{}",JSONObject.toJSONString(menuDTO));
 
@@ -91,7 +91,7 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
-    public void saveMenu(MenuDTO menuDTO) throws Exception {
+    public void saveMenu(MenuDto menuDTO) throws Exception {
         logger.info("menuDTO:{}",JSONObject.toJSONString(menuDTO));
         Menu menu = DtoConverUtils.DTOConverMenu(menuDTO);
         menu.setId(UUIDUtils.uuid());
@@ -119,7 +119,7 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
-    public void updateMenu(MenuDTO menuDTO) throws Exception {
+    public void updateMenu(MenuDto menuDTO) throws Exception {
         logger.info("menuDTO{}",menuDTO);
         Menu editMenu = queryMenuById(menuDTO.getId());
         editMenu.setName(menuDTO.getName());
@@ -133,11 +133,11 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
-    public String queryMenuTreeList(RoleMenuDTO roleMenuDTO) throws Exception {
+    public String queryMenuTreeList(RoleMenuDto roleMenuDTO) throws Exception {
         logger.info("roleMenuDTO{}",JSONObject.toJSONString(roleMenuDTO));
         List<TreeBuilder.Node> nodeList = new ArrayList<TreeBuilder.Node>();
-        MenuDTO menuDTO = new MenuDTO();
-        List<MenuDTO> menuDTOList = queryMenuListByCondition(menuDTO);
+        MenuDto menuDTO = new MenuDto();
+        List<MenuDto> menuDTOList = queryMenuListByCondition(menuDTO);
         List<String> menuIds = new ArrayList<String>();
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("checked", true);

@@ -3,21 +3,26 @@ package com.xulizhi.demo.dto;
 import com.xulizhi.demo.common.BaseDTO;
 
 import java.util.Date;
-import java.util.List;
 
-public class RoleDTO extends BaseDTO {
+public class MenuDto extends BaseDTO{
 
-    private String id;//角色ID
+    private String id;
 
-    private String name;//角色名称
+    private String name;
 
-    private String remark;//备注
+    private String icon;
+
+    private String url;
+
+    private Integer orderNo;
+
+    private String parentId;
 
     private Integer deleted;//是否删除（0:未删除;1:已删除;）
 
     private String createId;//创建人ID
 
-    private String createName;//创建人
+    private String createName;
 
     private Date createDate;
 
@@ -26,8 +31,6 @@ public class RoleDTO extends BaseDTO {
     private String modifyName;
 
     private Date modifyDate;
-
-    private List<String> menuIdList;//菜单ID集合
 
     public String getId() {
         return id;
@@ -45,12 +48,36 @@ public class RoleDTO extends BaseDTO {
         this.name = name;
     }
 
-    public String getRemark() {
-        return remark;
+    public String getIcon() {
+        return icon;
     }
 
-    public void setRemark(String remark) {
-        this.remark = remark;
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public Integer getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(Integer orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    public String getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
     }
 
     public Integer getDeleted() {
@@ -107,13 +134,5 @@ public class RoleDTO extends BaseDTO {
 
     public void setModifyDate(Date modifyDate) {
         this.modifyDate = modifyDate;
-    }
-
-    public List<String> getMenuIdList() {
-        return menuIdList;
-    }
-
-    public void setMenuIdList(List<String> menuIdList) {
-        this.menuIdList = menuIdList;
     }
 }

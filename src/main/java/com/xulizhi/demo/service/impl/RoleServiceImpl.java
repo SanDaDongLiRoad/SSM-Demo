@@ -6,7 +6,7 @@ import com.github.pagehelper.PageInfo;
 import com.xulizhi.demo.domain.Role;
 import com.xulizhi.demo.domain.RoleExample;
 import com.xulizhi.demo.domain.RoleMenu;
-import com.xulizhi.demo.dto.RoleDTO;
+import com.xulizhi.demo.dto.RoleDto;
 import com.xulizhi.demo.mapper.RoleMapper;
 import com.xulizhi.demo.service.RoleMenuService;
 import com.xulizhi.demo.service.RoleService;
@@ -35,7 +35,7 @@ public class RoleServiceImpl implements RoleService {
     private RoleMenuService roleMenuService;
 
     @Override
-    public DataGridResult queryRoleListByCondition(RoleDTO roleDTO) throws Exception {
+    public DataGridResult queryRoleListByCondition(RoleDto roleDTO) throws Exception {
         logger.info("roleDTO:{}", JSONObject.toJSONString(roleDTO));
 
         //查询客户角色列表
@@ -76,7 +76,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public void saveRole(RoleDTO roleDTO) throws Exception {
+    public void saveRole(RoleDto roleDTO) throws Exception {
         logger.info("roleDTO:{}",JSONObject.toJSONString(roleDTO));
         Role role = DtoConverUtils.DTOConverRole(roleDTO);
         role.setId(UUIDUtils.uuid());
@@ -102,7 +102,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public void updateRole(RoleDTO roleDTO) throws Exception {
+    public void updateRole(RoleDto roleDTO) throws Exception {
         logger.info("roleDTO{}",JSONObject.toJSONString(roleDTO));
         Role editRole = queryRoleById(roleDTO.getId());
         editRole.setName(roleDTO.getName());

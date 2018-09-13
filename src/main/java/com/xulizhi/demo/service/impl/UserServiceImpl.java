@@ -5,7 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.xulizhi.demo.domain.User;
 import com.xulizhi.demo.domain.UserExample;
-import com.xulizhi.demo.dto.UserDTO;
+import com.xulizhi.demo.dto.UserDto;
 import com.xulizhi.demo.mapper.UserMapper;
 import com.xulizhi.demo.service.UserService;
 import com.xulizhi.demo.utils.DtoConverUtils;
@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public DataGridResult queryUserListByCondition(UserDTO userDTO) throws Exception {
+    public DataGridResult queryUserListByCondition(UserDto userDTO) throws Exception {
 
         logger.info("userDTO:{}",JSONObject.toJSONString(userDTO));
 
@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public void saveUser(UserDTO userDTO) throws Exception {
+    public void saveUser(UserDto userDTO) throws Exception {
         logger.info("userDTO:{}",JSONObject.toJSONString(userDTO));
         User user = DtoConverUtils.DTOConverUser(userDTO);
         user.setId(UUIDUtils.uuid());
@@ -88,7 +88,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateUser(UserDTO userDTO) throws Exception {
+    public void updateUser(UserDto userDTO) throws Exception {
 
         logger.info("userDTO{}",JSONObject.toJSONString(userDTO));
         User editUser = queryUserById(userDTO.getId());

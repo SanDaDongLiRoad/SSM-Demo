@@ -1,7 +1,7 @@
 package com.xulizhi.demo.service;
 
 import com.xulizhi.demo.domain.Role;
-import com.xulizhi.demo.dto.RoleDTO;
+import com.xulizhi.demo.dto.RoleDto;
 import com.xulizhi.demo.utils.DataGridResult;
 
 import java.util.List;
@@ -14,7 +14,7 @@ public interface RoleService {
      * @return
      * @throws Exception
      */
-    DataGridResult queryRoleListByCondition(RoleDTO roleDTO) throws Exception;
+    DataGridResult queryRoleListByCondition(RoleDto roleDTO) throws Exception;
 
     /**
      * 根据ID查询角色信息
@@ -30,7 +30,7 @@ public interface RoleService {
      * @param roleDTO
      * @throws Exception
      */
-    void saveRole(RoleDTO roleDTO)throws Exception;
+    void saveRole(RoleDto roleDTO)throws Exception;
 
     /**
      * 根据角色Id删除角色
@@ -44,7 +44,7 @@ public interface RoleService {
      * @param roleDTO
      * @throws Exception
      */
-    void updateRole(RoleDTO roleDTO) throws Exception;
+    void updateRole(RoleDto roleDTO) throws Exception;
 
     /**
      * 查询角色信息列表

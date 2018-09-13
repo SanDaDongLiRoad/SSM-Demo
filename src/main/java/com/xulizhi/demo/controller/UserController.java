@@ -2,7 +2,7 @@ package com.xulizhi.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.xulizhi.demo.domain.User;
-import com.xulizhi.demo.dto.UserDTO;
+import com.xulizhi.demo.dto.UserDto;
 import com.xulizhi.demo.service.UserService;
 import com.xulizhi.demo.utils.DtoConverUtils;
 import com.xulizhi.demo.utils.DataGridResult;
@@ -42,7 +42,7 @@ public class UserController {
 
         ModelAndView modelAndView = new ModelAndView();
         DataGridResult result = new DataGridResult();
-        UserDTO userDTO = new UserDTO();
+        UserDto userDTO = new UserDto();
         userDTO.setName(name);
         userDTO.setPageNo(pageNo);
         try{
@@ -64,7 +64,7 @@ public class UserController {
      */
     @ResponseBody
     @RequestMapping(value="saveUser",method = RequestMethod.POST)
-    public ReturnInfo saveUser(@RequestBody UserDTO userDTO){
+    public ReturnInfo saveUser(@RequestBody UserDto userDTO){
         ReturnInfo returnInfo = new ReturnInfo();
         try {
             userService.saveUser(userDTO);
@@ -93,7 +93,7 @@ public class UserController {
 
         try{
             User user = userService.queryUserById(id);
-            UserDTO userDTO = DtoConverUtils.userConverDTO(user);
+            UserDto userDTO = DtoConverUtils.userConverDTO(user);
             tReturnInfo.setData(JSONObject.toJSONString(userDTO));
             tReturnInfo.setMes("deal ok");
         }catch(Exception e){
@@ -136,7 +136,7 @@ public class UserController {
      */
     @ResponseBody
     @RequestMapping(value="updateUser",method=RequestMethod.POST)
-    public ReturnInfo updateUser(@RequestBody UserDTO userDTO){
+    public ReturnInfo updateUser(@RequestBody UserDto userDTO){
 
         logger.info("userDTO:{}",JSONObject.toJSONString(userDTO));
 

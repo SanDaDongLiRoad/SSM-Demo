@@ -1,7 +1,7 @@
 package com.xulizhi.demo.service;
 
 import com.xulizhi.demo.domain.User;
-import com.xulizhi.demo.dto.UserDTO;
+import com.xulizhi.demo.dto.UserDto;
 import com.xulizhi.demo.utils.DataGridResult;
 
 import java.io.File;
@@ -14,14 +14,14 @@ public interface UserService {
      * @return
      * @throws Exception
      */
-    DataGridResult queryUserListByCondition(UserDTO userDTO) throws Exception;
+    DataGridResult queryUserListByCondition(UserDto userDTO) throws Exception;
 
     /**
      * 保存用户
      * @param userDTO
      * @throws Exception
      */
-    void saveUser(UserDTO userDTO)throws Exception;
+    void saveUser(UserDto userDTO)throws Exception;
 
     /**
      * 根据ID查询客户信息
@@ -43,7 +43,7 @@ public interface UserService {
      * @param userDTO
      * @throws Exception
      */
-    void updateUser(UserDTO userDTO) throws Exception;
+    void updateUser(UserDto userDTO) throws Exception;
 
     /**
      * 批量上传新增用户Eexcel

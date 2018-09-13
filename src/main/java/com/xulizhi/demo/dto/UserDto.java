@@ -4,7 +4,7 @@ import com.xulizhi.demo.common.BaseDTO;
 
 import java.util.Date;
 
-public class UserDTO extends BaseDTO {
+public class UserDto extends BaseDTO {
 
     private String id;//用户ID
 

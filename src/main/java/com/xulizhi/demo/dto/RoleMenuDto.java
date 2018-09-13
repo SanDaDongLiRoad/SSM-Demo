@@ -1,6 +1,6 @@
 package com.xulizhi.demo.dto;
 
-public class RoleMenuDTO {
+public class RoleMenuDto {
 
     private String id;
 

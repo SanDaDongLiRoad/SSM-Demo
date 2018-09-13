@@ -2,8 +2,8 @@ package com.xulizhi.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.xulizhi.demo.domain.Menu;
-import com.xulizhi.demo.dto.MenuDTO;
-import com.xulizhi.demo.dto.RoleMenuDTO;
+import com.xulizhi.demo.dto.MenuDto;
+import com.xulizhi.demo.dto.RoleMenuDto;
 import com.xulizhi.demo.service.MenuService;
 import com.xulizhi.demo.utils.DataGridResult;
 import com.xulizhi.demo.utils.ReturnInfo;
@@ -32,11 +32,11 @@ public class MenuController {
      */
     @ResponseBody
     @RequestMapping(value="queryMenuListByCondition",method = RequestMethod.POST)
-    public List<MenuDTO> queryMenuListByCondition(@RequestBody MenuDTO menuDTO){
+    public List<MenuDto> queryMenuListByCondition(@RequestBody MenuDto menuDTO){
 
         logger.info("menuDTO:{}", JSONObject.toJSONString(menuDTO));
 
-        List<MenuDTO> menuDTOList = new ArrayList<MenuDTO>();
+        List<MenuDto> menuDTOList = new ArrayList<MenuDto>();
         try{
             menuDTOList = menuService.queryMenuListByCondition(menuDTO);
         }catch(Exception e){
@@ -59,7 +59,7 @@ public class MenuController {
 
         ModelAndView modelAndView = new ModelAndView();
         DataGridResult result = new DataGridResult();
-        MenuDTO menuDTO = new MenuDTO();
+        MenuDto menuDTO = new MenuDto();
         menuDTO.setName(name);
         menuDTO.setPageNo(pageNo);
         try{
@@ -81,7 +81,7 @@ public class MenuController {
      */
     @ResponseBody
     @RequestMapping(value="saveMenu",method = RequestMethod.POST)
-    public ReturnInfo saveMenu(@RequestBody MenuDTO menuDTO){
+    public ReturnInfo saveMenu(@RequestBody MenuDto menuDTO){
         ReturnInfo returnInfo = new ReturnInfo();
         try {
             menuService.saveMenu(menuDTO);
@@ -152,7 +152,7 @@ public class MenuController {
      */
     @ResponseBody
     @RequestMapping(value="updateMenu",method=RequestMethod.POST)
-    public ReturnInfo updateMenu(@RequestBody MenuDTO menuDTO){
+    public ReturnInfo updateMenu(@RequestBody MenuDto menuDTO){
 
         logger.info("menuDTO:{}",JSONObject.toJSONString(menuDTO));
 
@@ -176,7 +176,7 @@ public class MenuController {
      */
     @ResponseBody
     @RequestMapping(value="queryMenuTreeList",method=RequestMethod.POST)
-    public ReturnInfo queryMenuTreeList(@RequestBody RoleMenuDTO roleMenuDTO){
+    public ReturnInfo queryMenuTreeList(@RequestBody RoleMenuDto roleMenuDTO){
 
         logger.info("menuDTO:{}",JSONObject.toJSONString(roleMenuDTO));
 
