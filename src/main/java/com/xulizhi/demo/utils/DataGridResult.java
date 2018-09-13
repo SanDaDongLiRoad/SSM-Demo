@@ -2,6 +2,9 @@ package com.xulizhi.demo.utils;
 
 import java.util.List;
 
+/**
+ * @author lenovo
+ */
 public class DataGridResult {
 
     /**

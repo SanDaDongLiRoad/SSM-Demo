@@ -1,5 +1,8 @@
 package com.xulizhi.demo.dto;
 
+/**
+ * @author lenovo
+ */
 public class RoleMenuDto {
 
     private String id;

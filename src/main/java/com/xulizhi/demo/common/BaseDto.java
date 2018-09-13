@@ -1,11 +1,18 @@
 package com.xulizhi.demo.common;
 
+/**
+ * @author lenovo
+ */
 public class BaseDto {
 
 
-    //页数
+    /**
+     * 页数
+     */
     private Integer pageNo = 1;
-    //每页的条数
+    /**
+     * 每页的条数
+     */
     private Integer size = 10;
 
     public Integer getPageNo() {

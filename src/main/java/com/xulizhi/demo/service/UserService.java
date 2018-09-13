@@ -6,6 +6,9 @@ import com.xulizhi.demo.utils.DataGridResult;
 
 import java.io.File;
 
+/**
+ * @author lenovo
+ */
 public interface UserService {
 
     /**

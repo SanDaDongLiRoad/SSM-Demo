@@ -1,5 +1,8 @@
 package com.xulizhi.demo.utils;
 
+/**
+ * @author lenovo
+ */
 public class ReturnInfo {
 	
 	private String mes;

@@ -2,11 +2,20 @@ package com.xulizhi.demo.domain;
 
 import com.xulizhi.demo.common.BaseDomain;
 
+/**
+ * @author lenovo
+ */
 public class Role extends BaseDomain{
 
-    private String name;//角色名称
+    /**
+     * 角色名称
+     */
+    private String name;
 
-    private String remark;//备注
+    /**
+     * 备注
+     */
+    private String remark;
 
     public String getName() {
         return name;

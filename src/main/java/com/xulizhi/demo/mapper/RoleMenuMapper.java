@@ -6,6 +6,9 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+/**
+ * @author lenovo
+ */
 public interface RoleMenuMapper {
     int countByExample(RoleMenuExample example);
 

@@ -2,15 +2,30 @@ package com.xulizhi.demo.domain;
 
 import com.xulizhi.demo.common.BaseDomain;
 
+/**
+ * @author lenovo
+ */
 public class PaymentCategory extends BaseDomain{
 
-    private String name;//支付类别名称
+    /**
+     * 支付类别名称
+     */
+    private String name;
 
-    private String headUrl;//支付类别图标地址
+    /**
+     * 支付类别图标地址
+     */
+    private String headUrl;
 
-    private String url;//支付类别页面地址
+    /**
+     * 支付类别页面地址
+     */
+    private String url;
 
-    private String remark;//备注（描述支付类别）
+    /**
+     * 备注（描述支付类别）
+     */
+    private String remark;
 
     public String getName() {
         return name;

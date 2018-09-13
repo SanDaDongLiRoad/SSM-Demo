@@ -4,6 +4,9 @@ import com.xulizhi.demo.common.BaseDto;
 
 import java.util.Date;
 
+/**
+ * @author lenovo
+ */
 public class MenuDto extends BaseDto {
 
     private String id;

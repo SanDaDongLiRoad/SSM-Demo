@@ -4,7 +4,9 @@ import java.util.*;
 
 /**
  * 构造目录JSON树
- * Created by xulizhi on 2018/7/27.
+ *
+ * @author xulizhi
+ * @date 2018/7/27
  */
 public class TreeBuilder {
 
@@ -62,7 +64,10 @@ public class TreeBuilder {
      * @param nodeList
      */
     public void buildChildNodes(Node node,List<Node> nodeList) {
-        List<Node> children = getChildNodes(node,nodeList);// 获取父节点下所有的子节点
+        /**
+         * 获取父节点下所有的子节点
+         */
+        List<Node> children = getChildNodes(node,nodeList);
         if (!children.isEmpty()) {
             for (Node child : children) {
                 buildChildNodes(child,nodeList);

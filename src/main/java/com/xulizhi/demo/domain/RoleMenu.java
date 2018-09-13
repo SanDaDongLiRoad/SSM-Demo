@@ -2,11 +2,20 @@ package com.xulizhi.demo.domain;
 
 import com.xulizhi.demo.common.BaseDomain;
 
+/**
+ * @author lenovo
+ */
 public class RoleMenu extends BaseDomain{
 
-    private String roleId;//角色ID
+    /**
+     * 角色ID
+     */
+    private String roleId;
 
-    private String menuId;//菜单ID
+    /**
+     * 菜单ID
+     */
+    private String menuId;
 
     public String getRoleId() {
         return roleId;

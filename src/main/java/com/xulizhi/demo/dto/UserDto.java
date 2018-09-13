@@ -4,6 +4,9 @@ import com.xulizhi.demo.common.BaseDto;
 
 import java.util.Date;
 
+/**
+ * @author lenovo
+ */
 public class UserDto extends BaseDto {
 
     /**

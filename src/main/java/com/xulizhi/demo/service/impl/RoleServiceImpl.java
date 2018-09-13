@@ -23,6 +23,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * @author lenovo
+ */
 @Service
 public class RoleServiceImpl implements RoleService {
 
@@ -116,8 +119,14 @@ public class RoleServiceImpl implements RoleService {
             newMenuIds.add(roleDTO.getMenuIdList().get(i));
         }
         List<String> oldMenuIds = roleMenuService.queryMenuIdsByRoleId(roleDTO.getId());
-        newMenuIds.removeAll(oldMenuIds);//角色新增的权限集合
-        oldMenuIds.removeAll(roleDTO.getMenuIdList());//角色删除的权限集合
+        /**
+         * 角色新增的权限集合
+         */
+        newMenuIds.removeAll(oldMenuIds);
+        /**
+         * 角色删除的权限集合
+         */
+        oldMenuIds.removeAll(roleDTO.getMenuIdList());
         for(int i=0;i<newMenuIds.size();i++) {
             RoleMenu roleMenu = new RoleMenu();
             roleMenu.setMenuId(newMenuIds.get(i));

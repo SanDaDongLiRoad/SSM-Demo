@@ -6,6 +6,9 @@ import com.xulizhi.demo.utils.DataGridResult;
 
 import java.util.List;
 
+/**
+ * @author lenovo
+ */
 public interface RoleService {
 
     /**

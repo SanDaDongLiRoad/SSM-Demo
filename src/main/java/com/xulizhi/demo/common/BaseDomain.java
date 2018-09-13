@@ -3,6 +3,9 @@ package com.xulizhi.demo.common;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * @author lenovo
+ */
 public class BaseDomain implements Serializable {
 
     private static final long serialVersionUID = -2243226471442315616L;

@@ -14,9 +14,14 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Pattern;
 
+/**
+ * @author lenovo
+ */
 public class ExcelUtil {
 
-    //判断是否是科学计数法格式
+    /**
+     * 判断是否是科学计数法格式
+     */
     private static Pattern SCIENTIFIC_NOTATION_PATTERN = Pattern.compile("[0-9]+");
 
     /**

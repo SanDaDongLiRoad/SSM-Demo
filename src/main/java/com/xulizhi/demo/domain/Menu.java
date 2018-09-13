@@ -2,17 +2,35 @@ package com.xulizhi.demo.domain;
 
 import com.xulizhi.demo.common.BaseDomain;
 
+/**
+ * @author lenovo
+ */
 public class Menu extends BaseDomain{
 
-    private String name;//菜单名称
+    /**
+     * 菜单名称
+     */
+    private String name;
 
-    private String icon;//菜单的BootStrap图标属性
+    /**
+     * 菜单的BootStrap图标属性
+     */
+    private String icon;
 
-    private String url;//菜单地址
+    /**
+     * 菜单地址
+     */
+    private String url;
 
-    private String parentId;//父菜单Id
+    /**
+     * 父菜单Id
+     */
+    private String parentId;
 
-    private Integer orderNo;//菜单排序序号
+    /**
+     * 菜单排序序号
+     */
+    private Integer orderNo;
 
     public String getName() {
         return name;

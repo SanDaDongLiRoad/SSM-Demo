@@ -3,6 +3,9 @@ package com.xulizhi.demo.utils;
 import com.xulizhi.demo.domain.Menu;
 import org.apache.commons.lang.StringUtils;
 
+/**
+ * @author lenovo
+ */
 public class TreeConverUtils {
 
     public static TreeBuilder.Node menuConverTreeNode(Menu menu){

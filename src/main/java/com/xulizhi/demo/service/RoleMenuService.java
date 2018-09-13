@@ -4,6 +4,9 @@ import com.xulizhi.demo.domain.RoleMenu;
 
 import java.util.List;
 
+/**
+ * @author lenovo
+ */
 public interface RoleMenuService {
 
     /**

@@ -2,13 +2,25 @@ package com.xulizhi.demo.domain;
 
 import com.xulizhi.demo.common.BaseDomain;
 
+/**
+ * @author lenovo
+ */
 public class User extends BaseDomain {
 
-    private String name;//用户名
+    /**
+     * 用户名
+     */
+    private String name;
 
-    private String password;//密码
+    /**
+     * 密码
+     */
+    private String password;
 
-    private String roleId;//角色Id
+    /**
+     * 角色Id
+     */
+    private String roleId;
 
     public String getName() {
         return name;

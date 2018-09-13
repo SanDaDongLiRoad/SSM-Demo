@@ -5,6 +5,9 @@ import com.xulizhi.demo.common.BaseDto;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author lenovo
+ */
 public class RoleDto extends BaseDto {
 
     /**
