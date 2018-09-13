@@ -6,23 +6,39 @@ import java.util.Date;
 
 public class UserDto extends BaseDto {
 
-    //用户ID
+    /**
+     * 用户ID
+     */
     private String id;
-    //用户名
+    /**
+     * 用户名
+     */
     private String name;
-    //密码
+    /**
+     * 密码
+     */
     private String password;
-    //角色ID
+    /**
+     * 角色ID
+     */
     private String roleId;
-    //是否删除（0:未删除;1:已删除;）
+    /**
+     * 是否删除（0:未删除;1:已删除;）
+     */
     private Integer deleted;
-    //创建人ID
+    /**
+     * 创建人ID
+     */
     private String createId;
-    //创建人
+    /**
+     * 创建人
+     */
     private String createName;
 
     private Date createDate;
-    //修改人ID
+    /**
+     * 修改人ID
+     */
     private String modifyId;
 
     private String modifyName;

@@ -18,17 +18,21 @@ public class MenuDto extends BaseDto {
 
     private String parentId;
 
-    //是否删除（0:未删除;1:已删除;）
+    /**
+     * 是否删除（0:未删除;1:已删除;）
+     */
     private Integer deleted;
-
-    //创建人ID
+    /**
+     * 创建人ID
+     */
     private String createId;
 
     private String createName;
 
     private Date createDate;
-
-    //修改人ID
+    /**
+     * 修改人ID
+     */
     private String modifyId;
 
     private String modifyName;
