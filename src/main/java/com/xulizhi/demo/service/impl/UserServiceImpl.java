@@ -8,7 +8,7 @@ import com.xulizhi.demo.domain.UserExample;
 import com.xulizhi.demo.dto.UserDTO;
 import com.xulizhi.demo.mapper.UserMapper;
 import com.xulizhi.demo.service.UserService;
-import com.xulizhi.demo.utils.DTOConverUtils;
+import com.xulizhi.demo.utils.DtoConverUtils;
 import com.xulizhi.demo.utils.DataGridResult;
 import com.xulizhi.demo.utils.ExcelUtil;
 import com.xulizhi.demo.utils.UUIDUtils;
@@ -61,7 +61,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void saveUser(UserDTO userDTO) throws Exception {
         logger.info("userDTO:{}",JSONObject.toJSONString(userDTO));
-        User user = DTOConverUtils.DTOConverUser(userDTO);
+        User user = DtoConverUtils.DTOConverUser(userDTO);
         user.setId(UUIDUtils.uuid());
         userMapper.insertSelective(user);
     }

@@ -10,7 +10,7 @@ import com.xulizhi.demo.dto.RoleDTO;
 import com.xulizhi.demo.mapper.RoleMapper;
 import com.xulizhi.demo.service.RoleMenuService;
 import com.xulizhi.demo.service.RoleService;
-import com.xulizhi.demo.utils.DTOConverUtils;
+import com.xulizhi.demo.utils.DtoConverUtils;
 import com.xulizhi.demo.utils.DataGridResult;
 import com.xulizhi.demo.utils.UUIDUtils;
 import org.apache.commons.lang.StringUtils;
@@ -78,7 +78,7 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public void saveRole(RoleDTO roleDTO) throws Exception {
         logger.info("roleDTO:{}",JSONObject.toJSONString(roleDTO));
-        Role role = DTOConverUtils.DTOConverRole(roleDTO);
+        Role role = DtoConverUtils.DTOConverRole(roleDTO);
         role.setId(UUIDUtils.uuid());
         //保存角色
         roleMapper.insertSelective(role);

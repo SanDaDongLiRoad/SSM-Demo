@@ -10,7 +10,10 @@ import org.apache.commons.lang.StringUtils;
 
 import java.util.Objects;
 
-public class DTOConverUtils {
+/**
+ * @author lenovo
+ */
+public class DtoConverUtils {
 
     public static MenuDTO menuConverDTO(Menu menu){
 

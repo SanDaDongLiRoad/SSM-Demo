@@ -5,7 +5,7 @@ import com.xulizhi.demo.domain.Role;
 import com.xulizhi.demo.dto.RoleDTO;
 import com.xulizhi.demo.service.RoleMenuService;
 import com.xulizhi.demo.service.RoleService;
-import com.xulizhi.demo.utils.DTOConverUtils;
+import com.xulizhi.demo.utils.DtoConverUtils;
 import com.xulizhi.demo.utils.DataGridResult;
 import com.xulizhi.demo.utils.ReturnInfo;
 import org.slf4j.Logger;
@@ -142,7 +142,7 @@ public class RoleController {
 
         try{
             Role role = roleService.queryRoleById(id);
-            RoleDTO roleDTO = DTOConverUtils.roleConverDTO(role);
+            RoleDTO roleDTO = DtoConverUtils.roleConverDTO(role);
             List<String> menuIds = roleMenuService.queryMenuIdsByRoleId(id);
             roleDTO.setMenuIdList(menuIds);
             tReturnInfo.setData(JSONObject.toJSONString(roleDTO));

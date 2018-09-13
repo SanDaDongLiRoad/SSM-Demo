@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.xulizhi.demo.domain.User;
 import com.xulizhi.demo.dto.UserDTO;
 import com.xulizhi.demo.service.UserService;
-import com.xulizhi.demo.utils.DTOConverUtils;
+import com.xulizhi.demo.utils.DtoConverUtils;
 import com.xulizhi.demo.utils.DataGridResult;
 import com.xulizhi.demo.utils.ReturnInfo;
 import org.apache.commons.fileupload.disk.DiskFileItem;
@@ -93,7 +93,7 @@ public class UserController {
 
         try{
             User user = userService.queryUserById(id);
-            UserDTO userDTO = DTOConverUtils.userConverDTO(user);
+            UserDTO userDTO = DtoConverUtils.userConverDTO(user);
             tReturnInfo.setData(JSONObject.toJSONString(userDTO));
             tReturnInfo.setMes("deal ok");
         }catch(Exception e){

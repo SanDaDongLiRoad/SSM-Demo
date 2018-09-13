@@ -13,7 +13,7 @@ import com.xulizhi.demo.mapper.MenuMapper;
 import com.xulizhi.demo.service.MenuService;
 import com.xulizhi.demo.service.RoleMenuService;
 import com.xulizhi.demo.service.UserService;
-import com.xulizhi.demo.utils.DTOConverUtils;
+import com.xulizhi.demo.utils.DtoConverUtils;
 import com.xulizhi.demo.utils.DataGridResult;
 import com.xulizhi.demo.utils.TreeBuilder;
 import com.xulizhi.demo.utils.UUIDUtils;
@@ -56,7 +56,7 @@ public class MenuServiceImpl implements MenuService {
         List<MenuDTO> menuDTOList = new ArrayList<MenuDTO>();
 
         for(int i=0;i<menuList.size();i++){
-            MenuDTO converMenuDTO = DTOConverUtils.menuConverDTO(menuList.get(i));
+            MenuDTO converMenuDTO = DtoConverUtils.menuConverDTO(menuList.get(i));
             menuDTOList.add(converMenuDTO);
         }
 
@@ -93,7 +93,7 @@ public class MenuServiceImpl implements MenuService {
     @Override
     public void saveMenu(MenuDTO menuDTO) throws Exception {
         logger.info("menuDTO:{}",JSONObject.toJSONString(menuDTO));
-        Menu menu = DTOConverUtils.DTOConverMenu(menuDTO);
+        Menu menu = DtoConverUtils.DTOConverMenu(menuDTO);
         menu.setId(UUIDUtils.uuid());
         menuMapper.insertSelective(menu);
     }
