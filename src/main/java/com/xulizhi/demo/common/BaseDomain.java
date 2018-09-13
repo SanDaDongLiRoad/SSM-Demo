@@ -7,21 +7,45 @@ public class BaseDomain implements Serializable {
 
     private static final long serialVersionUID = -2243226471442315616L;
 
-    private String id;//ID
+    /**
+     * ID
+     */
+    private String id;
 
-    private Integer deleted;//是否删除（0:未删除;1:已删除;）
+    /**
+     * 是否删除（0:未删除;1:已删除;）
+     */
+    private Integer deleted;
 
-    private String createId;//创建人ID
+    /**
+     * 创建人ID
+     */
+    private String createId;
 
-    private String createName;//创建人名称
+    /**
+     * 创建人名称
+     */
+    private String createName;
 
-    private Date createDate;//创建时间
+    /**
+     * 创建时间
+     */
+    private Date createDate;
 
-    private String modifyId;//修改人ID
+    /**
+     * 修改人ID
+     */
+    private String modifyId;
 
-    private String modifyName;//修改人名称
+    /**
+     * 修改人名称
+     */
+    private String modifyName;
 
-    private Date modifyDate;//更新时间
+    /**
+     * 更新时间
+     */
+    private Date modifyDate;
 
     public void setId(String id) {
         this.id = id;

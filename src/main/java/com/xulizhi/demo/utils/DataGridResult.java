@@ -4,10 +4,22 @@ import java.util.List;
 
 public class DataGridResult {
 
-    private long currentPageNo;//当前页数
-    private long size;//每页显示记录数
-    private long total;//总记录数
-    private List<?> rows;//总记录数据集合
+    /**
+     * 当前页数
+     */
+    private long currentPageNo;
+    /**
+     * 每页显示记录数
+     */
+    private long size;
+    /**
+     * 总记录数
+     */
+    private long total;
+    /**
+     * 总记录数据集合
+     */
+    private List<?> rows;
 
     public long getCurrentPageNo() {
         return currentPageNo;

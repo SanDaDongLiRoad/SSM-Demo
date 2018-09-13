@@ -4,9 +4,15 @@ public class RoleMenuDto {
 
     private String id;
 
-    private String roleId;//角色ID
+    /**
+     * 角色ID
+     */
+    private String roleId;
 
-    private String menuId;//菜单ID
+    /**
+     * 菜单ID
+     */
+    private String menuId;
 
     public String getId() {
         return id;

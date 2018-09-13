@@ -78,7 +78,10 @@ public class TreeBuilder {
      */
     public List<Node> buildTree(List<Node> nodeList) {
         List<Node> treeNodes = new ArrayList<>();
-        List<Node> rootNodes = getRootNodes(nodeList);//获取集合中所有的根节点
+        /**
+         * 获取集合中所有的根节点
+         */
+        List<Node> rootNodes = getRootNodes(nodeList);
         for (Node rootNode : rootNodes) {
             // 递归子节点
             buildChildNodes(rootNode,nodeList);
