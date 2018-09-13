@@ -7,27 +7,51 @@ import java.util.List;
 
 public class RoleDto extends BaseDto {
 
-    private String id;//角色ID
+    /**
+     * 角色ID
+     */
+    private String id;
 
-    private String name;//角色名称
+    /**
+     * 角色名称
+     */
+    private String name;
 
-    private String remark;//备注
+    /**
+     * 备注
+     */
+    private String remark;
 
-    private Integer deleted;//是否删除（0:未删除;1:已删除;）
+    /**
+     * 是否删除（0:未删除;1:已删除;）
+     */
+    private Integer deleted;
 
-    private String createId;//创建人ID
+    /**
+     * 创建人ID
+     */
+    private String createId;
 
-    private String createName;//创建人
+    /**
+     * 创建人
+     */
+    private String createName;
 
     private Date createDate;
 
-    private String modifyId;//修改人ID
+    /**
+     * 修改人ID
+     */
+    private String modifyId;
 
     private String modifyName;
 
     private Date modifyDate;
 
-    private List<String> menuIdList;//菜单ID集合
+    /**
+     * 菜单ID集合
+     */
+    private List<String> menuIdList;
 
     public String getId() {
         return id;
