@@ -50,7 +50,7 @@ public class DtoConverUtils {
         return menuDTO;
     }
 
-    public static User DTOConverUser(UserDto userDTO){
+    public static User dtoConverUser(UserDto userDTO){
 
         User user = new User();
 
@@ -130,7 +130,7 @@ public class DtoConverUtils {
         return userDTO;
     }
 
-    public static Menu DTOConverMenu(MenuDto menuDTO){
+    public static Menu dtoConverMenu(MenuDto menuDTO){
 
         Menu menu = new Menu();
 
@@ -176,7 +176,7 @@ public class DtoConverUtils {
         return menu;
     }
 
-    public static Role DTOConverRole(RoleDto roleDTO){
+    public static Role dtoConverRole(RoleDto roleDTO){
 
         Role role = new Role();
 

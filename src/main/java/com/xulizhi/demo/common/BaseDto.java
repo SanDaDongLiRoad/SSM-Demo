@@ -1,10 +1,12 @@
 package com.xulizhi.demo.common;
 
-public class BaseDTO {
+public class BaseDto {
 
-    private Integer pageNo = 1;//页数
 
-    private Integer size = 10;//每页的条数
+    //页数
+    private Integer pageNo = 1;
+    //每页的条数
+    private Integer size = 10;
 
     public Integer getPageNo() {
         return pageNo;
@@ -20,5 +22,10 @@ public class BaseDTO {
 
     public void setSize(Integer size) {
         this.size = size;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "BaseDto{" + "pageNo='" + pageNo + '\'' + "size='" + size + '\'' + '}';
     }
 }

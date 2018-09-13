@@ -1,11 +1,11 @@
 package com.xulizhi.demo.dto;
 
-import com.xulizhi.demo.common.BaseDTO;
+import com.xulizhi.demo.common.BaseDto;
 
 import java.util.Date;
 import java.util.List;
 
-public class RoleDto extends BaseDTO {
+public class RoleDto extends BaseDto {
 
     private String id;//角色ID
 

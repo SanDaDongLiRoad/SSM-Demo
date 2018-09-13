@@ -78,7 +78,7 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public void saveRole(RoleDto roleDTO) throws Exception {
         logger.info("roleDTO:{}",JSONObject.toJSONString(roleDTO));
-        Role role = DtoConverUtils.DTOConverRole(roleDTO);
+        Role role = DtoConverUtils.dtoConverRole(roleDTO);
         role.setId(UUIDUtils.uuid());
         //保存角色
         roleMapper.insertSelective(role);

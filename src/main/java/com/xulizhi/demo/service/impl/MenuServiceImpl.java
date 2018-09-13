@@ -93,7 +93,7 @@ public class MenuServiceImpl implements MenuService {
     @Override
     public void saveMenu(MenuDto menuDTO) throws Exception {
         logger.info("menuDTO:{}",JSONObject.toJSONString(menuDTO));
-        Menu menu = DtoConverUtils.DTOConverMenu(menuDTO);
+        Menu menu = DtoConverUtils.dtoConverMenu(menuDTO);
         menu.setId(UUIDUtils.uuid());
         menuMapper.insertSelective(menu);
     }

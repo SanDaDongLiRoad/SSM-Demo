@@ -1,28 +1,29 @@
 package com.xulizhi.demo.dto;
 
-import com.xulizhi.demo.common.BaseDTO;
+import com.xulizhi.demo.common.BaseDto;
 
 import java.util.Date;
 
-public class UserDto extends BaseDTO {
+public class UserDto extends BaseDto {
 
-    private String id;//用户ID
-
-    private String name;//用户名
-
-    private String password;//密码
-
-    private String roleId;//角色ID
-
-    private Integer deleted;//是否删除（0:未删除;1:已删除;）
-
-    private String createId;//创建人ID
-
-    private String createName;//创建人
+    //用户ID
+    private String id;
+    //用户名
+    private String name;
+    //密码
+    private String password;
+    //角色ID
+    private String roleId;
+    //是否删除（0:未删除;1:已删除;）
+    private Integer deleted;
+    //创建人ID
+    private String createId;
+    //创建人
+    private String createName;
 
     private Date createDate;
-
-    private String modifyId;//修改人ID
+    //修改人ID
+    private String modifyId;
 
     private String modifyName;
 

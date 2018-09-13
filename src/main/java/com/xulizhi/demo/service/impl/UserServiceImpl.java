@@ -22,6 +22,9 @@ import java.io.File;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * @author lenovo
+ */
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -61,7 +64,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void saveUser(UserDto userDTO) throws Exception {
         logger.info("userDTO:{}",JSONObject.toJSONString(userDTO));
-        User user = DtoConverUtils.DTOConverUser(userDTO);
+        User user = DtoConverUtils.dtoConverUser(userDTO);
         user.setId(UUIDUtils.uuid());
         userMapper.insertSelective(user);
     }

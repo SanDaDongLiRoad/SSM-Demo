@@ -1,10 +1,10 @@
 package com.xulizhi.demo.dto;
 
-import com.xulizhi.demo.common.BaseDTO;
+import com.xulizhi.demo.common.BaseDto;
 
 import java.util.Date;
 
-public class MenuDto extends BaseDTO{
+public class MenuDto extends BaseDto {
 
     private String id;
 
@@ -18,15 +18,18 @@ public class MenuDto extends BaseDTO{
 
     private String parentId;
 
-    private Integer deleted;//是否删除（0:未删除;1:已删除;）
+    //是否删除（0:未删除;1:已删除;）
+    private Integer deleted;
 
-    private String createId;//创建人ID
+    //创建人ID
+    private String createId;
 
     private String createName;
 
     private Date createDate;
 
-    private String modifyId;//修改人ID
+    //修改人ID
+    private String modifyId;
 
     private String modifyName;
 
