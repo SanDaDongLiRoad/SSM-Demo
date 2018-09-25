@@ -176,7 +176,7 @@ public class MenuServiceImpl implements MenuService {
         }
         //对集合元素进行排序
         Collections.sort(menuList, new Comparator<Menu>(){
-            /*
+            /**
              * int compare(Menu m1, Menu m2) 返回一个基本类型的整型，
              * 返回负数表示：m1小于m2，
              * 返回0 表示：m1和m2相等，
