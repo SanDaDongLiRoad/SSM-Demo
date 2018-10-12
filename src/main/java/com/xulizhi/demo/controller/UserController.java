@@ -71,6 +71,8 @@ public class UserController {
         ReturnInfo returnInfo = new ReturnInfo();
         try {
             userService.saveUser(userDTO);
+            returnInfo.setFlag("true");
+            returnInfo.setCode("2000");
             returnInfo.setMes("保存成功!");
         }catch(Exception e){
             e.printStackTrace();
@@ -97,6 +99,8 @@ public class UserController {
         try{
             User user = userService.queryUserById(id);
             UserDto userDTO = DtoConverUtils.userConverDTO(user);
+            tReturnInfo.setFlag("true");
+            tReturnInfo.setCode("2000");
             tReturnInfo.setData(JSONObject.toJSONString(userDTO));
             tReturnInfo.setMes("deal ok");
         }catch(Exception e){

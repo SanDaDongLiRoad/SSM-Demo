@@ -7,11 +7,11 @@ public class ReturnInfo {
 	
 	private String mes;
 	
-	private String flag = "true";
+	private String flag;
 	
 	private String data;
 
-	private String code = "2000";
+	private String code;
 
 	public String getCode() {
 		return code;
